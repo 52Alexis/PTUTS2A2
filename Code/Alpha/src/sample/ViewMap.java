@@ -11,12 +11,10 @@ public class ViewMap {
     protected ModelMap modelMap;
     protected Stage primaryStage;
 
-    protected Text text;
 
     public ViewMap(ModelMap modelMap,Stage stage) {
         this.modelMap = modelMap;
         this.primaryStage=stage;
-        primaryStage.setTitle("PacMan");
         addWidgetsToView();
     }
 
