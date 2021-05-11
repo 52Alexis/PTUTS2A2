@@ -16,9 +16,8 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        primaryStage.setTitle("PacMan");
         ModelMap modelMap = new ModelMap();
-        ViewMap viewMap = new ViewMap(primaryStage);
+        ViewMap viewMap = new ViewMap(modelMap,primaryStage);
         viewMap.display();
     }
 
