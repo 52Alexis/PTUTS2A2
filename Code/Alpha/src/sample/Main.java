@@ -20,11 +20,11 @@ public class Main extends Application {
 
         ModelMap modelMap = new ModelMap();
         ViewMap viewMap = new ViewMap(modelMap,primaryStage);
-        //viewMap.display();
+        viewMap.display();
 
-        ModelMenu modelMenu = new ModelMenu();
-        ViewMenu viewMenu = new ViewMenu(modelMenu,primaryStage);
-        viewMenu.display();
+//        ModelMenu modelMenu = new ModelMenu();
+//        ViewMenu viewMenu = new ViewMenu(modelMenu,primaryStage);
+        //viewMenu.display();
     }
 
     public static void main(String[] args) {

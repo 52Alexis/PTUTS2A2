@@ -3,6 +3,10 @@ package sample;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.FlowPane;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
+import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -19,8 +23,14 @@ public class ViewMap {
     }
 
     public void addWidgetsToView(){
-        Group root = new Group();
-        Scene sceneMap = new Scene(root,1200,800);
+        FlowPane root = new FlowPane();
+        for (int i=0; i<modelMap.getCases().length;i++){
+            Rectangle uneCase = new Rectangle(i*modelMap.getTailleCase(),i*modelMap.getTailleCase(),modelMap.getTailleCase(),modelMap.getTailleCase());
+            uneCase.setFill(Color.DARKBLUE);
+            uneCase.setStroke(Color.GREEN);
+            root.getChildren().add(uneCase);
+        }
+        Scene sceneMap = new Scene(root,28*modelMap.getTailleCase(),36*modelMap.getTailleCase());
         primaryStage.setScene(sceneMap);
     }
 
