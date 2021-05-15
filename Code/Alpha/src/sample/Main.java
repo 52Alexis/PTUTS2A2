@@ -18,7 +18,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         primaryStage.setTitle("PacMan");
 
-        ModelMap modelMap = new ModelMap();
+        ModelMap modelMap = new ModelMap(28,36);
         ViewMap viewMap = new ViewMap(modelMap,primaryStage);
         viewMap.display();
 
