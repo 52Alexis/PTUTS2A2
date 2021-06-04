@@ -38,13 +38,13 @@ public class ViewMap {
     }
 
     public void loadimage() throws FileNotFoundException {
-        images_mur.add(new Image(new FileInputStream("images/casevide.png")));      //0
-        images_mur.add(new Image(new FileInputStream("images/lignehori.png")));     //1
-        images_mur.add(new Image(new FileInputStream("images/ligneverti.png")));    //2
-        images_mur.add(new Image(new FileInputStream("images/coindroitbas.png")));  //3
-        images_mur.add(new Image(new FileInputStream("images/coindroithaut.png"))); //4
-        images_mur.add(new Image(new FileInputStream("images/coingauchebas.png"))); //5
-        images_mur.add(new Image(new FileInputStream("images/coingauchehaut.png")));//6
+        images_mur.add(new Image(new FileInputStream("img/casevide.png")));      //0
+        images_mur.add(new Image(new FileInputStream("img/lignehori.png")));     //1
+        images_mur.add(new Image(new FileInputStream("img/ligneverti.png")));    //2
+        images_mur.add(new Image(new FileInputStream("img/coindroitbas.png")));  //3
+        images_mur.add(new Image(new FileInputStream("img/coindroithaut.png"))); //4
+        images_mur.add(new Image(new FileInputStream("img/coingauchebas.png"))); //5
+        images_mur.add(new Image(new FileInputStream("img/coingauchehaut.png")));//6
     }
 
     public void addWidgetsToView(){
@@ -103,11 +103,11 @@ public class ViewMap {
                         if(murOuest){
                             rect.setFill(new ImagePattern(images_mur.get(0))); //plein
                         }else {
-                            rect.setFill(Color.PURPLE); // croisement en T NSE
+                            rect.setFill(new ImagePattern(images_mur.get(2))); // croisement en T NSE
                         }
                     }else {
                         if(murOuest){
-                            rect.setFill(Color.PURPLE); // croisement en T NSO
+                            rect.setFill(new ImagePattern(images_mur.get(2))); // croisement en T NSO
                         }else {
                             rect.setFill(new ImagePattern(images_mur.get(2))); // croisement en NS ligne verticale
                         }
@@ -115,15 +115,15 @@ public class ViewMap {
                 }else{
                     if(murEst){
                         if(murOuest){
-                            rect.setFill(Color.PURPLE); // croisement en T NEO
+                            rect.setFill(new ImagePattern(images_mur.get(1))); // croisement en T NEO
                         }else {
-                            rect.setFill(new ImagePattern(images_mur.get(4))); // croisement en NE
+                            rect.setFill(new ImagePattern(images_mur.get(3))); // croisement en NE
                         }
                     }else {
                         if(murOuest){
-                            rect.setFill(new ImagePattern(images_mur.get(6))); // croisement en NO
+                            rect.setFill(new ImagePattern(images_mur.get(5))); // croisement en NO
                         }else {
-                            rect.setFill(Color.FUCHSIA); // croisement en N
+                            rect.setFill(new ImagePattern(images_mur.get(2))); // croisement en N
                         }
                     }
                 }
@@ -131,15 +131,15 @@ public class ViewMap {
                 if(murSud){
                     if(murEst){
                         if(murOuest){
-                            rect.setFill(Color.PURPLE); // croisement en T SEO
+                            rect.setFill(new ImagePattern(images_mur.get(1))); // croisement en T SEO
                         }else {
-                            rect.setFill(new ImagePattern(images_mur.get(3))); // croisement en SE
+                            rect.setFill(new ImagePattern(images_mur.get(6))); // croisement en SE
                         }
                     }else {
                         if(murOuest){
-                            rect.setFill(new ImagePattern(images_mur.get(2))); // croisement en SO
+                            rect.setFill(new ImagePattern(images_mur.get(4))); // croisement en SO
                         }else {
-                            rect.setFill(Color.FUCHSIA); // croisement S
+                            rect.setFill(new ImagePattern(images_mur.get(2))); // croisement S
                         }
                     }
                 }else{
@@ -147,11 +147,11 @@ public class ViewMap {
                         if(murOuest){
                             rect.setFill(new ImagePattern(images_mur.get(1))); // croisement en EO ligne horizontale
                         }else {
-                            rect.setFill(Color.FUCHSIA);; // croisement en E
+                            rect.setFill(new ImagePattern(images_mur.get(1))); // croisement en E
                         }
                     }else {
                         if(murOuest){
-                            rect.setFill(Color.FUCHSIA);; // croisement en O
+                            rect.setFill(new ImagePattern(images_mur.get(1))); // croisement en O
                         }else {
                             rect.setFill(Color.FUCHSIA); // pas de croisement
                         }
@@ -171,6 +171,10 @@ public class ViewMap {
                 case 3 -> uneCase.setFill(Color.PINK);
                 case 4 -> uneCase.setFill(Color.BLUE);
                 case 5 -> uneCase.setFill(Color.ORANGE);
+            }
+        }else {
+            if (!modelMap.cases[x][y].isMur()) {
+                uneCase.setFill(new ImagePattern(images_mur.get(0)));
             }
         }
     }
