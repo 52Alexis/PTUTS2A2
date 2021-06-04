@@ -33,6 +33,7 @@ public class ViewMenu {
 
     public void initAttributs(){
         titre = new Text("PacMan");
+        titre.setFill(Color.web("#ffe611"));
 
         boutonNouvellePartie = new Button("Nouvelle partie");
         boutonNouvellePartie.setOnAction(e->{
