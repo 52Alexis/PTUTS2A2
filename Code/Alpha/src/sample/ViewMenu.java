@@ -5,9 +5,12 @@ import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -16,7 +19,7 @@ public class ViewMenu {
     protected ModelMenu modelMenu;
     protected Stage primaryStage;
 
-    protected Text titre;
+    protected Label titre;
     protected Button boutonNouvellePartie;
     protected Button boutonParametres;
     protected Button boutonMeilleursScores;
@@ -29,7 +32,7 @@ public class ViewMenu {
     }
 
     public void initAttributs(){
-        titre = new Text("PacMan");
+        titre = new Label("PacMan");
         titre.setFont(Font.font("Alfa Slab One",64));
 
         boutonNouvellePartie = new Button("Nouvelle partie");
@@ -56,7 +59,16 @@ public class ViewMenu {
         gridPane.add(boxBoutons,3,4);
 
         gridPane.setAlignment(Pos.CENTER);
+
+        boutonNouvellePartie.getStyleClass().add("boutons");
+        boutonParametres.getStyleClass().add("boutons");
+        boutonMeilleursScores.getStyleClass().add("boutons");
+
+        titre.getStyleClass().add("title");
+        gridPane.getStyleClass().add("background");
+
         Scene scene = new Scene(gridPane,1200,800);
+        scene.getStylesheets().add("file:src/sample/Style.css");
         primaryStage.setScene(scene);
     }
 
