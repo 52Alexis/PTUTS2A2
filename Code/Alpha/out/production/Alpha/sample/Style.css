@@ -1,0 +1,37 @@
+.background{
+    -fx-background-color : #000000;
+
+}
+
+.boutons{
+    -fx-background-color : #000000;
+    -fx-background-radius : 20px;
+
+    -fx-text-fill : #ffe611;
+    -fx-font-size : 20px;
+
+    -fx-padding : 5,5,5,5;
+    -fx-border-color : #ffe611;
+    -fx-border-width : 2;
+    -fx-border-radius : 20px;
+}
+
+.boutons:hover{
+    -fx-background-color : #ffe611;
+    -fx-background-radius : 20px;
+
+    -fx-text-fill : #000000;
+    -fx-font-size : 20px;
+
+    -fx-padding : 5,5,5,5;
+    -fx-border-color : #000000;
+    -fx-border-width : 2;
+    -fx-border-radius : 20px;
+}
+
+.title{
+    -fx-text-fill : #ffe611;
+
+    -fx-border-color : #3b40db;
+    -fx-border-width : 2px;
+}
