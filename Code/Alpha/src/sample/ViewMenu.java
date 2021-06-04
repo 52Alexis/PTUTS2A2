@@ -1,5 +1,7 @@
 package sample;
 
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -31,6 +33,11 @@ public class ViewMenu {
         titre.setFont(Font.font("Alfa Slab One",64));
 
         boutonNouvellePartie = new Button("Nouvelle partie");
+        boutonNouvellePartie.setOnAction(e->{
+            ModelMap modelMap = new ModelMap(28,36);
+            ViewMap viewMap = new ViewMap(modelMap,primaryStage);
+
+        });
         boutonParametres = new Button(("Paramètres"));
         boutonMeilleursScores = new Button("Meilleurs Scores");
 
@@ -56,4 +63,5 @@ public class ViewMenu {
     public void display(){
         primaryStage.show();
     }
+
 }
