@@ -81,4 +81,12 @@ public class Case {
     public void setFixe(Fixe fixe) {
         this.fixe = fixe;
     }
+
+    @Override
+    public String toString() {
+        return "Case{" +
+                "x=" + x +
+                ", y=" + y +
+                '}';
+    }
 }

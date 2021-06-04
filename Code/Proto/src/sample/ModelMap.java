@@ -1,32 +1,36 @@
 package sample;
 
 public class ModelMap {
-    protected Case[] cases;
+    protected Case[][] cases;
     protected int tailleCase;
     protected final int X;
     protected final int Y;
+    protected Pacman pacman;
 
     public ModelMap(int x, int y) {
         this.X=x;
         this.Y=y;
-        cases = new Case[X*Y];
+        cases = new Case[X][Y];
         tailleCase = 16;
-        for(int i=0;i<cases.length;i++){
-            cases[i]=new Case(i%X,i/X,false,this);
+        for(int i=0;i<X;i++){
+            for(int j=0;j<Y;j++) {
+                cases[i][j] = new Case(i % X, i / X, false, this);
+            }
         }
-        cases[500].mur=true;
-        cases[400].mobile=new Pacman(cases[400]);
+        cases[5][5].mur=true;
+        pacman=new Pacman(cases[10][10]);
+        cases[10][10].mobile=pacman;
     }
 
-    public Case[] getCases() {
+    public Case[][] getCases() {
         return cases;
     }
 
-    public Case getCase(int index){
-        return cases[index];
+    public Case getCase(int x,int y){
+        return cases[x][y];
     }
 
-    public void setCases(Case[] cases) {
+    public void setCases(Case[][] cases) {
         this.cases = cases;
     }
 

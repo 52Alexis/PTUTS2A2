@@ -19,7 +19,9 @@ public class Main extends Application {
         primaryStage.setTitle("PacMan");
 
         ModelMap modelMap = new ModelMap(28,36);
-        ViewMap viewMap = new ViewMap(modelMap,primaryStage);
+        ViewMap viewMap = new ViewMap(modelMap, primaryStage);
+        ControllerMap controllerMap = new ControllerMap(viewMap,modelMap);
+        controllerMap.setController();
         viewMap.display();
 
 //        ModelMenu modelMenu = new ModelMenu();
