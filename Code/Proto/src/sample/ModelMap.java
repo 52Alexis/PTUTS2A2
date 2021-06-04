@@ -14,7 +14,7 @@ public class ModelMap {
         tailleCase = 16;
         for(int i=0;i<X;i++){
             for(int j=0;j<Y;j++) {
-                cases[i][j] = new Case(i % X, i / X, false, this);
+                cases[i][j] = new Case(i, j, false, this);
             }
         }
         cases[5][5].mur=true;

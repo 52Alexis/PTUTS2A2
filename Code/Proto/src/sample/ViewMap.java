@@ -4,6 +4,7 @@ import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Rectangle;
@@ -16,7 +17,7 @@ import java.util.ArrayList;
 public class ViewMap {
     protected ModelMap modelMap;
     protected Stage primaryStage;
-    protected ArrayList<Rectangle> cases;
+    protected Rectangle[][] cases;
 
 
     public ViewMap(ModelMap modelMap,Stage stage) {
@@ -26,15 +27,15 @@ public class ViewMap {
     }
 
     public void addWidgetsToView(){
-        FlowPane root = new FlowPane();
-        cases=new ArrayList<>();
+        GridPane root = new GridPane();
+        cases=new Rectangle[modelMap.X][modelMap.Y];
         for (int i=0; i<modelMap.getX();i++){
             for(int j=0;j< modelMap.getY();j++){
-                cases.add(new Rectangle(i*modelMap.getTailleCase(),i*modelMap.getTailleCase(),modelMap.getTailleCase(),modelMap.getTailleCase()));
+                cases[i][j] =new Rectangle(i*modelMap.getTailleCase(),i*modelMap.getTailleCase(),modelMap.getTailleCase(),modelMap.getTailleCase());
+                color(i,j);
+                root.add(cases[i][j],i,j,1,1);
             }
-            root.getChildren().add(cases.get(i));
         }
-        colorAll();
         Scene sceneMap = new Scene(root,modelMap.getX()*modelMap.getTailleCase(),modelMap.getY()*modelMap.getTailleCase());
         primaryStage.setScene(sceneMap);
         primaryStage.setResizable(false);
@@ -44,8 +45,8 @@ public class ViewMap {
         primaryStage.show();
     }
 
-    public void color(int i,int x,int y){
-        Rectangle uneCase=cases.get(i);
+    public void color(int x,int y){
+        Rectangle uneCase=cases[x][y];
         if(modelMap.cases[x][y].isMur()){
             uneCase.setFill(Color.PURPLE);
         }else{
@@ -66,7 +67,7 @@ public class ViewMap {
     public void colorAll(){
         for (int i=0; i<modelMap.getX();i++){
             for(int j=0;j< modelMap.getY();j++){
-                color(i*j,i,j);
+                color(i,j);
             }
         }
     }
