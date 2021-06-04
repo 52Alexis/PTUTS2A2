@@ -51,7 +51,6 @@ public class Pacman extends Mobile {
         }
         if (nxtcase.isMur()){
             direction=0;
-            return;
         }else{
             emplacement.mobile=null;
             emplacement=nxtcase;

@@ -41,20 +41,7 @@ public class ControllerMap extends Controller{
                 }
             }
         });
-//        addMovePacman();
         timertest();
-    }
-
-    public void addMovePacman(){
-        AnimationTimer timer = new AnimationTimer() {
-            @Override
-            public void handle(long now) {
-                modelMap.pacman.move();
-                viewMap.colorAll();
-
-            }
-        };
-        timer.start();
     }
 
     public void timertest(){
