@@ -11,4 +11,20 @@ public class Case {
         this.y = y;
         this.mur = mur;
     }
+
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    public void setMur(boolean mur) {
+        this.mur = mur;
+    }
+
+    public boolean isMur() {
+        return mur;
+    }
 }

@@ -26,12 +26,17 @@ public class ViewMap {
         FlowPane root = new FlowPane();
         for (int i=0; i<modelMap.getCases().length;i++){
             Rectangle uneCase = new Rectangle(i*modelMap.getTailleCase(),i*modelMap.getTailleCase(),modelMap.getTailleCase(),modelMap.getTailleCase());
-            uneCase.setFill(Color.DARKBLUE);
+            if(modelMap.cases[i].isMur()){
+                uneCase.setFill(Color.RED);
+            }else{
+                uneCase.setFill(Color.DARKBLUE);
+            }
             uneCase.setStroke(Color.GREEN);
             root.getChildren().add(uneCase);
         }
-        Scene sceneMap = new Scene(root,28*modelMap.getTailleCase(),36*modelMap.getTailleCase());
+        Scene sceneMap = new Scene(root,modelMap.getX()*modelMap.getTailleCase(),modelMap.getY()*modelMap.getTailleCase());
         primaryStage.setScene(sceneMap);
+        primaryStage.setResizable(false);
     }
 
     public void  display(){
