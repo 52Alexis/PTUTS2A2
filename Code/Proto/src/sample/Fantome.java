@@ -1,11 +1,10 @@
 package sample;
 
 public class Fantome extends Mobile{
-    private final int type; //quel fantome il s'agit
     private boolean gum;
 
     public Fantome(Case emplacement, int type){
-        super(emplacement);
+        super(emplacement,type);
         this.type=type;
         gum=false;
     }
@@ -16,10 +15,10 @@ public class Fantome extends Mobile{
 
     public void algo(){
         switch (type) {
-            case 0 -> blinky();
-            case 1 -> pinky();
-            case 2 -> inky();
-            case 3 -> clyde();
+            case 2 -> blinky();
+            case 3 -> pinky();
+            case 4 -> inky();
+            case 5 -> clyde();
             default -> System.out.println("ERREUR FANTOME");
         }
     }
