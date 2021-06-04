@@ -19,7 +19,7 @@ public class ViewMenu {
     protected ModelMenu modelMenu;
     protected Stage primaryStage;
 
-    protected Label titre;
+    protected Text titre;
     protected Button boutonNouvellePartie;
     protected Button boutonParametres;
     protected Button boutonMeilleursScores;
@@ -32,8 +32,7 @@ public class ViewMenu {
     }
 
     public void initAttributs(){
-        titre = new Label("PacMan");
-        titre.setFont(Font.font("Alfa Slab One",64));
+        titre = new Text("PacMan");
 
         boutonNouvellePartie = new Button("Nouvelle partie");
         boutonNouvellePartie.setOnAction(e->{

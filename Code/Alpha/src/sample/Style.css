@@ -24,14 +24,15 @@
     -fx-font-size : 20px;
 
     -fx-padding : 5,5,5,5;
-    -fx-border-color : #000000;
+    -fx-border-color : #3b40db;
     -fx-border-width : 2;
     -fx-border-radius : 20px;
 }
 
 .title{
-    -fx-text-fill : #ffe611;
-    -fx-text-border
-
-
+    -fx-font-family : Helvetica;
+    -fx-font-size : 64px;
+    -fx-color : #ffe611;
+    -fx-stroke : #3b40db;
+    -fx-stroke-width : 2px;
 }
