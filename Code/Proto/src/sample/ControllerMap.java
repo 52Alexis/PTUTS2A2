@@ -41,7 +41,8 @@ public class ControllerMap extends Controller{
                 }
             }
         });
-        addMovePacman();
+//        addMovePacman();
+        timertest();
     }
 
     public void addMovePacman(){
@@ -50,8 +51,21 @@ public class ControllerMap extends Controller{
             public void handle(long now) {
                 modelMap.pacman.move();
                 viewMap.colorAll();
+
             }
         };
         timer.start();
+    }
+
+    public void timertest(){
+        Timer timer=new Timer("movePacam",true);
+        TimerTask task=new TimerTask() {
+            @Override
+            public void run() {
+                modelMap.pacman.move();
+                viewMap.colorAll();
+            }
+        };
+        timer.scheduleAtFixedRate(task,0,1000/11);
     }
 }
