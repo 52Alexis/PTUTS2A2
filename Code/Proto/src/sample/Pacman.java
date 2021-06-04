@@ -5,6 +5,7 @@ import java.awt.event.KeyListener;
 
 public class Pacman extends Mobile {
     protected int direction; //1 up, 2 droite, 3 down, 4 left
+    protected Case old;
 
     public Pacman(Case emplacement){
         super(emplacement,1);

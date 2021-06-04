@@ -10,6 +10,8 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+import java.io.File;
+
 public class Main extends Application {
     private Stage primaryStage;
 
@@ -17,15 +19,21 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         primaryStage.setTitle("PacMan");
-
-        ModelMap modelMap = new ModelMap(28,36);
+        File file;
+        try {
+            file = new File("data/mainMap.map");
+        }catch (Exception e){
+            e.printStackTrace();
+            return;
+        }
+        ModelMap modelMap = new ModelMap(file);
         ViewMap viewMap = new ViewMap(modelMap, primaryStage);
         ControllerMap controllerMap = new ControllerMap(viewMap,modelMap);
         controllerMap.setController();
         viewMap.display();
 
-//        ModelMenu modelMenu = new ModelMenu();
-//        ViewMenu viewMenu = new ViewMenu(modelMenu,primaryStage);
+        //ModelMenu modelMenu = new ModelMenu();
+        //ViewMenu viewMenu = new ViewMenu(modelMenu,primaryStage);
         //viewMenu.display();
     }
 
