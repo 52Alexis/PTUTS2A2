@@ -34,7 +34,8 @@ public class ModelMap {
                     System.out.println("fin de lecture");
                 }
                 System.out.print(txt);
-                cases[j][i] = new Case(j, i, Integer.parseInt(txt)==1, this);
+                cases[j][i] = new Case(j, i,txt, this);
+                System.out.print(cases[j][i]);
             }
             System.out.println("");
         }

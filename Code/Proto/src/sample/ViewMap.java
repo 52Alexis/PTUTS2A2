@@ -38,13 +38,14 @@ public class ViewMap {
     }
 
     public void loadimage() throws FileNotFoundException {
-        images_mur.add(new Image(new FileInputStream("img/casevide.png")));      //0
-        images_mur.add(new Image(new FileInputStream("img/lignehori.png")));     //1
-        images_mur.add(new Image(new FileInputStream("img/ligneverti.png")));    //2
-        images_mur.add(new Image(new FileInputStream("img/coindroitbas.png")));  //3
-        images_mur.add(new Image(new FileInputStream("img/coindroithaut.png"))); //4
-        images_mur.add(new Image(new FileInputStream("img/coingauchebas.png"))); //5
-        images_mur.add(new Image(new FileInputStream("img/coingauchehaut.png")));//6
+        images_mur.add(new Image(new FileInputStream("img/Walls/0.png")));  //0
+        images_mur.add(new Image(new FileInputStream("img/Walls/EO.png"))); //1
+        images_mur.add(new Image(new FileInputStream("img/Walls/NS.png"))); //2
+        images_mur.add(new Image(new FileInputStream("img/Walls/NO.png"))); //3
+        images_mur.add(new Image(new FileInputStream("img/Walls/SO.png"))); //4
+        images_mur.add(new Image(new FileInputStream("img/Walls/SE.png"))); //5
+        images_mur.add(new Image(new FileInputStream("img/Walls/NE.png"))); //6
+        images_mur.add(new Image(new FileInputStream("img/Walls/P.png")));  //7
     }
 
     public void addWidgetsToView(){
@@ -69,96 +70,18 @@ public class ViewMap {
 
     public void mur(int x, int y){
         Rectangle rect=cases[x][y];
-        Case[][] model =modelMap.getCases();
-        boolean murNord;
-        boolean murSud;
-        boolean murEst;
-        boolean murOuest;
-        if(!model[x][y].isMur()){
-            rect.setFill(new ImagePattern(images_mur.get(0)));
-        }else{
-            try {
-                murNord= model[x][y-1].isMur();
-            }catch (Exception e){
-                murNord=false;
-            }
-            try {
-                murSud= model[x][y+1].isMur();
-            }catch (Exception e){
-                murSud=false;
-            }
-            try {
-                murEst= model[x+1][y].isMur();
-            }catch (Exception e){
-                murEst=false;
-            }
-            try {
-                murOuest= model[x - 1][y].isMur();
-            }catch (Exception e){
-                murOuest=false;
-            }
-            if(murNord){
-                if(murSud){
-                    if(murEst){
-                        if(murOuest){
-                            rect.setFill(new ImagePattern(images_mur.get(0))); //plein
-                        }else {
-                            rect.setFill(new ImagePattern(images_mur.get(2))); // croisement en T NSE
-                        }
-                    }else {
-                        if(murOuest){
-                            rect.setFill(new ImagePattern(images_mur.get(2))); // croisement en T NSO
-                        }else {
-                            rect.setFill(new ImagePattern(images_mur.get(2))); // croisement en NS ligne verticale
-                        }
-                    }
-                }else{
-                    if(murEst){
-                        if(murOuest){
-                            rect.setFill(new ImagePattern(images_mur.get(1))); // croisement en T NEO
-                        }else {
-                            rect.setFill(new ImagePattern(images_mur.get(3))); // croisement en NE
-                        }
-                    }else {
-                        if(murOuest){
-                            rect.setFill(new ImagePattern(images_mur.get(5))); // croisement en NO
-                        }else {
-                            rect.setFill(new ImagePattern(images_mur.get(2))); // croisement en N
-                        }
-                    }
-                }
-            }else{
-                if(murSud){
-                    if(murEst){
-                        if(murOuest){
-                            rect.setFill(new ImagePattern(images_mur.get(1))); // croisement en T SEO
-                        }else {
-                            rect.setFill(new ImagePattern(images_mur.get(6))); // croisement en SE
-                        }
-                    }else {
-                        if(murOuest){
-                            rect.setFill(new ImagePattern(images_mur.get(4))); // croisement en SO
-                        }else {
-                            rect.setFill(new ImagePattern(images_mur.get(2))); // croisement S
-                        }
-                    }
-                }else{
-                    if(murEst){
-                        if(murOuest){
-                            rect.setFill(new ImagePattern(images_mur.get(1))); // croisement en EO ligne horizontale
-                        }else {
-                            rect.setFill(new ImagePattern(images_mur.get(1))); // croisement en E
-                        }
-                    }else {
-                        if(murOuest){
-                            rect.setFill(new ImagePattern(images_mur.get(1))); // croisement en O
-                        }else {
-                            rect.setFill(Color.FUCHSIA); // pas de croisement
-                        }
-                    }
-                }
-            }
+        String mur=modelMap.getCase(x,y).getTypeMur();
+        switch (mur) {
+            case "0" -> rect.setFill(new ImagePattern(images_mur.get(0)));
+            case "EO" -> rect.setFill(new ImagePattern(images_mur.get(1)));
+            case "NS" -> rect.setFill(new ImagePattern(images_mur.get(2)));
+            case "NO" -> rect.setFill(new ImagePattern(images_mur.get(3)));
+            case "SO" -> rect.setFill(new ImagePattern(images_mur.get(4)));
+            case "SE" -> rect.setFill(new ImagePattern(images_mur.get(5)));
+            case "NE" -> rect.setFill(new ImagePattern(images_mur.get(6)));
+            case "P" -> rect.setFill(new ImagePattern(images_mur.get(7)));
         }
+
     }
 
     public void color(int x,int y){

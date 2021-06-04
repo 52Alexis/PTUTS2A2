@@ -8,35 +8,42 @@ public class Case {
     protected Mobile mobile;
     protected Fixe fixe;
     protected boolean mur;
+    protected boolean porte;
     public ModelMap model;
+    protected String typeMur;
 
-    public Case(int x, int y, boolean mur,ModelMap model) {
+    public Case(int x, int y,String typeMur, ModelMap model) {
         this.x = x;
         this.y = y;
-        this.mur = mur;
+        this.mur = !typeMur.equals("0");
+        this.porte = typeMur.equals("P");
+        if(porte){
+            mur=true;
+        }
         this.model=model;
+        this.typeMur=typeMur;
     }
 
-    public Case(int x, int y, boolean mur,ModelMap model,Mobile mobile) {
+    public Case(int x, int y,String typeMur, ModelMap model,Mobile mobile) {
         this.x = x;
         this.y = y;
-        this.mur = mur;
+        this.mur = !typeMur.equals("0");
         this.model=model;
         this.mobile=mobile;
     }
 
-    public Case(int x, int y, boolean mur, ModelMap model, Fixe fixe) {
+    public Case(int x, int y,String typeMur, ModelMap model, Fixe fixe) {
         this.x = x;
         this.y = y;
-        this.mur = mur;
+        this.mur = !typeMur.equals("0");
         this.model=model;
         this.fixe=fixe;
     }
 
-    public Case(int x, int y, boolean mur, ModelMap model,Mobile mobile, Fixe fixe) {
+    public Case(int x, int y, String typeMur, ModelMap model,Mobile mobile, Fixe fixe) {
         this.x = x;
         this.y = y;
-        this.mur = mur;
+        this.mur = !typeMur.equals("0");
         this.model=model;
         this.mobile=mobile;
         this.fixe=fixe;
@@ -87,6 +94,12 @@ public class Case {
         return "Case{" +
                 "x=" + x +
                 ", y=" + y +
+                ", mur=" + mur +
+                ", typeMur='" + typeMur + '\'' +
                 '}';
+    }
+
+    public String getTypeMur() {
+        return typeMur;
     }
 }

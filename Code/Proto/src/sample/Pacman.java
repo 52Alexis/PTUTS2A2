@@ -14,7 +14,7 @@ public class Pacman extends Mobile {
 
 
     public void move(){
-        System.out.println(emplacement+"; direction :"+direction);
+        //System.out.println(emplacement+"; direction :"+direction);
         Case nxtcase;
         int posX= emplacement.getX();
         int posY= emplacement.getY();
