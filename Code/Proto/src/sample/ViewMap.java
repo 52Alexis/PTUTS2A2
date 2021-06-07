@@ -6,6 +6,7 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.paint.Paint;
@@ -33,10 +34,23 @@ public class ViewMap {
     protected ArrayList<Image> spritesPacmanDead;
 
 
+    protected Rectangle pacman;
+    protected int lastdirection;
+    protected boolean hasMoved;
+
+
     public ViewMap(ModelMap modelMap,Stage stage) {
         this.modelMap = modelMap;
         this.primaryStage=stage;
         images_mur=new ArrayList<>();
+        spritesPacman=new ArrayList<>();
+        spritesBlinky=new ArrayList<>();
+        spritesPinky=new ArrayList<>();
+        spritesInky=new ArrayList<>();
+        spritesClyde=new ArrayList<>();
+        spritesGumFantome=new ArrayList<>();
+        spritesDeadFantome=new ArrayList<>();
+        spritesPacmanDead=new ArrayList<>();
         try{
             loadimage();
         }catch (Exception e){
@@ -55,25 +69,28 @@ public class ViewMap {
         images_mur.add(new Image(new FileInputStream("img/Walls/NE.png"))); //6
         images_mur.add(new Image(new FileInputStream("img/Walls/P.png")));  //7
 
-        spritesPacman.add(new Image(new FileInputStream("img/Entity/Mobile/Pacman/normal/0.png")));
-        spritesPacman.add(new Image(new FileInputStream("img/Entity/Mobile/Pacman/normal/1.png")));
-        spritesPacman.add(new Image(new FileInputStream("img/Entity/Mobile/Pacman/normal/2.png")));
-        spritesPacman.add(new Image(new FileInputStream("img/Entity/Mobile/Pacman/normal/3.png")));
-        spritesPacman.add(new Image(new FileInputStream("img/Entity/Mobile/Pacman/normal/4.png")));
-        spritesPacman.add(new Image(new FileInputStream("img/Entity/Mobile/Pacman/normal/5.png")));
+        for(int i=0;i<24;i++){
+            spritesPacman.add(new Image(new FileInputStream("img/Entity/Mobile/Pacman/normal/"+i+".png")));
+        }
+
+
     }
 
     public void addWidgetsToView(){
-        GridPane root = new GridPane();
+        Pane root=new Pane();
+        GridPane grid = new GridPane();
         cases=new Rectangle[modelMap.X][modelMap.Y];
         for (int i=0; i<modelMap.getX();i++){
             for(int j=0;j< modelMap.getY();j++){
                 cases[i][j] =new Rectangle(i*modelMap.getTailleCase(),i*modelMap.getTailleCase(),modelMap.getTailleCase(),modelMap.getTailleCase());
                 color(i,j);
                 mur(i,j);
-                root.add(cases[i][j],i,j,1,1);
+                grid.add(cases[i][j],i,j,1,1);
             }
         }
+        initEntity();
+        root.getChildren().add(grid);
+        root.getChildren().add(pacman);
         Scene sceneMap = new Scene(root,modelMap.getX()*modelMap.getTailleCase(),modelMap.getY()*modelMap.getTailleCase());
         primaryStage.setScene(sceneMap);
         primaryStage.setResizable(false);
@@ -81,6 +98,16 @@ public class ViewMap {
 
     public void  display(){
         primaryStage.show();
+    }
+
+    public void initEntity(){
+        pacman=new Rectangle();
+        pacman.setHeight(24);
+        pacman.setWidth(24);
+        hasMoved=false;
+
+        move();
+        anim();
     }
 
     public void mur(int x, int y){
@@ -123,6 +150,29 @@ public class ViewMap {
                 color(i,j);
             }
         }
+    }
+
+    public void move(){
+        pacman.setX(modelMap.getPacman().emplacement.x*modelMap.getTailleCase()-4);
+        pacman.setY(modelMap.getPacman().emplacement.y*modelMap.getTailleCase()-4);
+
+    }
+
+    public void anim(){
+        ImagePattern spritePacman;
+        if(modelMap.getPacman().direction!=0 || hasMoved) {
+            if(modelMap.getPacman().direction!=0) {
+                lastdirection = modelMap.getPacman().direction;
+            }
+            hasMoved=true;
+            spritePacman = new ImagePattern(spritesPacman.get(((spritesPacman.size()/4) * (lastdirection - 1)) + (modelMap.getT() % (spritesPacman.size()/4))));
+
+        }else{
+            spritePacman = new ImagePattern(spritesPacman.get(0));
+        }
+
+
+        pacman.setFill(spritePacman);
     }
 
 }

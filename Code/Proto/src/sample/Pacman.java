@@ -5,59 +5,100 @@ import java.awt.event.KeyListener;
 
 public class Pacman extends Mobile {
     protected int direction; //1 up, 2 droite, 3 down, 4 left
+    protected int lastDirection;
+    protected int nextDirection;
     protected Case old;
 
     public Pacman(Case emplacement){
         super(emplacement,1);
+        lastDirection=0;
+        nextDirection=0;
     }
 
 
 
     public void move(){
-        //System.out.println(emplacement+"; direction :"+direction);
+        System.out.println(emplacement+"; nextdirection :"+nextDirection+"; direction :"+direction+"; lastdirection :"+lastDirection);
+        Case nxtcase=getNxtCase(nextDirection);
+        if(nxtcase==null){
+            return;
+        }
+        if(nxtcase.isMur()){
+            nxtcase=getNxtCase();
+            if(nxtcase==null){
+                return;
+            }
+            if(nxtcase.isMur()){
+                direction=lastDirection;
+                nxtcase=getNxtCase();
+                if(nxtcase==null){
+                    return;
+                }
+                if(nxtcase.isMur()){
+                    direction=0;
+                }else {
+                    exchange(nxtcase);
+                }
+            }else{
+                lastDirection=direction;
+                exchange(nxtcase);
+            }
+        }else{
+            direction=nextDirection;
+            lastDirection=direction;
+            exchange(nxtcase);
+        }
+
+
+    }
+
+    public Case getNxtCase(){
+        return getNxtCase(direction);
+    }
+
+    public Case getNxtCase(int dir){
         Case nxtcase;
         int posX= emplacement.getX();
         int posY= emplacement.getY();
-        switch (direction) {
+        switch (dir) {
             case 1:
-                try{
+                try {
                     nxtcase = emplacement.model.getCase(posX, posY - 1);
-                } catch (Exception e){
-                    nxtcase=emplacement.model.getCase(posX,emplacement.model.getY()-1);
+                } catch (Exception e) {
+                    nxtcase = emplacement.model.getCase(posX, emplacement.model.getY() - 1);
                 }
                 break;
             case 2:
-                try{
+                try {
                     nxtcase = emplacement.model.getCase(posX + 1, posY);
-                } catch (Exception e){
-                    nxtcase=emplacement.model.getCase(0,posY);
+                } catch (Exception e) {
+                    nxtcase = emplacement.model.getCase(0, posY);
                 }
                 break;
             case 3:
-                try{
+                try {
                     nxtcase = emplacement.model.getCase(posX, posY + 1);
-                } catch (Exception e){
-                    nxtcase=emplacement.model.getCase(posX,0);
+                } catch (Exception e) {
+                    nxtcase = emplacement.model.getCase(posX, 0);
                 }
                 break;
             case 4:
                 try {
                     nxtcase = emplacement.model.getCase(posX - 1, posY);
-                } catch(Exception e){
-                    nxtcase=emplacement.model.getCase(emplacement.model.getX()-1,posY);
+                } catch (Exception e) {
+                    nxtcase = emplacement.model.getCase(emplacement.model.getX() - 1, posY);
                 }
                 break;
             default:
-                return;
+                nxtcase=null;
         }
-        if (nxtcase.isMur()){
-            direction=0;
-        }else{
-            emplacement.mobile=null;
-            emplacement=nxtcase;
-            nxtcase.mobile=this;
-        }
+        return nxtcase;
+    }
 
+    public void exchange(Case nxtcase){
+        emplacement.mobile=null;
+        emplacement=nxtcase;
+        nxtcase.mobile=this;
     }
 
 
