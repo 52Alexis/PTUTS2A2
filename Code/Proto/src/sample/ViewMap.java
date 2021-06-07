@@ -34,7 +34,7 @@ public class ViewMap {
     protected ArrayList<Image> spritesPacmanDead;
 
 
-    protected Rectangle pacman;
+    protected ArrayList<Rectangle> listMobile;
     protected int lastdirection;
     protected boolean hasMoved;
 
@@ -42,15 +42,6 @@ public class ViewMap {
     public ViewMap(ModelMap modelMap,Stage stage) {
         this.modelMap = modelMap;
         this.primaryStage=stage;
-        images_mur=new ArrayList<>();
-        spritesPacman=new ArrayList<>();
-        spritesBlinky=new ArrayList<>();
-        spritesPinky=new ArrayList<>();
-        spritesInky=new ArrayList<>();
-        spritesClyde=new ArrayList<>();
-        spritesGumFantome=new ArrayList<>();
-        spritesDeadFantome=new ArrayList<>();
-        spritesPacmanDead=new ArrayList<>();
         try{
             loadimage();
         }catch (Exception e){
@@ -60,6 +51,16 @@ public class ViewMap {
     }
 
     public void loadimage() throws FileNotFoundException {
+        images_mur=new ArrayList<>();
+        spritesPacman=new ArrayList<>();
+        spritesBlinky=new ArrayList<>();
+        spritesPinky=new ArrayList<>();
+        spritesInky=new ArrayList<>();
+        spritesClyde=new ArrayList<>();
+        spritesGumFantome=new ArrayList<>();
+        spritesDeadFantome=new ArrayList<>();
+        spritesPacmanDead=new ArrayList<>();
+
         images_mur.add(new Image(new FileInputStream("img/Walls/0.png")));  //0
         images_mur.add(new Image(new FileInputStream("img/Walls/EO.png"))); //1
         images_mur.add(new Image(new FileInputStream("img/Walls/NS.png"))); //2
@@ -71,6 +72,28 @@ public class ViewMap {
 
         for(int i=0;i<24;i++){
             spritesPacman.add(new Image(new FileInputStream("img/Entity/Mobile/Pacman/normal/"+i+".png")));
+        }
+        for(int i=0;i<16;i++){
+            spritesPacmanDead.add(new Image(new FileInputStream("img/Entity/Mobile/Pacman/death/"+i+".png")));
+        }
+        for(int i=0;i<8;i++){
+            spritesBlinky.add(new Image(new FileInputStream("img/Entity/Mobile/Fantome/blinky/"+i+".png")));
+        }
+        for(int i=0;i<8;i++){
+            spritesPinky.add(new Image(new FileInputStream("img/Entity/Mobile/Fantome/pinky/"+i+".png")));
+        }
+        for(int i=0;i<8;i++){
+            spritesInky.add(new Image(new FileInputStream("img/Entity/Mobile/Fantome/inky/"+i+".png")));
+        }
+        for(int i=0;i<8;i++){
+            spritesClyde.add(new Image(new FileInputStream("img/Entity/Mobile/Fantome/clyde/"+i+".png")));
+        }
+
+        for(int i=0;i<8;i++){
+            spritesGumFantome.add(new Image(new FileInputStream("img/Entity/Mobile/Fantome/gum/"+i+".png")));
+        }
+        for(int i=0;i<8;i++){
+            spritesDeadFantome.add(new Image(new FileInputStream("img/Entity/Mobile/Fantome/dead/"+i+".png")));
         }
 
 
@@ -88,9 +111,11 @@ public class ViewMap {
                 grid.add(cases[i][j],i,j,1,1);
             }
         }
-        initEntity();
         root.getChildren().add(grid);
-        root.getChildren().add(pacman);
+        initEntity();
+        for(Rectangle rect:listMobile){
+            root.getChildren().add(rect);
+        }
         Scene sceneMap = new Scene(root,modelMap.getX()*modelMap.getTailleCase(),modelMap.getY()*modelMap.getTailleCase());
         primaryStage.setScene(sceneMap);
         primaryStage.setResizable(false);
@@ -101,9 +126,12 @@ public class ViewMap {
     }
 
     public void initEntity(){
-        pacman=new Rectangle();
-        pacman.setHeight(24);
-        pacman.setWidth(24);
+        listMobile=new ArrayList<>();
+        for(int i=0; i<modelMap.getListMobile().size();i++){
+            listMobile.add(new Rectangle());
+            listMobile.get(i).setHeight(24);
+            listMobile.get(i).setWidth(24);
+        }
         hasMoved=false;
 
         move();
@@ -153,26 +181,51 @@ public class ViewMap {
     }
 
     public void move(){
-        pacman.setX(modelMap.getPacman().emplacement.x*modelMap.getTailleCase()-4);
-        pacman.setY(modelMap.getPacman().emplacement.y*modelMap.getTailleCase()-4);
-
+        for(int i=0; i<modelMap.getListMobile().size();i++) {
+            listMobile.get(i).setX(modelMap.getListMobile().get(i).emplacement.x * modelMap.getTailleCase() - 4);
+            listMobile.get(i).setY(modelMap.getListMobile().get(i).emplacement.y * modelMap.getTailleCase() - 4);
+        }
     }
 
     public void anim(){
-        ImagePattern spritePacman;
-        if(modelMap.getPacman().direction!=0 || hasMoved) {
-            if(modelMap.getPacman().direction!=0) {
-                lastdirection = modelMap.getPacman().direction;
+        ArrayList<Mobile> modelListMobile=modelMap.getListMobile();
+        ImagePattern sprite;
+        System.out.println(modelListMobile.size());
+        for(int i=0;i<modelListMobile.size();i++){
+            if(i==0){
+                System.out.println("p"+i);
+                if(modelMap.getPacman().direction!=0 || hasMoved) {
+                    if(modelMap.getPacman().direction!=0) {
+                        lastdirection = modelMap.getPacman().direction;
+                    }
+                    hasMoved=true;
+                    sprite = new ImagePattern(spritesPacman.get(((spritesPacman.size()/4) * (lastdirection - 1)) + (modelMap.getT() % (spritesPacman.size()/4))));
+
+                }else{
+                    sprite = new ImagePattern(spritesPacman.get(0));
+                }
+            }else{
+                Fantome fantome=modelMap.getFantome(i);
+                System.out.println("f"+i);
+                switch (fantome.type){
+                    case 1:
+                        sprite=new ImagePattern(spritesBlinky.get(0));
+                        break;
+                    case 2:
+                        sprite=new ImagePattern(spritesPinky.get(0));
+                        break;
+                    case 3:
+                        sprite=new ImagePattern(spritesInky.get(0));
+                        break;
+                    case 4:
+                        sprite=new ImagePattern(spritesClyde.get(0));
+                        break;
+                    default:
+                        return;
+                }
             }
-            hasMoved=true;
-            spritePacman = new ImagePattern(spritesPacman.get(((spritesPacman.size()/4) * (lastdirection - 1)) + (modelMap.getT() % (spritesPacman.size()/4))));
-
-        }else{
-            spritePacman = new ImagePattern(spritesPacman.get(0));
+            listMobile.get(i).setFill(sprite);
         }
-
-
-        pacman.setFill(spritePacman);
     }
 
 }

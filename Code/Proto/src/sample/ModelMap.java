@@ -2,6 +2,7 @@ package sample;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class ModelMap {
@@ -10,23 +11,38 @@ public class ModelMap {
     protected int tailleCase;
     protected final int X;
     protected final int Y;
-    protected Pacman pacman;
     protected int t;
     protected int temps;
+    protected ArrayList<int[]> listPos;
+    protected ArrayList<Mobile> listMobile;
 
     public ModelMap(File file) throws FileNotFoundException {
         t=0;
         temps=0;
         this.file=file;
+        listPos=new ArrayList<>();
+        listMobile=new ArrayList<>();
         Scanner input= new Scanner(file);
         String txt= input.next();
         X=Integer.parseInt(txt);
         txt= input.next();
         Y=Integer.parseInt(txt);
         txt= input.next();
-        int posXpac=Integer.parseInt(txt);
-        txt= input.next();
-        int posYpac=Integer.parseInt(txt);
+        System.out.println(txt);
+        int nEntite=Integer.parseInt(txt);
+        for(int i=0;i<nEntite;i++) {
+            System.out.println("new pos");
+            listPos.add(new int[2]);
+            txt = input.next();
+            listPos.get(i)[0] = Integer.parseInt(txt);
+            txt = input.next();
+            listPos.get(i)[1] = Integer.parseInt(txt);
+        }
+        int[] tabTypeFantome=new int[nEntite-1];
+        for(int i=0;i<tabTypeFantome.length;i++){
+            txt = input.next();
+            tabTypeFantome[i]=Integer.parseInt(txt);
+        }
         cases = new Case[X][Y];
         tailleCase = 16;
         for(int i=0;i<Y;i++){
@@ -39,8 +55,13 @@ public class ModelMap {
                 cases[j][i] = new Case(j, i,txt, this);
             }
         }
-        pacman=new Pacman(cases[posXpac][posYpac]);
-        cases[posXpac][posYpac].mobile=pacman;
+        listMobile.add(new Pacman(cases[listPos.get(0)[0]][listPos.get(0)[1]]));
+        listMobile.get(0).emplacement.mobile=listMobile.get(0);
+        for(int i=1;i<nEntite;i++){
+            System.out.println("new fantome");
+            listMobile.add(new Fantome(cases[listPos.get(i)[0]][listPos.get(i)[1]],tabTypeFantome[i-1]));
+            listMobile.get(i).emplacement.mobile=listMobile.get(0);
+        }
     }
 
     public Case[][] getCases() {
@@ -72,15 +93,27 @@ public class ModelMap {
     }
 
     public Pacman getPacman() {
-        return pacman;
+        return (Pacman)listMobile.get(0);
+    }
+
+    public Fantome getFantome(int id){
+        return (Fantome)listMobile.get(id);
+    }
+
+    public ArrayList<Mobile> getListMobile(){
+        return listMobile;
     }
 
     public void increment(){
         t++;
-        temps=t*(1000/24);
+        temps=(t*(1000/24))/1000;
     }
 
     public int getT(){
         return t;
+    }
+
+    public int getTemps(){
+        return temps;
     }
 }

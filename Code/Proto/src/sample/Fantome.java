@@ -15,10 +15,10 @@ public class Fantome extends Mobile{
 
     public void algo(){
         switch (type) {
-            case 2 -> blinky();
-            case 3 -> pinky();
-            case 4 -> inky();
-            case 5 -> clyde();
+            case 1 -> blinky();
+            case 2 -> pinky();
+            case 3 -> inky();
+            case 4 -> clyde();
             default -> System.out.println("ERREUR FANTOME");
         }
     }
