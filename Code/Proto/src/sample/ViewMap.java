@@ -190,10 +190,8 @@ public class ViewMap {
     public void anim(){
         ArrayList<Mobile> modelListMobile=modelMap.getListMobile();
         ImagePattern sprite;
-        System.out.println(modelListMobile.size());
         for(int i=0;i<modelListMobile.size();i++){
             if(i==0){
-                System.out.println("p"+i);
                 if(modelMap.getPacman().direction!=0 || hasMoved) {
                     if(modelMap.getPacman().direction!=0) {
                         lastdirection = modelMap.getPacman().direction;
@@ -206,7 +204,6 @@ public class ViewMap {
                 }
             }else{
                 Fantome fantome=modelMap.getFantome(i);
-                System.out.println("f"+i);
                 switch (fantome.type){
                     case 1:
                         sprite=new ImagePattern(spritesBlinky.get(0));

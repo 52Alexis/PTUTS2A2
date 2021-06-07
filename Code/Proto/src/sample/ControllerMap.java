@@ -75,10 +75,10 @@ public class ControllerMap extends Controller{
                 ArrayList<Fantome> listFantome=modelMap.getAllFantome();
                 for(Fantome f :listFantome){
                     f.move();
-                    if(f.emplacement==modelMap.getPacman().emplacement){
-                        Pacman.setVies(Pacman.getVies()-1);
-                        modelMap.regen();
-                    }
+//                    if(f.emplacement==modelMap.getPacman().emplacement){
+//                        Pacman.setVies(Pacman.getVies()-1);
+//                        modelMap.regen();
+//                    }
                 }
             }
         };
@@ -88,6 +88,7 @@ public class ControllerMap extends Controller{
                 System.out.println(modelMap.getTemps());
             }
         };
+        timer.scheduleAtFixedRate(movfantome,0,1000/7);
         timer.scheduleAtFixedRate(movpac,0,1000/8);
         timer.scheduleAtFixedRate(anim,0,1000/24);
         timer.scheduleAtFixedRate(tps,0,1000);
