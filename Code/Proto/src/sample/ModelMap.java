@@ -11,8 +11,12 @@ public class ModelMap {
     protected final int X;
     protected final int Y;
     protected Pacman pacman;
+    protected int t;
+    protected int temps;
 
     public ModelMap(File file) throws FileNotFoundException {
+        t=0;
+        temps=0;
         this.file=file;
         Scanner input= new Scanner(file);
         String txt= input.next();
@@ -23,7 +27,6 @@ public class ModelMap {
         int posXpac=Integer.parseInt(txt);
         txt= input.next();
         int posYpac=Integer.parseInt(txt);
-        System.out.println("");
         cases = new Case[X][Y];
         tailleCase = 16;
         for(int i=0;i<Y;i++){
@@ -33,11 +36,8 @@ public class ModelMap {
                 }catch (Exception e){
                     System.out.println("fin de lecture");
                 }
-                System.out.print(txt);
                 cases[j][i] = new Case(j, i,txt, this);
-                //System.out.print(cases[j][i]);
             }
-            System.out.println("");
         }
         pacman=new Pacman(cases[posXpac][posYpac]);
         cases[posXpac][posYpac].mobile=pacman;
@@ -69,5 +69,18 @@ public class ModelMap {
 
     public int getX() {
         return X;
+    }
+
+    public Pacman getPacman() {
+        return pacman;
+    }
+
+    public void increment(){
+        t++;
+        temps=t*(1000/24);
+    }
+
+    public int getT(){
+        return t;
     }
 }

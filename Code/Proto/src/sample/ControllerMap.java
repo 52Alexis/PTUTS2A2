@@ -22,37 +22,46 @@ public class ControllerMap extends Controller{
             @Override
             public void handle(javafx.scene.input.KeyEvent keyEvent) {
                 System.out.println("PRESSED! "+keyEvent.getCode());
+                modelMap.pacman.lastDirection=modelMap.pacman.direction;
 
-                switch (keyEvent.getCode()){
+                switch (keyEvent.getCode()) {
                     case UP:
-                        modelMap.pacman.direction=1;
+                        modelMap.pacman.nextDirection = 1;
                         break;
                     case RIGHT:
-                        modelMap.pacman.direction=2;
+                        modelMap.pacman.nextDirection = 2;
                         break;
                     case DOWN:
-                        modelMap.pacman.direction=3;
+                        modelMap.pacman.nextDirection = 3;
                         break;
                     case LEFT:
-                        modelMap.pacman.direction=4;
+                        modelMap.pacman.nextDirection = 4;
                         break;
                     default:
                         break;
                 }
             }
         });
-        timertest();
+        timer();
     }
 
-    public void timertest(){
+    public void timer(){
         Timer timer=new Timer("movePacam",true);
-        TimerTask task=new TimerTask() {
+        TimerTask mov=new TimerTask() {
             @Override
             public void run() {
                 modelMap.pacman.move();
-                viewMap.colorAll();
+                viewMap.move();
             }
         };
-        timer.scheduleAtFixedRate(task,0,1000/11);
+        TimerTask anim= new TimerTask() {
+            @Override
+            public void run() {
+                modelMap.increment();
+                viewMap.anim();
+            }
+        };
+        timer.scheduleAtFixedRate(mov,0,1000/8);
+        timer.scheduleAtFixedRate(anim,0,1000/24);
     }
 }
