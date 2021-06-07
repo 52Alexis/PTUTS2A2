@@ -23,6 +23,14 @@ public class ViewMap {
     protected Stage primaryStage;
     protected Rectangle[][] cases;
     protected ArrayList<Image> images_mur;
+    protected ArrayList<Image> spritesPacman;
+    protected ArrayList<Image> spritesBlinky;
+    protected ArrayList<Image> spritesPinky;
+    protected ArrayList<Image> spritesInky;
+    protected ArrayList<Image> spritesClyde;
+    protected ArrayList<Image> spritesGumFantome;
+    protected ArrayList<Image> spritesDeadFantome;
+    protected ArrayList<Image> spritesPacmanDead;
 
 
     public ViewMap(ModelMap modelMap,Stage stage) {
@@ -46,6 +54,13 @@ public class ViewMap {
         images_mur.add(new Image(new FileInputStream("img/Walls/SE.png"))); //5
         images_mur.add(new Image(new FileInputStream("img/Walls/NE.png"))); //6
         images_mur.add(new Image(new FileInputStream("img/Walls/P.png")));  //7
+
+        spritesPacman.add(new Image(new FileInputStream("img/Entity/Mobile/Pacman/normal/0.png")));
+        spritesPacman.add(new Image(new FileInputStream("img/Entity/Mobile/Pacman/normal/1.png")));
+        spritesPacman.add(new Image(new FileInputStream("img/Entity/Mobile/Pacman/normal/2.png")));
+        spritesPacman.add(new Image(new FileInputStream("img/Entity/Mobile/Pacman/normal/3.png")));
+        spritesPacman.add(new Image(new FileInputStream("img/Entity/Mobile/Pacman/normal/4.png")));
+        spritesPacman.add(new Image(new FileInputStream("img/Entity/Mobile/Pacman/normal/5.png")));
     }
 
     public void addWidgetsToView(){
@@ -72,7 +87,6 @@ public class ViewMap {
         Rectangle rect=cases[x][y];
         String mur=modelMap.getCase(x,y).getTypeMur();
         switch (mur) {
-            case "0" -> rect.setFill(new ImagePattern(images_mur.get(0)));
             case "EO" -> rect.setFill(new ImagePattern(images_mur.get(1)));
             case "NS" -> rect.setFill(new ImagePattern(images_mur.get(2)));
             case "NO" -> rect.setFill(new ImagePattern(images_mur.get(3)));
@@ -80,6 +94,7 @@ public class ViewMap {
             case "SE" -> rect.setFill(new ImagePattern(images_mur.get(5)));
             case "NE" -> rect.setFill(new ImagePattern(images_mur.get(6)));
             case "P" -> rect.setFill(new ImagePattern(images_mur.get(7)));
+            default -> rect.setFill(new ImagePattern(images_mur.get(0)));
         }
 
     }
