@@ -39,9 +39,14 @@ public class ViewMenu {
         boutonNouvellePartie.setOnAction(e->{
             ModelMap modelMap = new ModelMap(28,36);
             ViewMap viewMap = new ViewMap(modelMap,primaryStage);
-
         });
         boutonParametres = new Button(("Paramètres"));
+        boutonParametres.setOnAction(e->{
+            ModelParametres modelParametres = new ModelParametres();
+            ViewParametres viewParametres = new ViewParametres(modelParametres,primaryStage);
+            ControllerParametres cp = new ControllerParametres(modelParametres,viewParametres);
+
+        });
         boutonMeilleursScores = new Button("Meilleurs Scores");
 
     }

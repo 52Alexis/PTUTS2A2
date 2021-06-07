@@ -27,20 +27,7 @@ public class ViewMap {
     }
 
     public void addWidgetsToView(){
-        File file = new File("user/config.cfg");
-        configTouches = new ArrayList<>(4);
-        try {
-            BufferedReader reader = new BufferedReader(new FileReader(file));
-            for (int i = 0; i<4;i++){
-                configTouches.add(i,String.valueOf(reader.readLine()));
-                System.out.println("Read : " + configTouches.get(i));
-            }
-            reader.close();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+
         FlowPane root = new FlowPane();
         for (int i=0; i<modelMap.getCases().length;i++){
             Rectangle uneCase = new Rectangle(i*modelMap.getTailleCase(),i*modelMap.getTailleCase(),modelMap.getTailleCase(),modelMap.getTailleCase());
