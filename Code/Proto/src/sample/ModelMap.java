@@ -21,8 +21,14 @@ public class ModelMap {
 
     public static void createBonus(){
         bonus=new Bonus[8];
-        
-
+        bonus[0]=new Bonus(null,100,20);
+        bonus[1]=new Bonus(null,300,20);
+        bonus[2]=new Bonus(null,500,20);
+        bonus[3]=new Bonus(null,700,20);
+        bonus[4]=new Bonus(null,1000,20);
+        bonus[5]=new Bonus(null,2000,20);
+        bonus[6]=new Bonus(null,3000,20);
+        bonus[7]=new Bonus(null,5000,20);
     }
 
     public ModelMap(File file) throws FileNotFoundException {
