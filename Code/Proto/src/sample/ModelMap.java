@@ -28,8 +28,10 @@ public class ModelMap {
         txt= input.next();
         Y=Integer.parseInt(txt);
         txt= input.next();
+        System.out.println(txt);
         int nEntite=Integer.parseInt(txt);
         for(int i=0;i<nEntite;i++) {
+            System.out.println("new pos");
             listPos.add(new int[2]);
             txt = input.next();
             listPos.get(i)[0] = Integer.parseInt(txt);
@@ -55,7 +57,8 @@ public class ModelMap {
         }
         listMobile.add(new Pacman(cases[listPos.get(0)[0]][listPos.get(0)[1]]));
         listMobile.get(0).emplacement.mobile=listMobile.get(0);
-        for(int i=1;i<listMobile.size();i++){
+        for(int i=1;i<nEntite;i++){
+            System.out.println("new fantome");
             listMobile.add(new Fantome(cases[listPos.get(i)[0]][listPos.get(i)[1]],tabTypeFantome[i-1]));
             listMobile.get(i).emplacement.mobile=listMobile.get(0);
         }
@@ -94,7 +97,11 @@ public class ModelMap {
     }
 
     public Fantome getFantome(int id){
-        return (Fantome)listMobile.get(id+1);
+        return (Fantome)listMobile.get(id);
+    }
+
+    public ArrayList<Mobile> getListMobile(){
+        return listMobile;
     }
 
     public void increment(){

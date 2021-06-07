@@ -68,7 +68,6 @@ public class ControllerMap extends Controller{
                 viewMap.anim();
             }
         };
-
         TimerTask tps=new TimerTask() {
             @Override
             public void run() {
