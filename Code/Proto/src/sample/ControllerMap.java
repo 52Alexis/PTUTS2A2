@@ -11,10 +11,12 @@ import java.util.TimerTask;
 public class ControllerMap extends Controller{
     ViewMap viewMap;
     ModelMap modelMap;
+    boolean started;
 
     public ControllerMap(ViewMap viewMap, ModelMap modelMap) {
         this.viewMap = viewMap;
         this.modelMap = modelMap;
+        started=false;
     }
 
     public void setController(){
@@ -22,27 +24,32 @@ public class ControllerMap extends Controller{
             @Override
             public void handle(javafx.scene.input.KeyEvent keyEvent) {
                 System.out.println("PRESSED! "+keyEvent.getCode());
-                modelMap.pacman.lastDirection=modelMap.pacman.direction;
+                modelMap.getPacman().lastDirection=modelMap.getPacman().direction;
 
                 switch (keyEvent.getCode()) {
                     case UP:
-                        modelMap.pacman.nextDirection = 1;
+                        modelMap.getPacman().nextDirection = 1;
                         break;
                     case RIGHT:
-                        modelMap.pacman.nextDirection = 2;
+                        modelMap.getPacman().nextDirection = 2;
                         break;
                     case DOWN:
-                        modelMap.pacman.nextDirection = 3;
+                        modelMap.getPacman().nextDirection = 3;
                         break;
                     case LEFT:
-                        modelMap.pacman.nextDirection = 4;
+                        modelMap.getPacman().nextDirection = 4;
                         break;
                     default:
                         break;
                 }
+
+                if(!started){
+                    started=true;
+                    timer();
+                }
             }
         });
-        timer();
+
     }
 
     public void timer(){
@@ -50,7 +57,7 @@ public class ControllerMap extends Controller{
         TimerTask mov=new TimerTask() {
             @Override
             public void run() {
-                modelMap.pacman.move();
+                modelMap.getPacman().move();
                 viewMap.move();
             }
         };
@@ -61,7 +68,16 @@ public class ControllerMap extends Controller{
                 viewMap.anim();
             }
         };
+
+        TimerTask tps=new TimerTask() {
+            @Override
+            public void run() {
+                System.out.println(modelMap.getTemps());
+            }
+        };
         timer.scheduleAtFixedRate(mov,0,1000/8);
         timer.scheduleAtFixedRate(anim,0,1000/24);
+        timer.scheduleAtFixedRate(tps,0,1000);
+
     }
 }

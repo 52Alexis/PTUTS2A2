@@ -18,7 +18,7 @@ public class Pacman extends Mobile {
 
 
     public void move(){
-        System.out.println(emplacement+"; nextdirection :"+nextDirection+"; direction :"+direction+"; lastdirection :"+lastDirection);
+        //System.out.println(emplacement+"; nextdirection :"+nextDirection+"; direction :"+direction+"; lastdirection :"+lastDirection);
         Case nxtcase=getNxtCase(nextDirection);
         if(nxtcase==null){
             return;
