@@ -15,6 +15,15 @@ public class ModelMap {
     protected int temps;
     protected ArrayList<int[]> listPos;
     protected ArrayList<Mobile> listMobile;
+    protected static int level;
+    protected static int score;
+    protected static Bonus[] bonus;
+
+    public static void createBonus(){
+        bonus=new Bonus[8];
+        
+
+    }
 
     public ModelMap(File file) throws FileNotFoundException {
         t=0;
@@ -43,6 +52,11 @@ public class ModelMap {
             txt = input.next();
             tabTypeFantome[i]=Integer.parseInt(txt);
         }
+        int[] desti=new int[2];
+        txt = input.next();
+        desti[0]=Integer.parseInt(txt);
+        txt = input.next();
+        desti[1]=Integer.parseInt(txt);
         cases = new Case[X][Y];
         tailleCase = 16;
         for(int i=0;i<Y;i++){
@@ -59,7 +73,7 @@ public class ModelMap {
         listMobile.get(0).emplacement.mobile=listMobile.get(0);
         for(int i=1;i<nEntite;i++){
             System.out.println("new fantome");
-            listMobile.add(new Fantome(cases[listPos.get(i)[0]][listPos.get(i)[1]],tabTypeFantome[i-1]));
+            listMobile.add(new Fantome(cases[listPos.get(i)[0]][listPos.get(i)[1]],tabTypeFantome[i-1], desti));
             listMobile.get(i).emplacement.mobile=listMobile.get(0);
         }
     }
@@ -100,6 +114,24 @@ public class ModelMap {
         return (Fantome)listMobile.get(id);
     }
 
+    public Fantome getFantomeByType(int type){
+        for(Mobile mobile:listMobile){
+            Fantome f = (Fantome)mobile;
+            if(f.type==type){
+                return f;
+            }
+        }
+        return null;
+    }
+
+    public ArrayList<Fantome> getAllFantome(){
+        ArrayList<Fantome> listFantome=new ArrayList<>();
+        for(int i=1;i< listMobile.size();i++){
+            listFantome.add(getFantome(i));
+        }
+        return listFantome;
+    }
+
     public ArrayList<Mobile> getListMobile(){
         return listMobile;
     }
@@ -115,5 +147,9 @@ public class ModelMap {
 
     public int getTemps(){
         return temps;
+    }
+
+    public void regen(){
+
     }
 }

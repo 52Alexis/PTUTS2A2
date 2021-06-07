@@ -65,6 +65,10 @@ public class Case {
         return mur;
     }
 
+    public boolean isPorte() {
+        return porte;
+    }
+
     public Mobile getMobile(){
         return mobile;
     }

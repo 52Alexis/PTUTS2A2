@@ -5,6 +5,7 @@ import javafx.event.EventHandler;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -54,7 +55,7 @@ public class ControllerMap extends Controller{
 
     public void timer(){
         Timer timer=new Timer("movePacam",true);
-        TimerTask mov=new TimerTask() {
+        TimerTask movpac=new TimerTask() {
             @Override
             public void run() {
                 modelMap.getPacman().move();
@@ -68,13 +69,26 @@ public class ControllerMap extends Controller{
                 viewMap.anim();
             }
         };
+        TimerTask movfantome=new TimerTask() {
+            @Override
+            public void run() {
+                ArrayList<Fantome> listFantome=modelMap.getAllFantome();
+                for(Fantome f :listFantome){
+                    f.move();
+                    if(f.emplacement==modelMap.getPacman().emplacement){
+                        Pacman.setVies(Pacman.getVies()-1);
+                        modelMap.regen();
+                    }
+                }
+            }
+        };
         TimerTask tps=new TimerTask() {
             @Override
             public void run() {
                 System.out.println(modelMap.getTemps());
             }
         };
-        timer.scheduleAtFixedRate(mov,0,1000/8);
+        timer.scheduleAtFixedRate(movpac,0,1000/8);
         timer.scheduleAtFixedRate(anim,0,1000/24);
         timer.scheduleAtFixedRate(tps,0,1000);
 

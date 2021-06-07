@@ -7,7 +7,16 @@ public class Pacman extends Mobile {
     protected int direction; //1 up, 2 droite, 3 down, 4 left
     protected int lastDirection;
     protected int nextDirection;
-    protected Case old;
+    protected static int vies;
+    protected static int score;
+
+    public static void setVies(int vies) {
+        Pacman.vies = vies;
+    }
+
+    public static int getVies() {
+        return vies;
+    }
 
     public Pacman(Case emplacement){
         super(emplacement,1);
