@@ -35,7 +35,7 @@ public class ModelMap {
                 }
                 System.out.print(txt);
                 cases[j][i] = new Case(j, i,txt, this);
-                System.out.print(cases[j][i]);
+                //System.out.print(cases[j][i]);
             }
             System.out.println("");
         }
