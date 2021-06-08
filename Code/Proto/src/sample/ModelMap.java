@@ -19,7 +19,6 @@ public class ModelMap {
     protected static int score;
     protected static int[] bonusValue;
     protected ArrayList<Point> listPoint;
-    protected ArrayList<Point> listPointDispo;
     protected Bonus currentBonus;
 
     public static void createBonus(){
@@ -38,10 +37,9 @@ public class ModelMap {
         t=0;
         temps=0;
         this.file=file;
+        listPoint=new ArrayList<>();
         listPos=new ArrayList<>();
         listMobile=new ArrayList<>();
-        listPoint=new ArrayList<>();
-        listPointDispo =new ArrayList<>();
         Pacman.setVies(3);
         Pacman.setScore(0);
         Scanner input= new Scanner(file);
@@ -91,7 +89,6 @@ public class ModelMap {
                 }
             }
         }
-        listPointDispo.addAll(listPoint);
         listMobile.add(new Pacman(cases[listPos.get(0)[0]][listPos.get(0)[1]]));
         listMobile.get(0).emplacement.mobile=listMobile.get(0);
         for(int i=1;i<nEntite;i++){
@@ -176,6 +173,9 @@ public class ModelMap {
     public void regen() throws FileNotFoundException {
         t=0;
         temps=0;
+        listPos=new ArrayList<>();
+        listMobile=new ArrayList<>();
+        listPoint=new ArrayList<>();
         Scanner input= new Scanner(file);
         String txt= input.next();
         txt= input.next();
@@ -221,7 +221,6 @@ public class ModelMap {
                 }
             }
         }
-        listPointDispo.addAll(listPoint);
         listMobile.add(new Pacman(cases[listPos.get(0)[0]][listPos.get(0)[1]]));
         listMobile.get(0).emplacement.mobile=listMobile.get(0);
         for(int i=1;i<nEntite;i++){
@@ -233,7 +232,7 @@ public class ModelMap {
     }
 
     public ArrayList<Point> getListPointDispo() {
-        return listPointDispo;
+        return listPoint;
     }
 
     public void setBonus(){
@@ -267,7 +266,7 @@ public class ModelMap {
             Point p=(Point)f;
             p.emplacement.setFixe(null);
             p.emplacement=null;
-            listPointDispo.remove(p);
+            listPoint.remove(p);
         }
     }
 
