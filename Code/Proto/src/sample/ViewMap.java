@@ -112,8 +112,8 @@ public class ViewMap {
         bonus=new Rectangle();
         bonus.setHeight(modelMap.getTailleCase());
         bonus.setWidth(modelMap.getTailleCase());
-        bonus.setX(modelMap.getPacman().emplacement.getX()-4);
-        bonus.setY(modelMap.getPacman().emplacement.getY()-4);
+        bonus.setX(modelMap.getPacman().emplacement.getX()*modelMap.getTailleCase()-4);
+        bonus.setY(modelMap.getPacman().emplacement.getY()*modelMap.getTailleCase()+4);
         cases=new Rectangle[modelMap.X][modelMap.Y];
         for (int i=0; i<modelMap.getX();i++){
             for(int j=0;j< modelMap.getY();j++){
@@ -124,11 +124,11 @@ public class ViewMap {
         }
         root.getChildren().add(grid);
         initEntity();
+        root.getChildren().add(bonus);
         for(Rectangle rect:listMobile){
             root.getChildren().add(rect);
         }
         setPoints();
-        root.getChildren().add(bonus);
         Scene sceneMap = new Scene(root,modelMap.getX()*modelMap.getTailleCase(),modelMap.getY()*modelMap.getTailleCase());
         primaryStage.setScene(sceneMap);
         primaryStage.setResizable(false);
