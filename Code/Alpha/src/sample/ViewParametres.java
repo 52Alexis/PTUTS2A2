@@ -7,7 +7,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
@@ -15,6 +14,8 @@ import javafx.stage.Stage;
 public class ViewParametres {
     protected ModelParametres modelParametres;
     protected Stage primaryStage;
+
+    protected Button btnReturn;
     protected Button fieldUp;
     protected Label errFieldUp;
     protected Button fieldDown;
@@ -23,6 +24,7 @@ public class ViewParametres {
     protected Label errFieldRight;
     protected Button fieldLeft;
     protected Label errFieldLeft;
+
     protected Scene scene;
 
     public ViewParametres(ModelParametres modelParametres, Stage primaryStage) {
@@ -34,6 +36,9 @@ public class ViewParametres {
     }
 
     public void init(){
+        btnReturn = new Button("<");
+        btnReturn.setTranslateY(-300);
+        btnReturn.setTranslateX(-500);
         fieldUp = new Button();
         fieldUp.setText(modelParametres.getConfigTouches().get(0));
         errFieldUp = new Label("Key already assignent");
@@ -75,12 +80,21 @@ public class ViewParametres {
         Label labelLeft = new Label("UP key : ");
         boxLeft.setAlignment(Pos.CENTER);
         boxLeft.getChildren().addAll(labelLeft,fieldLeft,errFieldLeft);
-        root.getChildren().addAll(boxUp,boxDown,boxRight,boxLeft);
+
+        fieldUp.getStyleClass().add("boutons");
+        fieldDown.getStyleClass().add("boutons");
+        fieldRight.getStyleClass().add("boutons");
+        fieldLeft.getStyleClass().add("boutons");
+        //errFieldLeft
+
+        root.getChildren().addAll(btnReturn,boxUp,boxDown,boxRight,boxLeft);
         scene = new Scene(root,1200,800);
+        scene.getStylesheets().add("file:src/sample/Style.css");
         primaryStage.setScene(scene);
     }
 
     public void setController(EventHandler< ActionEvent > handler){
+        btnReturn.setOnAction(handler);
         fieldUp.setOnAction(handler);
         fieldDown.setOnAction(handler);
         fieldRight.setOnAction(handler);
