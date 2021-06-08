@@ -19,9 +19,32 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Modif param qui marche">
-      <change afterPath="$PROJECT_DIR$/src/sample/ModelScores.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/ViewMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/ViewMenu.java" afterDir="false" />
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Creation scores">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Alpha/sample/Style.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Alpha/sample/Style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Alpha/sample/ViewMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Alpha/sample/ViewMenu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/ControllerParametres.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/ControllerParametres.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/ModelScores.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/ModelScores.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/ViewParametres.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/ViewParametres.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/config.cfg" beforeDir="false" afterPath="$PROJECT_DIR$/user/config.cfg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Proto/out/production/Proto/sample/Case.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Proto/out/production/Proto/sample/Case.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Proto/out/production/Proto/sample/ControllerMap$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Proto/out/production/Proto/sample/ControllerMap$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Proto/out/production/Proto/sample/ControllerMap$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Proto/out/production/Proto/sample/ControllerMap$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Proto/out/production/Proto/sample/ControllerMap$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Proto/out/production/Proto/sample/ControllerMap$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Proto/out/production/Proto/sample/ControllerMap$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Proto/out/production/Proto/sample/ControllerMap$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Proto/out/production/Proto/sample/ControllerMap$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Proto/out/production/Proto/sample/ControllerMap$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Proto/out/production/Proto/sample/ControllerMap$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Proto/out/production/Proto/sample/ControllerMap$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Proto/out/production/Proto/sample/ControllerMap$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Proto/out/production/Proto/sample/ControllerMap$7.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Proto/out/production/Proto/sample/ControllerMap.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Proto/out/production/Proto/sample/ControllerMap.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Proto/out/production/Proto/sample/Fantome.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Proto/out/production/Proto/sample/Fantome.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Proto/out/production/Proto/sample/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Proto/out/production/Proto/sample/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Proto/out/production/Proto/sample/ModelMap.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Proto/out/production/Proto/sample/ModelMap.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Proto/out/production/Proto/sample/Pacman.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Proto/out/production/Proto/sample/Pacman.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Proto/out/production/Proto/sample/ViewMap.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Proto/out/production/Proto/sample/ViewMap.class" afterDir="false" />
+    </list>
+    <list id="c7ce7843-0a59-49ae-9990-e3eb04494ec4" name="Changes by bonlver" comment="">
+      <change beforePath="$PROJECT_DIR$/src/sample/Style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/ViewParametres.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/ViewParametres.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,6 +115,22 @@
       </UrlAndAccount>
     </option>
   </component>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/src/sample/ViewParametres.java">
+      <ranges>
+        <range start1="9" end1="10" start2="9" end2="9" changelist="cdb932d9-7e58-4d94-93a9-e7b232ef17da" />
+        <range start1="17" end1="17" start2="16" end2="18" changelist="cdb932d9-7e58-4d94-93a9-e7b232ef17da" />
+        <range start1="25" end1="25" start2="26" end2="27" changelist="cdb932d9-7e58-4d94-93a9-e7b232ef17da" />
+        <range start1="36" end1="36" start2="38" end2="41" changelist="cdb932d9-7e58-4d94-93a9-e7b232ef17da" />
+        <range start1="65" end1="65" start2="70" end2="74" changelist="c7ce7843-0a59-49ae-9990-e3eb04494ec4" />
+        <range start1="69" end1="69" start2="78" end2="80" changelist="c7ce7843-0a59-49ae-9990-e3eb04494ec4" />
+        <range start1="73" end1="73" start2="84" end2="86" changelist="c7ce7843-0a59-49ae-9990-e3eb04494ec4" />
+        <range start1="77" end1="78" start2="90" end2="94" changelist="cdb932d9-7e58-4d94-93a9-e7b232ef17da" />
+        <range start1="79" end1="79" start2="95" end2="96" changelist="c7ce7843-0a59-49ae-9990-e3eb04494ec4" />
+        <range start1="83" end1="83" start2="100" end2="101" changelist="cdb932d9-7e58-4d94-93a9-e7b232ef17da" />
+      </ranges>
+    </file>
+  </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectId" id="1s1DVrtGuI85x5WbDrYSHQc0o8e" />
   <component name="ProjectReloadState">
@@ -114,6 +153,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="codeWithMe.voiceChat.enabledByDefault" value="false" />
     <property name="dynamic.classpath" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../Lib/JAVAFX/lib" />
     <property name="node.js.detected.package.eslint" value="true" />
@@ -308,7 +348,14 @@
       <option name="project" value="LOCAL" />
       <updated>1623136141524</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Creation scores">
+      <created>1623136997808</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1623136997808</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -337,6 +384,7 @@
     <MESSAGE value="Test et création param" />
     <MESSAGE value="Test modif param" />
     <MESSAGE value="Modif param qui marche" />
-    <option name="LAST_COMMIT_MESSAGE" value="Modif param qui marche" />
+    <MESSAGE value="Creation scores" />
+    <option name="LAST_COMMIT_MESSAGE" value="Creation scores" />
   </component>
 </project>

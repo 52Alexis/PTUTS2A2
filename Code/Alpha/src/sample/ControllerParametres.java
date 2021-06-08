@@ -17,24 +17,31 @@ public class ControllerParametres implements EventHandler<ActionEvent> {
 
     @Override
     public void handle(ActionEvent actionEvent) {
+        if (actionEvent.getSource().equals(viewParametres.btnReturn)){
+            ModelMenu modelMenu = new ModelMenu();
+            ViewMenu viewMenu = new ViewMenu(modelMenu,viewParametres.primaryStage);
+        }
+
         if (actionEvent.getSource().equals(viewParametres.fieldUp)){
             viewParametres.errFieldUp.setVisible(false);
-            viewParametres.fieldUp.addEventFilter(KeyEvent.KEY_PRESSED,keyEvent ->{
+            viewParametres.fieldUp.addEventFilter(KeyEvent.KEY_RELEASED,keyEvent ->{
                 String tmp = keyEvent.getCode().toString();
                 if(stringChecker(tmp,0)) {
                     viewParametres.fieldUp.setText(tmp);
                     modelParametres.getConfigTouches().set(0, tmp);
                     modelParametres.updateConfig();
+                    viewParametres.btnReturn.requestFocus();
                 }else {
                     viewParametres.errFieldUp.setVisible(true);
                 }
             });
-            viewParametres.fieldUp.removeEventFilter(KeyEvent.KEY_PRESSED,keyEvent ->{
+            viewParametres.fieldUp.removeEventFilter(KeyEvent.KEY_RELEASED,keyEvent ->{
                 String tmp = keyEvent.getCode().toString();
-                if(stringChecker(tmp,1)){
-                    viewParametres.fieldDown.setText(tmp);
-                    modelParametres.getConfigTouches().set(1,tmp);
+                if(stringChecker(tmp,0)){
+                    viewParametres.fieldUp.setText(tmp);
+                    modelParametres.getConfigTouches().set(0,tmp);
                     modelParametres.updateConfig();
+                    viewParametres.btnReturn.requestFocus();
                 }else {
                     viewParametres.errFieldUp.setVisible(true);
                 }
@@ -43,22 +50,24 @@ public class ControllerParametres implements EventHandler<ActionEvent> {
 
         if (actionEvent.getSource().equals(viewParametres.fieldDown)){
             viewParametres.errFieldDown.setVisible(false);
-            viewParametres.fieldDown.addEventFilter(KeyEvent.KEY_PRESSED, keyEvent ->{
+            viewParametres.fieldDown.addEventFilter(KeyEvent.KEY_RELEASED, keyEvent ->{
                 String tmp = keyEvent.getCode().toString();
                 if(stringChecker(tmp,1)){
                     viewParametres.fieldDown.setText(tmp);
                     modelParametres.getConfigTouches().set(1,tmp);
                     modelParametres.updateConfig();
+                    viewParametres.btnReturn.requestFocus();
                 }else{
                     viewParametres.errFieldDown.setVisible(true);
                 }
             });
-            viewParametres.scene.removeEventFilter(KeyEvent.KEY_PRESSED,keyEvent ->{
+            viewParametres.fieldDown.removeEventFilter(KeyEvent.KEY_RELEASED,keyEvent ->{
                 String tmp = keyEvent.getCode().toString();
                 if(stringChecker(tmp,1)){
                     viewParametres.fieldDown.setText(tmp);
                     modelParametres.getConfigTouches().set(1,tmp);
                     modelParametres.updateConfig();
+                    viewParametres.btnReturn.requestFocus();
                 }else{
                     viewParametres.errFieldDown.setVisible(true);
                 }
@@ -67,52 +76,56 @@ public class ControllerParametres implements EventHandler<ActionEvent> {
 
         if (actionEvent.getSource().equals(viewParametres.fieldRight)){
             viewParametres.errFieldRight.setVisible(false);
-            viewParametres.fieldRight.addEventFilter(KeyEvent.KEY_PRESSED, keyEvent ->{
+            viewParametres.fieldRight.addEventFilter(KeyEvent.KEY_RELEASED, keyEvent ->{
                 String tmp = keyEvent.getCode().toString();
                 if(stringChecker(tmp,2)){
                     viewParametres.fieldRight.setText(tmp);
                     modelParametres.getConfigTouches().set(2,tmp);
                     modelParametres.updateConfig();
+                    viewParametres.btnReturn.requestFocus();
                 }else{
                     viewParametres.errFieldRight.setVisible(true);
                 }
             });
-            viewParametres.scene.removeEventFilter(KeyEvent.KEY_PRESSED,keyEvent ->{
+            viewParametres.fieldRight.removeEventFilter(KeyEvent.KEY_RELEASED,keyEvent ->{
                 String tmp = keyEvent.getCode().toString();
                 if(stringChecker(tmp,2)){
                     viewParametres.fieldRight.setText(tmp);
                     modelParametres.getConfigTouches().set(2,tmp);
                     modelParametres.updateConfig();
+                    viewParametres.btnReturn.requestFocus();
                 }else{
                     viewParametres.errFieldRight.setVisible(true);
-
                 }
             });
         }
 
         if (actionEvent.getSource().equals(viewParametres.fieldLeft)){
             viewParametres.errFieldLeft.setVisible(false);
-            viewParametres.scene.addEventFilter(KeyEvent.KEY_PRESSED, keyEvent ->{
+            viewParametres.fieldLeft.addEventFilter(KeyEvent.KEY_RELEASED, keyEvent ->{
                 String tmp = keyEvent.getCode().toString();
                 if(stringChecker(tmp,3)) {
                     viewParametres.fieldLeft.setText(tmp);
                     modelParametres.getConfigTouches().set(3, tmp);
                     modelParametres.updateConfig();
+                    viewParametres.btnReturn.requestFocus();
                 }else{
                     viewParametres.errFieldLeft.setVisible(true);
                 }
             });
-            viewParametres.scene.removeEventFilter(KeyEvent.KEY_PRESSED,keyEvent ->{
+            viewParametres.fieldLeft.removeEventFilter(KeyEvent.KEY_RELEASED,keyEvent ->{
                 String tmp = keyEvent.getCode().toString();
                 if(stringChecker(tmp,3)) {
                     viewParametres.fieldLeft.setText(tmp);
                     modelParametres.getConfigTouches().set(3, tmp);
                     modelParametres.updateConfig();
+                    viewParametres.btnReturn.requestFocus();
                 }else{
                     viewParametres.errFieldLeft.setVisible(true);
                 }
             });
         }
+        actionEvent.consume();
     }
 
     public boolean stringChecker(String s, int pos){
@@ -120,7 +133,7 @@ public class ControllerParametres implements EventHandler<ActionEvent> {
             if (i == pos){
 
             }else{
-//                System.out.println("Pressed  : " + s + " / Compared " + i + " : " + modelParametres.getConfigTouches().get(i));
+//                System.out.println("RELEASED  : " + s + " / Compared " + i + " : " + modelParametres.getConfigTouches().get(i));
                 if (s.matches(modelParametres.getConfigTouches().get(i))){
 //                    System.out.println(false);
                     return false;
