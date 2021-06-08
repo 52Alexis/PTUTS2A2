@@ -18,6 +18,14 @@ public class Pacman extends Mobile {
         return vies;
     }
 
+    public static void setScore(int score) {
+        Pacman.score = score;
+    }
+
+    public static int getScore() {
+        return score;
+    }
+
     public Pacman(Case emplacement){
         super(emplacement,1);
         lastDirection=0;
@@ -56,6 +64,10 @@ public class Pacman extends Mobile {
             direction=nextDirection;
             lastDirection=direction;
             exchange(nxtcase);
+        }
+        if(emplacement.haveFixe()){
+            score+=emplacement.fixe.score;
+            emplacement.model.eatPoint(emplacement.getFixe());
         }
 
 

@@ -5,6 +5,7 @@ import javafx.event.EventHandler;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -54,18 +55,26 @@ public class ControllerMap extends Controller{
     }
 
     public void timer(){
-        Timer timer=new Timer("movePacam",true);
+        Timer timer=new Timer("mainTimer",true);
         TimerTask movpac=new TimerTask() {
             @Override
             public void run() {
                 modelMap.getPacman().move();
                 viewMap.move();
+                if(modelMap.getListPointDispo().isEmpty()){
+                    try {
+                        modelMap.nextlvl();
+                    } catch (FileNotFoundException e) {
+                        e.printStackTrace();
+                    }
+                }
             }
         };
         TimerTask anim= new TimerTask() {
             @Override
             public void run() {
                 modelMap.increment();
+                modelMap.setBonus();
                 viewMap.anim();
             }
         };
@@ -75,23 +84,38 @@ public class ControllerMap extends Controller{
                 ArrayList<Fantome> listFantome=modelMap.getAllFantome();
                 for(Fantome f :listFantome){
                     f.move();
-//                    if(f.emplacement==modelMap.getPacman().emplacement){
-//                        Pacman.setVies(Pacman.getVies()-1);
-//                        modelMap.regen();
-//                    }
+                    if(f.emplacement==modelMap.getPacman().emplacement){
+                        Pacman.setVies(Pacman.getVies()-1);
+                        try {
+                            modelMap.regen();
+                        } catch (FileNotFoundException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+            }
+        };
+        Timer checkStatus=new Timer("secondaryTimer", true);
+        TimerTask chk=new TimerTask() {
+            @Override
+            public void run() {
+                if(Pacman.getVies()==0){
+                    timer.cancel();
+                    System.out.println("GAME OVER");
                 }
             }
         };
         TimerTask tps=new TimerTask() {
             @Override
             public void run() {
-                System.out.println(modelMap.getTemps());
+                System.out.println("Temps :"+modelMap.getTemps()+" Score :"+Pacman.getScore()+" Vies :"+Pacman.getVies());
             }
         };
         timer.scheduleAtFixedRate(movfantome,0,1000/7);
         timer.scheduleAtFixedRate(movpac,0,1000/8);
         timer.scheduleAtFixedRate(anim,0,1000/24);
         timer.scheduleAtFixedRate(tps,0,1000);
+        checkStatus.scheduleAtFixedRate(chk,0,1000);
 
     }
 }

@@ -69,6 +69,8 @@ public class ViewMap {
         images_mur.add(new Image(new FileInputStream("img/Walls/SE.png"))); //5
         images_mur.add(new Image(new FileInputStream("img/Walls/NE.png"))); //6
         images_mur.add(new Image(new FileInputStream("img/Walls/P.png")));  //7
+        images_mur.add(new Image(new FileInputStream("img/Walls/PO.png"))); //points -8
+        images_mur.add(new Image(new FileInputStream("img/Walls/PG.png"))); //pacgum -9
 
         for(int i=0;i<24;i++){
             spritesPacman.add(new Image(new FileInputStream("img/Entity/Mobile/Pacman/normal/"+i+".png")));
@@ -116,6 +118,7 @@ public class ViewMap {
         for(Rectangle rect:listMobile){
             root.getChildren().add(rect);
         }
+        setPoints();
         Scene sceneMap = new Scene(root,modelMap.getX()*modelMap.getTailleCase(),modelMap.getY()*modelMap.getTailleCase());
         primaryStage.setScene(sceneMap);
         primaryStage.setResizable(false);
@@ -188,6 +191,7 @@ public class ViewMap {
     }
 
     public void anim(){
+        setPoints();
         ArrayList<Mobile> modelListMobile=modelMap.getListMobile();
         ImagePattern sprite;
         for(int i=0;i<modelListMobile.size();i++){
@@ -222,6 +226,18 @@ public class ViewMap {
                 }
             }
             listMobile.get(i).setFill(sprite);
+        }
+    }
+
+    public void setPoints(){
+        int i;
+        for(Point p:modelMap.getListPointDispo()){
+            if(p.gum){
+                i=9;
+            }else{
+                i=8;
+            }
+            cases[p.emplacement.getX()][p.emplacement.getY()].setFill(new ImagePattern(images_mur.get(i)));
         }
     }
 

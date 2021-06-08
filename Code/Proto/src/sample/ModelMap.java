@@ -17,18 +17,21 @@ public class ModelMap {
     protected ArrayList<Mobile> listMobile;
     protected static int level;
     protected static int score;
-    protected static Bonus[] bonus;
+    protected static int[] bonusValue;
+    protected ArrayList<Point> listPoint;
+    protected ArrayList<Point> listPointDispo;
+    protected Bonus currentBonus;
 
     public static void createBonus(){
-        bonus=new Bonus[8];
-        bonus[0]=new Bonus(null,100,20);
-        bonus[1]=new Bonus(null,300,20);
-        bonus[2]=new Bonus(null,500,20);
-        bonus[3]=new Bonus(null,700,20);
-        bonus[4]=new Bonus(null,1000,20);
-        bonus[5]=new Bonus(null,2000,20);
-        bonus[6]=new Bonus(null,3000,20);
-        bonus[7]=new Bonus(null,5000,20);
+        bonusValue=new int[8];
+        bonusValue[0]=100;
+        bonusValue[1]=300;
+        bonusValue[2]=500;
+        bonusValue[3]=700;
+        bonusValue[4]=1000;
+        bonusValue[5]=2000;
+        bonusValue[6]=3000;
+        bonusValue[7]=5000;
     }
 
     public ModelMap(File file) throws FileNotFoundException {
@@ -37,16 +40,18 @@ public class ModelMap {
         this.file=file;
         listPos=new ArrayList<>();
         listMobile=new ArrayList<>();
+        listPoint=new ArrayList<>();
+        listPointDispo =new ArrayList<>();
+        Pacman.setVies(3);
+        Pacman.setScore(0);
         Scanner input= new Scanner(file);
         String txt= input.next();
         X=Integer.parseInt(txt);
         txt= input.next();
         Y=Integer.parseInt(txt);
         txt= input.next();
-        System.out.println(txt);
         int nEntite=Integer.parseInt(txt);
         for(int i=0;i<nEntite;i++) {
-            System.out.println("new pos");
             listPos.add(new int[2]);
             txt = input.next();
             listPos.get(i)[0] = Integer.parseInt(txt);
@@ -73,15 +78,28 @@ public class ModelMap {
                     System.out.println("fin de lecture");
                 }
                 cases[j][i] = new Case(j, i,txt, this);
+                if(txt.equals("PO")){
+                    Point po=new Point(cases[j][i],false);
+                    listPoint.add(po);
+                    cases[j][i].setFixe(po);
+                }else{
+                    if(txt.equals("PG")){
+                        Point po=new Point(cases[j][i],true);
+                        listPoint.add(po);
+                        cases[j][i].setFixe(po);
+                    }
+                }
             }
         }
+        listPointDispo.addAll(listPoint);
         listMobile.add(new Pacman(cases[listPos.get(0)[0]][listPos.get(0)[1]]));
         listMobile.get(0).emplacement.mobile=listMobile.get(0);
         for(int i=1;i<nEntite;i++){
-            System.out.println("new fantome");
             listMobile.add(new Fantome(cases[listPos.get(i)[0]][listPos.get(i)[1]],tabTypeFantome[i-1], desti));
             listMobile.get(i).emplacement.mobile=listMobile.get(0);
         }
+        currentBonus=null;
+        input.close();
     }
 
     public Case[][] getCases() {
@@ -155,7 +173,106 @@ public class ModelMap {
         return temps;
     }
 
-    public void regen(){
+    public void regen() throws FileNotFoundException {
+        t=0;
+        temps=0;
+        Scanner input= new Scanner(file);
+        String txt= input.next();
+        txt= input.next();
+        txt= input.next();
+        int nEntite=Integer.parseInt(txt);
+        for(int i=0;i<nEntite;i++) {
+            listPos.add(new int[2]);
+            txt = input.next();
+            listPos.get(i)[0] = Integer.parseInt(txt);
+            txt = input.next();
+            listPos.get(i)[1] = Integer.parseInt(txt);
+        }
+        int[] tabTypeFantome=new int[nEntite-1];
+        for(int i=0;i<tabTypeFantome.length;i++){
+            txt = input.next();
+            tabTypeFantome[i]=Integer.parseInt(txt);
+        }
+        int[] desti=new int[2];
+        txt = input.next();
+        desti[0]=Integer.parseInt(txt);
+        txt = input.next();
+        desti[1]=Integer.parseInt(txt);
+        cases = new Case[X][Y];
+        tailleCase = 16;
+        for(int i=0;i<Y;i++){
+            for(int j=0;j<X;j++) {
+                try{
+                    txt= input.next();
+                }catch (Exception e){
+                    System.out.println("fin de lecture");
+                }
+                cases[j][i] = new Case(j, i,txt, this);
+                if(txt.equals("PO")){
+                    Point po=new Point(cases[j][i],false);
+                    listPoint.add(po);
+                    cases[j][i].setFixe(po);
+                }else{
+                    if(txt.equals("PG")){
+                        Point po=new Point(cases[j][i],true);
+                        listPoint.add(po);
+                        cases[j][i].setFixe(po);
+                    }
+                }
+            }
+        }
+        listPointDispo.addAll(listPoint);
+        listMobile.add(new Pacman(cases[listPos.get(0)[0]][listPos.get(0)[1]]));
+        listMobile.get(0).emplacement.mobile=listMobile.get(0);
+        for(int i=1;i<nEntite;i++){
+            listMobile.add(new Fantome(cases[listPos.get(i)[0]][listPos.get(i)[1]],tabTypeFantome[i-1], desti));
+            listMobile.get(i).emplacement.mobile=listMobile.get(0);
+        }
+        currentBonus=null;
+        input.close();
+    }
 
+    public ArrayList<Point> getListPointDispo() {
+        return listPointDispo;
+    }
+
+    public void setBonus(){
+        if(temps==20 && currentBonus==null) {
+            int i;
+            switch (level) {
+                case 1 -> i = 0;
+                case 2 -> i = 1;
+                case 3, 4 -> i = 2;
+                case 5, 6 -> i = 3;
+                case 7, 8 -> i = 4;
+                case 9, 10 -> i = 5;
+                case 11, 12 -> i = 6;
+                default -> i = 7;
+            }
+            currentBonus = new Bonus(cases[listPos.get(0)[0]][listPos.get(0)[1]], bonusValue[i],20);
+            currentBonus.emplacement.setFixe(currentBonus);
+        }else{
+            if(currentBonus!=null && temps==20+currentBonus.timer){
+                currentBonus=null;
+            }
+        }
+    }
+
+    public void eatPoint(Fixe f){
+        if(f==currentBonus){
+            currentBonus=null;
+            f.emplacement.setFixe(null);
+            f.emplacement=null;
+        }else{
+            Point p=(Point)f;
+            p.emplacement.setFixe(null);
+            p.emplacement=null;
+            listPointDispo.remove(p);
+        }
+    }
+
+    public void nextlvl() throws FileNotFoundException {
+        level++;
+        regen();
     }
 }

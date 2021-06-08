@@ -27,6 +27,7 @@ public class Main extends Application {
             return;
         }
         ModelMap modelMap = new ModelMap(file);
+        ModelMap.createBonus();
         ViewMap viewMap = new ViewMap(modelMap, primaryStage);
         ControllerMap controllerMap = new ControllerMap(viewMap,modelMap);
         controllerMap.setController();
