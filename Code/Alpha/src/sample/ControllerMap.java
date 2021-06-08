@@ -11,13 +11,18 @@ import java.util.TimerTask;
 public class ControllerMap extends Controller{
     ViewMap viewMap;
     ModelMap modelMap;
+    ModelParametres modelParametres;
     boolean started;
     Timer timer;
     EventHandler<KeyEvent> keyEventEventHandler;
+    ArrayList<String> touches;
 
-    public ControllerMap(ViewMap viewMap, ModelMap modelMap) {
+    public ControllerMap(ViewMap viewMap, ModelMap modelMap, ModelParametres modelParametres) {
         this.viewMap = viewMap;
         this.modelMap = modelMap;
+        touches = new ArrayList<>();
+        this.modelParametres = modelParametres;
+        touches = modelParametres.getConfigTouches();
         started=false;
         secondaryTimer();
         keyEventEventHandler= new EventHandler<>() {
@@ -26,21 +31,19 @@ public class ControllerMap extends Controller{
                 System.out.println("PRESSED! " + keyEvent.getCode());
                 modelMap.getPacman().lastDirection = modelMap.getPacman().direction;
 
-                switch (keyEvent.getCode()) {
-                    case UP:
-                        modelMap.getPacman().nextDirection = 1;
-                        break;
-                    case RIGHT:
-                        modelMap.getPacman().nextDirection = 2;
-                        break;
-                    case DOWN:
-                        modelMap.getPacman().nextDirection = 3;
-                        break;
-                    case LEFT:
-                        modelMap.getPacman().nextDirection = 4;
-                        break;
-                    default:
-                        break;
+                String s = keyEvent.getCode().toString();
+                if (touches.get(0).equals(s)) {
+                    modelMap.getPacman().nextDirection = 1;
+                } else if (touches.get(2).equals(s)) {
+                    modelMap.getPacman().nextDirection = 2;
+                } else if (touches.get(1).equals(s)) {
+                    modelMap.getPacman().nextDirection = 3;
+                } else if (touches.get(3).equals(s)) {
+                    modelMap.getPacman().nextDirection = 4;
+                }else if (s.equals("ESCAPE")){
+                    started=false;
+                    timer.cancel();
+                    return;
                 }
                 if (!started) {
                     started = true;
@@ -67,6 +70,7 @@ public class ControllerMap extends Controller{
                 viewMap.move();
                 if(modelMap.getListPointDispo().isEmpty()){
                     try {
+                        started=false;
                         modelMap.nextlvl();
                     } catch (FileNotFoundException e) {
                         e.printStackTrace();
@@ -99,10 +103,28 @@ public class ControllerMap extends Controller{
                 System.out.println("Temps :"+modelMap.getTemps()+" Score :"+Pacman.getScore()+" Vies :"+Pacman.getVies());
             }
         };
+        TimerTask gum=new TimerTask() {
+            @Override
+            public void run() {
+                if(modelMap.activatedgum){
+                    modelMap.tps++;
+                    if(modelMap.tps==8){
+                        ArrayList<Fantome> listFantome=modelMap.getAllFantome();
+                        for(Fantome f :listFantome){
+                            f.setGum(false);
+                        }
+                        modelMap.activatedgum=false;
+                        modelMap.tps=0;
+                    }
+                }
+            }
+        };
         timer.scheduleAtFixedRate(movfantome,0,1000/(6+modelMap.getLevel()));
         timer.scheduleAtFixedRate(movpac,0,1000/8);
         timer.scheduleAtFixedRate(anim,0,1000/24);
         timer.scheduleAtFixedRate(tps,0,1000);
+        timer.scheduleAtFixedRate(gum,0,1000);
+
 
     }
 
@@ -150,25 +172,8 @@ public class ControllerMap extends Controller{
             }
         };
 
-        TimerTask gum=new TimerTask() {
-            @Override
-            public void run() {
-                if(modelMap.activatedgum){
-                    modelMap.tps++;
-                    if(modelMap.tps==8){
-                        ArrayList<Fantome> listFantome=modelMap.getAllFantome();
-                        for(Fantome f :listFantome){
-                            f.setGum(false);
-                        }
-                        modelMap.activatedgum=false;
-                        modelMap.tps=0;
-                    }
-                }
-            }
-        };
         checkStatus.scheduleAtFixedRate(death,0,1000/10);
         checkStatus.scheduleAtFixedRate(chk,0,1000);
-        checkStatus.scheduleAtFixedRate(gum,0,1000);
     }
 
     public void animDeath(){

@@ -47,8 +47,9 @@ public class ViewMenu {
                 fileNotFoundException.printStackTrace();
             }
             ViewMap viewMap = new ViewMap(modelMap,primaryStage);
+            ModelParametres modelParametres = new ModelParametres();
             ModelMap.createBonus();
-            ControllerMap controllerMap=new ControllerMap(viewMap,modelMap);
+            ControllerMap controllerMap=new ControllerMap(viewMap,modelMap,modelParametres);
             controllerMap.setController();
         });
         boutonParametres = new Button(("Paramètres"));
