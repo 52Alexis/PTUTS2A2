@@ -106,17 +106,17 @@ public class Fantome extends Mobile{
     }
 
     public void algo(){
-        if(type==2&&emplacement.model.getTemps()<15){
+        if(type==2&&emplacement.model.getTemps()<0){
             gum=false;
             return;
 
         }
-        if (type == 3&&emplacement.model.getTemps()<30) {
+        if (type == 3&&emplacement.model.getTemps()<5) {
             gum=false;
             return;
 
         }
-        if(type==4&&emplacement.model.getTemps()<60){
+        if(type==4&&emplacement.model.getTemps()<10){
             gum=false;
             return;
 

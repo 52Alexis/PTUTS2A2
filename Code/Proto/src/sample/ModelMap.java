@@ -282,6 +282,8 @@ public class ModelMap {
         }else{
             Point p=(Point)f;
             if(p.isGum()){
+                StaticMusic.musicMain.pause();
+                StaticMusic.musicRunaway.play();
                 activatedgum=true;
                 tps=0;
                 getPacman().nFantome=0;

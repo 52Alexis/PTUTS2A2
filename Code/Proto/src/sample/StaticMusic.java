@@ -58,10 +58,34 @@ public class StaticMusic {
             }
         });
 
+        musicTitle.setOnEndOfMedia(new Runnable() {
+            public void run() {
+                musicMain.seek(Duration.ZERO);
+            }
+        });
+
+        musicRunaway.setOnEndOfMedia(new Runnable() {
+            public void run() {
+                musicRunaway.stop();
+                musicMain.play();
+            }
+        });
+
+        musicGameOver.setOnEndOfMedia(new Runnable() {
+            public void run() {
+                musicGameOver.seek(Duration.ZERO);
+            }
+        });
 
         fxDeath.setOnEndOfMedia(new Runnable() {
             public void run() {
                 fxDeath.stop();
+            }
+        });
+
+        fxGhostDeath.setOnEndOfMedia(new Runnable() {
+            public void run() {
+                fxGhostDeath.stop();
             }
         });
 
