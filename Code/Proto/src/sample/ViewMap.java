@@ -81,19 +81,19 @@ public class ViewMap {
         for(int i=0;i<16;i++){
             spritesPacmanDead.add(new Image(new FileInputStream("img/Entity/Mobile/Pacman/death/"+i+".png")));
         }
-        for(int i=0;i<8;i++){
+        for(int i=0;i<16;i++){
             spritesBlinky.add(new Image(new FileInputStream("img/Entity/Mobile/Fantome/blinky/"+i+".png")));
         }
-        for(int i=0;i<8;i++){
+        for(int i=0;i<16;i++){
             spritesPinky.add(new Image(new FileInputStream("img/Entity/Mobile/Fantome/pinky/"+i+".png")));
         }
-        for(int i=0;i<8;i++){
+        for(int i=0;i<16;i++){
             spritesInky.add(new Image(new FileInputStream("img/Entity/Mobile/Fantome/inky/"+i+".png")));
         }
-        for(int i=0;i<8;i++){
+        for(int i=0;i<16;i++){
             spritesClyde.add(new Image(new FileInputStream("img/Entity/Mobile/Fantome/clyde/"+i+".png")));
         }
-        for(int i=0;i<8;i++){
+        for(int i=0;i<16;i++){
             spritesGumFantome.add(new Image(new FileInputStream("img/Entity/Mobile/Fantome/gum/"+i+".png")));
         }
         for(int i=0;i<8;i++){
@@ -192,25 +192,26 @@ public class ViewMap {
                 }
             }else{
                 Fantome fantome=modelMap.getFantome(i);
+                int an=getAngle(fantome);
                 if(fantome.isGum()||fantome.isDead()){
                     if(fantome.isGum()) {
-                        sprite = new ImagePattern(spritesGumFantome.get(0));
+                        sprite = new ImagePattern(spritesGumFantome.get(an+modelMap.getT()%2));
                     }else {
-                        sprite = new ImagePattern(spritesDeadFantome.get(0));
+                        sprite = new ImagePattern(spritesDeadFantome.get(an/2));
                     }
                 }else {
                     switch (fantome.type) {
                         case 1:
-                            sprite = new ImagePattern(spritesBlinky.get(0));
+                            sprite = new ImagePattern(spritesBlinky.get(an+modelMap.getT()%2));
                             break;
                         case 2:
-                            sprite = new ImagePattern(spritesPinky.get(0));
+                            sprite = new ImagePattern(spritesPinky.get(an+modelMap.getT()%2));
                             break;
                         case 3:
-                            sprite = new ImagePattern(spritesInky.get(0));
+                            sprite = new ImagePattern(spritesInky.get(an+modelMap.getT()%2));
                             break;
                         case 4:
-                            sprite = new ImagePattern(spritesClyde.get(0));
+                            sprite = new ImagePattern(spritesClyde.get(an+modelMap.getT()%2));
                             break;
                         default:
                             return;
@@ -253,6 +254,57 @@ public class ViewMap {
             img=new ImagePattern(images_mur.get(0));
         }
         bonus.setFill(img);
+    }
+
+    public int getAngle(Fantome f){
+        int x=modelMap.getPacman().emplacement.getX()-f.emplacement.getX();
+        int y=modelMap.getPacman().emplacement.getY()-f.emplacement.getY();
+        double angle=Math.atan2(y,x);
+        angle=Math.toDegrees(angle);
+        int group;
+        if(angle<=157.5){
+            if(angle<=112.5){
+                if(angle<=67.5){
+                    if(angle<=27.5){
+                        if(angle<=-22.5){
+                            if(angle<=-67.5){
+                                if(angle<=112.5){
+                                    if(angle<=157.5){
+                                        group=0;
+                                    }else{
+                                        group=1;
+                                        //haut gauche
+                                    }
+                                }else {
+                                    group=2;
+                                    //haut
+                                }
+                            }else{
+                                group=3;
+                                //haut droit
+                            }
+                        }else {
+                            group=4;
+                            //droite
+                        }
+                    }else{
+                        group=5;
+                        //bas droite
+                    }
+                }else {
+                    group=6;
+                    //bas
+                }
+            }else {
+                group=7;
+                //bas gauche
+            }
+        }else{
+            group=0;
+            //gauche
+        }
+        group=group*2;
+        return group;
     }
 
 }
