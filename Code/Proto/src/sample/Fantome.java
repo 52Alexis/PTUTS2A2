@@ -108,15 +108,15 @@ public class Fantome extends Mobile{
         if(door){
             return true;
         }else{
-            if(type==2&&emplacement.model.getTemps()<15){
+            if(type==2&&emplacement.model.getTemps()<2){
                 return false;
 
             }
-            if (type == 3&&emplacement.model.getTemps()<30) {
+            if (type == 3&&emplacement.model.getTemps()<5) {
                 return false;
 
             }
-            if(type==4&&emplacement.model.getTemps()<60){
+            if(type==4&&emplacement.model.getTemps()<10){
                 return false;
 
             }
@@ -136,29 +136,37 @@ public class Fantome extends Mobile{
                 case 1:
                     try {
                         posY = posY - 4;
+                        destination = emplacement.model.getCase(posX, posY);
                     } catch (Exception e) {
                         posY = emplacement.model.getY() - 4;
+                        destination = emplacement.model.getCase(posX, posY);
                     }
                     break;
                 case 2:
                     try {
                         posX = posX + 4;
+                        destination = emplacement.model.getCase(posX, posY);
                     } catch (Exception e) {
-                        posY = 4;
+                        posX = 4;
+                        destination = emplacement.model.getCase(posX, posY);
                     }
                     break;
                 case 3:
                     try {
                         posY = posY + 4;
+                        destination = emplacement.model.getCase(posX, posY);
                     } catch (Exception e) {
                         posY = 4;
+                        destination = emplacement.model.getCase(posX, posY);
                     }
                     break;
                 case 4:
                     try {
-                        posX = posX - 4;
+                        posX=posX-4;
+                        destination = emplacement.model.getCase(posX, posY);
                     } catch (Exception e) {
                         posX = emplacement.model.getX() - 4;
+                        destination = emplacement.model.getCase(posX, posY);
                     }
                     break;
                 default:
@@ -175,42 +183,55 @@ public class Fantome extends Mobile{
                 case 1:
                     try {
                         posY = posY - 2;
+                        destination = emplacement.model.getCase(posX, posY);
                     } catch (Exception e) {
                         posY = emplacement.model.getY() - 2;
+                        destination = emplacement.model.getCase(posX, posY);
                     }
                     break;
                 case 2:
                     try {
                         posX = posX + 2;
+                        destination = emplacement.model.getCase(posX, posY);
                     } catch (Exception e) {
-                        posY = 2;
+                        posX = 2;
+                        destination = emplacement.model.getCase(posX, posY);
                     }
                     break;
                 case 3:
                     try {
                         posY = posY + 2;
+                        destination = emplacement.model.getCase(posX, posY);
                     } catch (Exception e) {
                         posY = 2;
+                        destination = emplacement.model.getCase(posX, posY);
                     }
                     break;
                 case 4:
                     try {
                         posX = posX - 2;
+                        destination = emplacement.model.getCase(posX, posY);
                     } catch (Exception e) {
                         posX = emplacement.model.getX() - 2;
+                        destination = emplacement.model.getCase(posX, posY);
                     }
                     break;
                 default:
                     break;
             }
+            destination = emplacement.model.getCase(posX, posY);
             Fantome f = emplacement.model.getFantomeByType(1);
             if (f != null) {
-                int vX = posX - f.emplacement.getX();
-                int vY = posY - f.emplacement.getY();
-                posX = posY + vX;
-                posY = posY + vY;
+                try {
+                    int vX = posX - f.emplacement.getX();
+                    int vY = posY - f.emplacement.getY();
+                    posX = posY + vX;
+                    posY = posY + vY;
+                    destination = emplacement.model.getCase(posX, posY);
+                }catch (Exception ignored){
+
+                }
             }
-            destination = emplacement.model.getCase(posX, posY);
 
     }
 

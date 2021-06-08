@@ -121,8 +121,8 @@ public class ModelMap {
     }
 
     public Fantome getFantomeByType(int type){
-        for(Mobile mobile:listMobile){
-            Fantome f = (Fantome)mobile;
+        for(int i=1;i<listMobile.size();i++){
+            Fantome f = (Fantome)listMobile.get(i);
             if(f.type==type){
                 return f;
             }
