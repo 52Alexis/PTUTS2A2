@@ -13,6 +13,9 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+
 public class ViewMenu {
     protected ModelMenu modelMenu;
     protected Stage primaryStage;
@@ -37,8 +40,16 @@ public class ViewMenu {
 
         boutonNouvellePartie = new Button("Nouvelle partie");
         boutonNouvellePartie.setOnAction(e->{
-            ModelMap modelMap = new ModelMap(28,36);
+            ModelMap modelMap = null;
+            try {
+                modelMap = new ModelMap(new File("data/mainMap.map"));
+            } catch (FileNotFoundException fileNotFoundException) {
+                fileNotFoundException.printStackTrace();
+            }
             ViewMap viewMap = new ViewMap(modelMap,primaryStage);
+            ModelMap.createBonus();
+            ControllerMap controllerMap=new ControllerMap(viewMap,modelMap);
+            controllerMap.setController();
         });
         boutonParametres = new Button(("Paramètres"));
         boutonParametres.setOnAction(e->{
@@ -69,7 +80,7 @@ public class ViewMenu {
         boutonParametres.getStyleClass().add("boutons");
         boutonMeilleursScores.getStyleClass().add("boutons");
 
-        titre.getStyleClass().add("title");
+//        titre.getStyleClass().add("title");
         gridPane.getStyleClass().add("background");
 
         Scene scene = new Scene(gridPane,1200,800);

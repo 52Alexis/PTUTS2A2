@@ -145,7 +145,8 @@ public class ControllerMap extends Controller{
                             Pacman.setVies(Pacman.getVies() - 1);
                             timer.cancel();
                             started = false;
-                            setController();
+                            removeController();
+                            animDeath();
                             modelMap.death();
                             }
                         }
@@ -173,5 +174,25 @@ public class ControllerMap extends Controller{
         checkStatus.scheduleAtFixedRate(death,0,1000/10);
         checkStatus.scheduleAtFixedRate(chk,0,1000);
         checkStatus.scheduleAtFixedRate(gum,0,1000);
+    }
+
+    public void animDeath(){
+        Timer deathAnim=new Timer("animDeath",false);
+        TimerTask animDeath=new TimerTask() {
+            @Override
+            public void run() {
+                if(viewMap.cycleAnim<viewMap.spritesPacmanDead.size()-1){
+                    viewMap.cycleAnim++;
+                    viewMap.deathAnim();
+                }else {
+                    viewMap.cycleAnim=0;
+                    deathAnim.cancel();
+                    if(!(Pacman.getVies()<=0)) {
+                        setController();
+                    }
+                }
+            }
+        };
+        deathAnim.scheduleAtFixedRate(animDeath,0,1000/8);
     }
 }

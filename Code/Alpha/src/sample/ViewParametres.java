@@ -2,12 +2,12 @@ package sample;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
@@ -81,6 +81,13 @@ public class ViewParametres {
         boxLeft.setAlignment(Pos.CENTER);
         boxLeft.getChildren().addAll(labelLeft,fieldLeft,errFieldLeft);
 
+        labelUp.getStyleClass().add("text");
+        labelRight.getStyleClass().add("text");
+        labelLeft.getStyleClass().add("text");
+        labelDown.getStyleClass().add("text");
+
+
+        btnReturn.getStyleClass().add("boutons");
         fieldUp.getStyleClass().add("boutons");
         fieldDown.getStyleClass().add("boutons");
         fieldRight.getStyleClass().add("boutons");
@@ -88,6 +95,7 @@ public class ViewParametres {
         //errFieldLeft
 
         root.getChildren().addAll(btnReturn,boxUp,boxDown,boxRight,boxLeft);
+        root.setBackground(new Background(new BackgroundFill(Color.rgb(0, 0, 0), CornerRadii.EMPTY, Insets.EMPTY)));
         scene = new Scene(root,1200,800);
         scene.getStylesheets().add("file:src/sample/Style.css");
         primaryStage.setScene(scene);

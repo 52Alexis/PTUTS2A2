@@ -36,7 +36,7 @@
     -fx-stroke : #3b40db;
     -fx-stroke-width : 2px;
 }
-
-.field{
-
+.text{
+    -fx-text-fill : #ffe611;
+    -fx-font-size : 20px;
 }
