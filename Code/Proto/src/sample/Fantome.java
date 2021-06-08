@@ -103,6 +103,18 @@ public class Fantome extends Mobile{
     }
 
     public void algo(){
+        if(type==2&&emplacement.model.getTemps()<15){
+            return;
+
+        }
+        if (type == 3&&emplacement.model.getTemps()<30) {
+            return;
+
+        }
+        if(type==4&&emplacement.model.getTemps()<60){
+            return;
+
+        }
         if(commonalgo()) {
             switch (type) {
                 case 1 -> blinky();
@@ -122,6 +134,7 @@ public class Fantome extends Mobile{
         }
         if(gum){
             panic();
+            move(destination);
             return false;
         }
         if(dead){
@@ -130,18 +143,6 @@ public class Fantome extends Mobile{
         if(door){
             return true;
         }else{
-            if(type==2&&emplacement.model.getTemps()<15){
-                return false;
-
-            }
-            if (type == 3&&emplacement.model.getTemps()<30) {
-                return false;
-
-            }
-            if(type==4&&emplacement.model.getTemps()<60){
-                return false;
-
-            }
             move(destination);
             return false;
         }

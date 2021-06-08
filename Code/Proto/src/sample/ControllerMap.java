@@ -133,11 +133,13 @@ public class ControllerMap extends Controller{
                             }
                             Pacman.setScore(Pacman.getScore()+score);
                         }else {
+                            if(!f.isDead()){
                             Pacman.setVies(Pacman.getVies() - 1);
                             timer.cancel();
                             started = false;
                             setController();
                             modelMap.death();
+                            }
                         }
                     }
                 }

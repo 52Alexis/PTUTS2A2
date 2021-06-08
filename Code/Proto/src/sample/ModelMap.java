@@ -269,6 +269,7 @@ public class ModelMap {
             Point p=(Point)f;
             if(p.isGum()){
                 activatedgum=true;
+                tps=0;
                 getPacman().nFantome=0;
                 for(int i=1;i<nEntite;i++){
                     Fantome fantome=(Fantome)listMobile.get(i);
