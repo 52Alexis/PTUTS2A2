@@ -229,9 +229,21 @@ public class ViewMap {
         }
     }
 
+    public void allMur(){
+        for(int i=0;i<modelMap.getX();i++){
+            for(int j=0;j<modelMap.getY();j++){
+                mur(i,j);
+            }
+        }
+    }
+
     public void setPoints(){
+        allMur();
         int i;
         for(Point p:modelMap.getListPointDispo()){
+            if(p==null||p.emplacement==null){
+                return;
+            }
             if(p.gum){
                 i=9;
             }else{
