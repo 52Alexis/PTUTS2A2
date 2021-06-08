@@ -18,10 +18,6 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         primaryStage.setTitle("PacMan");
 
-//        ModelMap modelMap = new ModelMap(28,36);
-//        ViewMap viewMap = new ViewMap(modelMap,primaryStage);
-//        viewMap.display();
-
         ModelMenu modelMenu = new ModelMenu();
         ViewMenu viewMenu = new ViewMenu(modelMenu,primaryStage);
         viewMenu.display();
