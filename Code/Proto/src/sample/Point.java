@@ -2,8 +2,8 @@ package sample;
 
 public class Point extends Fixe{
     protected boolean gum;
-    public static final int valeur_gum = 500;
-    public static final int valeur_nongum=100;
+    public static final int valeur_gum = 50;
+    public static final int valeur_nongum= 10;
 
 
     public Point(Case emplacement, boolean gum){
@@ -14,5 +14,9 @@ public class Point extends Fixe{
         }else{
             super.score = valeur_nongum;
         }
+    }
+
+    public boolean isGum() {
+        return gum;
     }
 }

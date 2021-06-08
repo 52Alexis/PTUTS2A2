@@ -2,6 +2,7 @@ package sample;
 
 import javafx.animation.AnimationTimer;
 import javafx.event.EventHandler;
+import javafx.scene.layout.Pane;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -86,14 +87,6 @@ public class ControllerMap extends Controller{
                 ArrayList<Fantome> listFantome=modelMap.getAllFantome();
                 for(Fantome f :listFantome){
                     f.move();
-                    if(f.emplacement==modelMap.getPacman().emplacement){
-                        Pacman.setVies(Pacman.getVies()-1);
-                        try {
-                            modelMap.regen();
-                        } catch (FileNotFoundException e) {
-                            e.printStackTrace();
-                        }
-                    }
                 }
             }
         };
@@ -104,7 +97,7 @@ public class ControllerMap extends Controller{
                 System.out.println("Temps :"+modelMap.getTemps()+" Score :"+Pacman.getScore()+" Vies :"+Pacman.getVies());
             }
         };
-        timer.scheduleAtFixedRate(movfantome,0,1000/7);
+        timer.scheduleAtFixedRate(movfantome,0,1000/(6+modelMap.getLevel()));
         timer.scheduleAtFixedRate(movpac,0,1000/8);
         timer.scheduleAtFixedRate(anim,0,1000/24);
         timer.scheduleAtFixedRate(tps,0,1000);
@@ -119,14 +112,21 @@ public class ControllerMap extends Controller{
                 ArrayList<Fantome> listFantome=modelMap.getAllFantome();
                 for(Fantome f :listFantome){
                     if(f.emplacement==modelMap.getPacman().emplacement){
-                        Pacman.setVies(Pacman.getVies()-1);
-                        try {
+                        if(f.isGum()){
+                            f.die();
+                            Pacman p = modelMap.getPacman();
+                            p.nFantome++;
+                            int score=100;
+                            for(int i=0;i< p.nFantome;i++){
+                                score=score*2;
+                            }
+                            Pacman.setScore(Pacman.getScore()+score);
+                        }else {
+                            Pacman.setVies(Pacman.getVies() - 1);
                             timer.cancel();
-                            started=false;
+                            started = false;
                             setController();
-                            modelMap.regen();
-                        } catch (FileNotFoundException e) {
-                            e.printStackTrace();
+                            modelMap.death();
                         }
                     }
                 }
