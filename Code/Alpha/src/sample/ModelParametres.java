@@ -18,7 +18,7 @@ public class ModelParametres {
             BufferedReader reader = new BufferedReader(new FileReader(file));
             for (int i = 0; i<4;i++){
                 configTouches.add(i,String.valueOf(reader.readLine()));
-                System.out.println("Read : " + configTouches.get(i));
+                //System.out.println("Read : " + configTouches.get(i));
             }
             reader.close();
         } catch (IOException e) {
