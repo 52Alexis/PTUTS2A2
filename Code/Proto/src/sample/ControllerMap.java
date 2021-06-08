@@ -2,9 +2,11 @@ package sample;
 
 import javafx.animation.AnimationTimer;
 import javafx.event.EventHandler;
+import javafx.event.EventType;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
 
-import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -16,18 +18,17 @@ public class ControllerMap extends Controller{
     ModelMap modelMap;
     boolean started;
     Timer timer;
+    EventHandler<javafx.scene.input.KeyEvent> keyEventEventHandler;
+    EventType<KeyEvent> eventType;
 
     public ControllerMap(ViewMap viewMap, ModelMap modelMap) {
         this.viewMap = viewMap;
         this.modelMap = modelMap;
         started=false;
         secondaryTimer();
-    }
-
-    public void setController(){
-        viewMap.primaryStage.getScene().setOnKeyPressed(new EventHandler<javafx.scene.input.KeyEvent>() {
+        keyEventEventHandler=new EventHandler<KeyEvent>() {
             @Override
-            public void handle(javafx.scene.input.KeyEvent keyEvent) {
+            public void handle(KeyEvent keyEvent) {
                 System.out.println("PRESSED! "+keyEvent.getCode());
                 modelMap.getPacman().lastDirection=modelMap.getPacman().direction;
 
@@ -47,14 +48,21 @@ public class ControllerMap extends Controller{
                     default:
                         break;
                 }
-
                 if(!started){
                     started=true;
                     timer();
                 }
             }
-        });
+        };
+        eventType=new EventType<>();
+    }
 
+    public void setController(){
+        viewMap.primaryStage.getScene().addEventHandler(eventType,keyEventEventHandler);
+    }
+
+    public void removeController(){
+        viewMap.primaryStage.getScene().removeEventHandler(eventType,keyEventEventHandler);
     }
 
     public void timer(){
@@ -111,9 +119,10 @@ public class ControllerMap extends Controller{
             @Override
             public void run() {
                 if(Pacman.getVies()<=0){
-                    timer.cancel();
                     System.out.println("GAME OVER");
+                    timer.cancel();
                     checkStatus.cancel();
+                    removeController();
                 }
             }
         };
