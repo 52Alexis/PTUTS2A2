@@ -22,6 +22,8 @@ public class ModelMap {
     private int nEntite;
     private int[] tabTypeFantome;
     private int[] desti;
+    boolean activatedgum=false;
+    int tps=0;
 
     public static void createBonus(){
         bonusValue=new int[8];
@@ -91,13 +93,7 @@ public class ModelMap {
                 }
             }
         }
-        listMobile.add(new Pacman(cases[listPos.get(0)[0]][listPos.get(0)[1]]));
-        listMobile.get(0).emplacement.mobile=listMobile.get(0);
-        for(int i=1;i<nEntite;i++){
-            listMobile.add(new Fantome(cases[listPos.get(i)[0]][listPos.get(i)[1]],tabTypeFantome[i-1], desti));
-            listMobile.get(i).emplacement.mobile=listMobile.get(0);
-        }
-        currentBonus=null;
+        death();
         input.close();
     }
 
@@ -223,13 +219,7 @@ public class ModelMap {
                 }
             }
         }
-        listMobile.add(new Pacman(cases[listPos.get(0)[0]][listPos.get(0)[1]]));
-        listMobile.get(0).emplacement.mobile=listMobile.get(0);
-        for(int i=1;i<nEntite;i++){
-            listMobile.add(new Fantome(cases[listPos.get(i)[0]][listPos.get(i)[1]],tabTypeFantome[i-1], desti));
-            listMobile.get(i).emplacement.mobile=listMobile.get(0);
-        }
-        currentBonus=null;
+        death();
         input.close();
     }
 
@@ -278,6 +268,8 @@ public class ModelMap {
         }else{
             Point p=(Point)f;
             if(p.isGum()){
+                activatedgum=true;
+                getPacman().nFantome=0;
                 for(int i=1;i<nEntite;i++){
                     Fantome fantome=(Fantome)listMobile.get(i);
                     fantome.setGum(true);

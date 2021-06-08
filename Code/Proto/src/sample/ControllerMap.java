@@ -109,6 +109,17 @@ public class ControllerMap extends Controller{
         TimerTask chk=new TimerTask() {
             @Override
             public void run() {
+                if(Pacman.getVies()<=0){
+                    timer.cancel();
+                    System.out.println("GAME OVER");
+                    checkStatus.cancel();
+                }
+            }
+        };
+
+        TimerTask death=new TimerTask() {
+            @Override
+            public void run() {
                 ArrayList<Fantome> listFantome=modelMap.getAllFantome();
                 for(Fantome f :listFantome){
                     if(f.emplacement==modelMap.getPacman().emplacement){
@@ -130,14 +141,27 @@ public class ControllerMap extends Controller{
                         }
                     }
                 }
-                if(Pacman.getVies()==0){
-                    timer.cancel();
-                    System.out.println("GAME OVER");
-                    checkStatus.cancel();
-                }
             }
         };
 
+        TimerTask gum=new TimerTask() {
+            @Override
+            public void run() {
+                if(modelMap.activatedgum){
+                    modelMap.tps++;
+                    if(modelMap.tps==8){
+                        ArrayList<Fantome> listFantome=modelMap.getAllFantome();
+                        for(Fantome f :listFantome){
+                            f.setGum(false);
+                        }
+                        modelMap.activatedgum=false;
+                        modelMap.tps=0;
+                    }
+                }
+            }
+        };
+        checkStatus.scheduleAtFixedRate(death,0,1000/10);
         checkStatus.scheduleAtFixedRate(chk,0,1000);
+        checkStatus.scheduleAtFixedRate(gum,0,1000);
     }
 }
