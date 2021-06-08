@@ -15,11 +15,13 @@ public class ModelMap {
     protected int temps;
     protected ArrayList<int[]> listPos;
     protected ArrayList<Mobile> listMobile;
-    protected static int level;
-    protected static int score;
+    protected int level;
     protected static int[] bonusValue;
     protected ArrayList<Point> listPoint;
     protected Bonus currentBonus;
+    private int nEntite;
+    private int[] tabTypeFantome;
+    private int[] desti;
 
     public static void createBonus(){
         bonusValue=new int[8];
@@ -48,7 +50,7 @@ public class ModelMap {
         txt= input.next();
         Y=Integer.parseInt(txt);
         txt= input.next();
-        int nEntite=Integer.parseInt(txt);
+        nEntite=Integer.parseInt(txt);
         for(int i=0;i<nEntite;i++) {
             listPos.add(new int[2]);
             txt = input.next();
@@ -56,12 +58,12 @@ public class ModelMap {
             txt = input.next();
             listPos.get(i)[1] = Integer.parseInt(txt);
         }
-        int[] tabTypeFantome=new int[nEntite-1];
+        tabTypeFantome=new int[nEntite-1];
         for(int i=0;i<tabTypeFantome.length;i++){
             txt = input.next();
             tabTypeFantome[i]=Integer.parseInt(txt);
         }
-        int[] desti=new int[2];
+        desti=new int[2];
         txt = input.next();
         desti[0]=Integer.parseInt(txt);
         txt = input.next();
@@ -180,7 +182,7 @@ public class ModelMap {
         String txt= input.next();
         txt= input.next();
         txt= input.next();
-        int nEntite=Integer.parseInt(txt);
+        nEntite=Integer.parseInt(txt);
         for(int i=0;i<nEntite;i++) {
             listPos.add(new int[2]);
             txt = input.next();
@@ -188,12 +190,12 @@ public class ModelMap {
             txt = input.next();
             listPos.get(i)[1] = Integer.parseInt(txt);
         }
-        int[] tabTypeFantome=new int[nEntite-1];
+        tabTypeFantome=new int[nEntite-1];
         for(int i=0;i<tabTypeFantome.length;i++){
             txt = input.next();
             tabTypeFantome[i]=Integer.parseInt(txt);
         }
-        int[] desti=new int[2];
+        desti=new int[2];
         txt = input.next();
         desti[0]=Integer.parseInt(txt);
         txt = input.next();
@@ -257,6 +259,17 @@ public class ModelMap {
         }
     }
 
+    public void death(){
+        listMobile=new ArrayList<>();
+        listMobile.add(new Pacman(cases[listPos.get(0)[0]][listPos.get(0)[1]]));
+        listMobile.get(0).emplacement.mobile=listMobile.get(0);
+        for(int i=1;i<nEntite;i++){
+            listMobile.add(new Fantome(cases[listPos.get(i)[0]][listPos.get(i)[1]],tabTypeFantome[i-1], desti));
+            listMobile.get(i).emplacement.mobile=listMobile.get(0);
+        }
+        currentBonus=null;
+    }
+
     public void eatPoint(Fixe f){
         if(f==currentBonus){
             currentBonus=null;
@@ -264,6 +277,12 @@ public class ModelMap {
             f.emplacement=null;
         }else{
             Point p=(Point)f;
+            if(p.isGum()){
+                for(int i=1;i<nEntite;i++){
+                    Fantome fantome=(Fantome)listMobile.get(i);
+                    fantome.setGum(true);
+                }
+            }
             p.emplacement.setFixe(null);
             p.emplacement=null;
             listPoint.remove(p);
@@ -273,5 +292,9 @@ public class ModelMap {
     public void nextlvl() throws FileNotFoundException {
         level++;
         regen();
+    }
+
+    public int getLevel() {
+        return level;
     }
 }

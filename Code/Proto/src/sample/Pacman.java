@@ -9,6 +9,7 @@ public class Pacman extends Mobile {
     protected int nextDirection;
     protected static int vies;
     protected static int score;
+    protected int nFantome;
 
     public static void setVies(int vies) {
         Pacman.vies = vies;
@@ -30,6 +31,7 @@ public class Pacman extends Mobile {
         super(emplacement,1);
         lastDirection=0;
         nextDirection=0;
+        nFantome=0;
     }
 
 

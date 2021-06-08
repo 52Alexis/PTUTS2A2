@@ -5,16 +5,30 @@ import java.util.Random;
 
 public class Fantome extends Mobile{
     private boolean gum;
+    private boolean dead;
     protected int direction; //1 up, 2 droite, 3 down, 4 left
     protected Case destination;
+    protected int[] desti;
     protected boolean door;
 
+    public boolean isGum() {
+        return gum;
+    }
+
+    public void setGum(boolean gum) {
+        this.gum = gum;
+    }
+
+    public boolean isDead() {
+        return dead;
+    }
 
     public Fantome(Case emplacement, int type, int[] desti){
         super(emplacement,type);
         this.type=type;
         gum=false;
         door=false;
+        this.desti=desti;
         destination=emplacement.model.getCase(desti[0],desti[1]);
     }
 
@@ -103,7 +117,15 @@ public class Fantome extends Mobile{
 
     public boolean commonalgo(){
         if(emplacement==destination){
+            dead=false;
             door=true;
+        }
+        if(gum){
+            panic();
+            return false;
+        }
+        if(dead){
+            door=false;
         }
         if(door){
             return true;
@@ -252,5 +274,11 @@ public class Fantome extends Mobile{
         int x= rand.nextInt(emplacement.model.getX());
         int y= rand.nextInt(emplacement.model.getY());
         destination=emplacement.model.getCase(x,y);
+    }
+
+    public void die(){
+        dead=true;
+        gum=false;
+        destination=emplacement.model.getCase(desti[0],desti[1]-2);
     }
 }

@@ -208,21 +208,29 @@ public class ViewMap {
                 }
             }else{
                 Fantome fantome=modelMap.getFantome(i);
-                switch (fantome.type){
-                    case 1:
-                        sprite=new ImagePattern(spritesBlinky.get(0));
-                        break;
-                    case 2:
-                        sprite=new ImagePattern(spritesPinky.get(0));
-                        break;
-                    case 3:
-                        sprite=new ImagePattern(spritesInky.get(0));
-                        break;
-                    case 4:
-                        sprite=new ImagePattern(spritesClyde.get(0));
-                        break;
-                    default:
-                        return;
+                if(fantome.isGum()||fantome.isDead()){
+                    if(fantome.isGum()) {
+                        sprite = new ImagePattern(spritesGumFantome.get(0));
+                    }else {
+                        sprite = new ImagePattern(spritesDeadFantome.get(0));
+                    }
+                }else {
+                    switch (fantome.type) {
+                        case 1:
+                            sprite = new ImagePattern(spritesBlinky.get(0));
+                            break;
+                        case 2:
+                            sprite = new ImagePattern(spritesPinky.get(0));
+                            break;
+                        case 3:
+                            sprite = new ImagePattern(spritesInky.get(0));
+                            break;
+                        case 4:
+                            sprite = new ImagePattern(spritesClyde.get(0));
+                            break;
+                        default:
+                            return;
+                    }
                 }
             }
             listMobile.get(i).setFill(sprite);
