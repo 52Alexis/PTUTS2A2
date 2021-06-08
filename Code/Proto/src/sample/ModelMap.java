@@ -276,6 +276,7 @@ public class ModelMap {
 
     public void eatPoint(Fixe f){
         if(f.type==0){
+            StaticMusic.fxBonus.play();
             currentBonus=null;
             f.emplacement.setFixe(null);
             f.emplacement=null;

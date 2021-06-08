@@ -6,6 +6,7 @@ import javafx.event.EventType;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
+import javafx.util.Duration;
 
 import java.awt.event.KeyListener;
 import java.io.FileNotFoundException;
@@ -53,8 +54,6 @@ public class ControllerMap extends Controller{
                 if (!started) {
                     started = true;
                     timer();
-
-
                     StaticMusic.musicMain.play();
                 }
             }
@@ -153,8 +152,14 @@ public class ControllerMap extends Controller{
                         }else {
                             if(!f.isDead()){
                             Pacman.setVies(Pacman.getVies() - 1);
-                            StaticMusic.musicMain.stop();
-                            StaticMusic.fxDeath.play();
+
+                            if(Pacman.getVies()==0) {
+                                StaticMusic.musicMain.stop();
+                                StaticMusic.musicGameOver.play();
+                            } else {
+                                StaticMusic.musicMain.stop();
+                                StaticMusic.fxDeath.play();
+                            }
                             timer.cancel();
                             started = false;
                             removeController();

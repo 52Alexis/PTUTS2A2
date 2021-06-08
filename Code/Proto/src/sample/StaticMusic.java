@@ -85,7 +85,14 @@ public class StaticMusic {
 
         fxGhostDeath.setOnEndOfMedia(new Runnable() {
             public void run() {
+
                 fxGhostDeath.stop();
+            }
+        });
+
+        fxBonus.setOnEndOfMedia(new Runnable() {
+            public void run() {
+                fxBonus.stop();
             }
         });
 
