@@ -85,7 +85,7 @@ public class ControllerMap extends Controller{
             public void run() {
                 ArrayList<Fantome> listFantome=modelMap.getAllFantome();
                 for(Fantome f :listFantome){
-                    //f.move();
+                    f.move();
                     if(f.emplacement==modelMap.getPacman().emplacement){
                         Pacman.setVies(Pacman.getVies()-1);
                         try {
