@@ -15,10 +15,12 @@ public class Case {
     public Case(int x, int y,String typeMur, ModelMap model) {
         this.x = x;
         this.y = y;
-        this.mur = !typeMur.equals("0");
-        this.porte = typeMur.equals("P");
-        if(porte){
+        if(typeMur.equals("PO")||typeMur.equals("PG")||typeMur.equals("0")){
+            mur=false;
+            porte=false;
+        }else{
             mur=true;
+            porte= typeMur.equals("P");
         }
         this.model=model;
         this.typeMur=typeMur;
