@@ -1,8 +1,12 @@
 package sample;
 
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Rectangle;
@@ -33,6 +37,8 @@ public class ViewMap {
     protected int lastdirection;
     protected boolean hasMoved;
     protected int cycleAnim;
+    protected Label labelScore;
+    protected GridPane paneVies;
 
 
     public ViewMap(ModelMap modelMap,Stage stage) {
@@ -116,14 +122,29 @@ public class ViewMap {
                 grid.add(cases[i][j],i,j,1,1);
             }
         }
-        root.getChildren().add(grid);
+        HBox boxBas = new HBox();
+        paneVies = new GridPane();
+        paneVies.setHgap(5);
+        paneVies.setVgap(10);
+        for (int i = 0; i<Pacman.getVies(); i++){
+            Label label = new Label();
+            label.setGraphic(new ImageView(new Image("file:img/Entity/Mobile/Pacman/normal/21.png")));
+            paneVies.add(label,i,0);
+        }
+
+        labelScore = new Label(Pacman.getScore()+"");
+        labelScore.setAlignment(Pos.CENTER_RIGHT);
+        boxBas.getChildren().addAll(paneVies,labelScore);
+        boxBas.setAlignment(Pos.BOTTOM_CENTER);
+
+        root.getChildren().addAll(grid,boxBas);
         initEntity();
         root.getChildren().add(bonus);
         for(Rectangle rect:listMobile){
             root.getChildren().add(rect);
         }
         setPoints();
-        Scene sceneMap = new Scene(root,modelMap.getX()*modelMap.getTailleCase(),modelMap.getY()*modelMap.getTailleCase());
+        Scene sceneMap = new Scene(root,modelMap.getX()*modelMap.getTailleCase()+20,modelMap.getY()*modelMap.getTailleCase());
         primaryStage.setScene(sceneMap);
         primaryStage.setResizable(false);
     }
@@ -166,6 +187,14 @@ public class ViewMap {
             listMobile.get(i).setX(modelMap.getListMobile().get(i).emplacement.x * modelMap.getTailleCase() - 4);
             listMobile.get(i).setY(modelMap.getListMobile().get(i).emplacement.y * modelMap.getTailleCase() - 4);
         }
+    }
+
+    public void manageVie(){
+
+    }
+
+    public void manageScore(){
+
     }
 
     public void anim(){

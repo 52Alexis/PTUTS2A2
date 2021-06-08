@@ -13,12 +13,15 @@ import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
+
+
 public class ControllerMap extends Controller{
     ViewMap viewMap;
     ModelMap modelMap;
     boolean started;
     Timer timer;
     EventHandler<KeyEvent> keyEventEventHandler;
+
 
     public ControllerMap(ViewMap viewMap, ModelMap modelMap) {
         this.viewMap = viewMap;
@@ -50,6 +53,9 @@ public class ControllerMap extends Controller{
                 if (!started) {
                     started = true;
                     timer();
+
+
+                    StaticMusic.musicMain.play();
                 }
             }
         };
@@ -73,6 +79,9 @@ public class ControllerMap extends Controller{
                 if(modelMap.getListPointDispo().isEmpty()){
                     try {
                         modelMap.nextlvl();
+                        started=false;
+                        StaticMusic.musicMain.stop();
+                        StaticMusic.fxVictory.play();
                     } catch (FileNotFoundException e) {
                         e.printStackTrace();
                     }
@@ -133,6 +142,7 @@ public class ControllerMap extends Controller{
                     if(f.emplacement==modelMap.getPacman().emplacement){
                         if(f.isGum()){
                             f.die();
+                            StaticMusic.fxGhostDeath.play();
                             Pacman p = modelMap.getPacman();
                             p.nFantome++;
                             int score=100;
@@ -143,6 +153,8 @@ public class ControllerMap extends Controller{
                         }else {
                             if(!f.isDead()){
                             Pacman.setVies(Pacman.getVies() - 1);
+                            StaticMusic.musicMain.stop();
+                            StaticMusic.fxDeath.play();
                             timer.cancel();
                             started = false;
                             removeController();
