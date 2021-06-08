@@ -8,6 +8,7 @@ public class Fantome extends Mobile{
     private boolean dead;
     protected int direction; //1 up, 2 droite, 3 down, 4 left
     protected Case destination;
+    protected Case lastCase;
     protected int[] desti;
     protected boolean door;
 
@@ -39,6 +40,7 @@ public class Fantome extends Mobile{
     public void move(Case desti){
         ArrayList<Case> listValidCase;
         listValidCase=getCaseAdj(emplacement.model, emplacement.getX(), emplacement.getY());
+        listValidCase.remove(lastCase);
         Case nxtCase = null;
         double distMin=500000;
         for(int i=1; i<=listValidCase.size();i++){
@@ -98,6 +100,7 @@ public class Fantome extends Mobile{
     
     public void exchange(Case nxtCase){
         emplacement.mobile=null;
+        lastCase=emplacement;
         emplacement=nxtCase;
         emplacement.mobile=this;
     }
@@ -129,8 +132,12 @@ public class Fantome extends Mobile{
 
     public boolean commonalgo(){
         if(emplacement==destination){
-            dead=false;
-            door=true;
+            if(dead){
+                dead=false;
+                destination=emplacement.model.getCase(desti[0],desti[1]);
+            }else {
+                door = true;
+            }
         }
         if(gum){
             panic();
