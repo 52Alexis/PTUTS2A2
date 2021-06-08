@@ -19,6 +19,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         primaryStage.setTitle("PacMan");
+        StaticMusic.initMusic();
         File file;
         try {
             file = new File("data/mainMap.map");
