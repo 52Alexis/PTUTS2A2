@@ -59,6 +59,13 @@ public class StaticMusic {
         });
 
 
+        fxDeath.setOnEndOfMedia(new Runnable() {
+            public void run() {
+                fxDeath.stop();
+            }
+        });
+
+
     }
 
 }
