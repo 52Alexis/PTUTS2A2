@@ -40,6 +40,7 @@ public class ModelMap {
     public ModelMap(File file) throws FileNotFoundException {
         t=0;
         temps=0;
+        level=1;
         this.file=file;
         listPoint=new ArrayList<>();
         listPos=new ArrayList<>();
@@ -230,6 +231,7 @@ public class ModelMap {
     public void setBonus(){
         if(temps==20 && currentBonus==null) {
             int i;
+            System.out.println(level);
             switch (level) {
                 case 1 -> i = 0;
                 case 2 -> i = 1;
@@ -240,6 +242,7 @@ public class ModelMap {
                 case 11, 12 -> i = 6;
                 default -> i = 7;
             }
+            System.out.println(i);
             currentBonus = new Bonus(cases[listPos.get(0)[0]][listPos.get(0)[1]], bonusValue[i],20);
             currentBonus.emplacement.setFixe(currentBonus);
         }else{
@@ -247,6 +250,17 @@ public class ModelMap {
                 currentBonus=null;
             }
         }
+    }
+
+    public int searchBonusValue(int score){
+        for(int i=0;i<bonusValue.length;i++){
+            if(bonusValue[i]==score)return i;
+        }
+        return 0;
+    }
+
+    public Bonus getCurrentBonus() {
+        return currentBonus;
     }
 
     public void death(){
@@ -261,7 +275,7 @@ public class ModelMap {
     }
 
     public void eatPoint(Fixe f){
-        if(f==currentBonus){
+        if(f.type==0){
             currentBonus=null;
             f.emplacement.setFixe(null);
             f.emplacement=null;

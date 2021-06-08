@@ -7,7 +7,7 @@ public class Point extends Fixe{
 
 
     public Point(Case emplacement, boolean gum){
-        super(emplacement,0);
+        super(emplacement,0,1);
         this.gum=gum;
         if(this.gum) {
             super.score = valeur_gum;

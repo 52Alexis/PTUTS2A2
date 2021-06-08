@@ -79,6 +79,7 @@ public class ControllerMap extends Controller{
                 modelMap.increment();
                 modelMap.setBonus();
                 viewMap.anim();
+                viewMap.setBonus();
             }
         };
         TimerTask movfantome=new TimerTask() {

@@ -32,9 +32,11 @@ public class ViewMap {
     protected ArrayList<Image> spritesGumFantome;
     protected ArrayList<Image> spritesDeadFantome;
     protected ArrayList<Image> spritesPacmanDead;
+    protected ArrayList<Image> spritesBonus;
 
 
     protected ArrayList<Rectangle> listMobile;
+    protected Rectangle bonus;
     protected int lastdirection;
     protected boolean hasMoved;
 
@@ -60,6 +62,7 @@ public class ViewMap {
         spritesGumFantome=new ArrayList<>();
         spritesDeadFantome=new ArrayList<>();
         spritesPacmanDead=new ArrayList<>();
+        spritesBonus=new ArrayList<>();
 
         images_mur.add(new Image(new FileInputStream("img/Walls/0.png")));  //0
         images_mur.add(new Image(new FileInputStream("img/Walls/EO.png"))); //1
@@ -90,12 +93,14 @@ public class ViewMap {
         for(int i=0;i<8;i++){
             spritesClyde.add(new Image(new FileInputStream("img/Entity/Mobile/Fantome/clyde/"+i+".png")));
         }
-
         for(int i=0;i<8;i++){
             spritesGumFantome.add(new Image(new FileInputStream("img/Entity/Mobile/Fantome/gum/"+i+".png")));
         }
         for(int i=0;i<8;i++){
             spritesDeadFantome.add(new Image(new FileInputStream("img/Entity/Mobile/Fantome/dead/"+i+".png")));
+        }
+        for(int i=0;i<8;i++){
+            spritesBonus.add(new Image(new FileInputStream("img/Entity/Fixe/Bonus/"+i+".png")));
         }
 
 
@@ -104,11 +109,15 @@ public class ViewMap {
     public void addWidgetsToView(){
         Pane root=new Pane();
         GridPane grid = new GridPane();
+        bonus=new Rectangle();
+        bonus.setHeight(modelMap.getTailleCase());
+        bonus.setWidth(modelMap.getTailleCase());
+        bonus.setX(modelMap.getPacman().emplacement.getX()-4);
+        bonus.setY(modelMap.getPacman().emplacement.getY()-4);
         cases=new Rectangle[modelMap.X][modelMap.Y];
         for (int i=0; i<modelMap.getX();i++){
             for(int j=0;j< modelMap.getY();j++){
                 cases[i][j] =new Rectangle(i*modelMap.getTailleCase(),i*modelMap.getTailleCase(),modelMap.getTailleCase(),modelMap.getTailleCase());
-                color(i,j);
                 mur(i,j);
                 grid.add(cases[i][j],i,j,1,1);
             }
@@ -119,6 +128,7 @@ public class ViewMap {
             root.getChildren().add(rect);
         }
         setPoints();
+        root.getChildren().add(bonus);
         Scene sceneMap = new Scene(root,modelMap.getX()*modelMap.getTailleCase(),modelMap.getY()*modelMap.getTailleCase());
         primaryStage.setScene(sceneMap);
         primaryStage.setResizable(false);
@@ -155,32 +165,6 @@ public class ViewMap {
             default -> rect.setFill(new ImagePattern(images_mur.get(0)));
         }
 
-    }
-
-    public void color(int x,int y){
-        Rectangle uneCase=cases[x][y];
-        if (modelMap.cases[x][y].haveMobile()){
-            Mobile mobile=modelMap.cases[x][y].mobile;
-            switch (mobile.type) {
-                case 1 -> uneCase.setFill(Color.YELLOW);
-                case 2 -> uneCase.setFill(Color.RED);
-                case 3 -> uneCase.setFill(Color.PINK);
-                case 4 -> uneCase.setFill(Color.BLUE);
-                case 5 -> uneCase.setFill(Color.ORANGE);
-            }
-        }else {
-            if (!modelMap.cases[x][y].isMur()) {
-                uneCase.setFill(new ImagePattern(images_mur.get(0)));
-            }
-        }
-    }
-
-    public void colorAll(){
-        for (int i=0; i<modelMap.getX();i++){
-            for(int j=0;j< modelMap.getY();j++){
-                color(i,j);
-            }
-        }
     }
 
     public void move(){
@@ -259,6 +243,16 @@ public class ViewMap {
             }
             cases[p.emplacement.getX()][p.emplacement.getY()].setFill(new ImagePattern(images_mur.get(i)));
         }
+    }
+
+    public void setBonus(){
+        ImagePattern img;
+        if(modelMap.getCurrentBonus()!=null){
+            img=new ImagePattern(spritesBonus.get(modelMap.searchBonusValue(modelMap.getCurrentBonus().score)));
+        }else{
+            img=new ImagePattern(images_mur.get(0));
+        }
+        bonus.setFill(img);
     }
 
 }

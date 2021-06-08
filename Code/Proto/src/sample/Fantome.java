@@ -107,14 +107,17 @@ public class Fantome extends Mobile{
 
     public void algo(){
         if(type==2&&emplacement.model.getTemps()<15){
+            gum=false;
             return;
 
         }
         if (type == 3&&emplacement.model.getTemps()<30) {
+            gum=false;
             return;
 
         }
         if(type==4&&emplacement.model.getTemps()<60){
+            gum=false;
             return;
 
         }
@@ -287,6 +290,6 @@ public class Fantome extends Mobile{
     public void die(){
         dead=true;
         gum=false;
-        destination=emplacement.model.getCase(desti[0],desti[1]-2);
+        destination=emplacement.model.getCase(desti[0],desti[1]+2);
     }
 }
