@@ -6,6 +6,7 @@ import javafx.scene.Node;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.GridPane;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Rectangle;
 
@@ -16,30 +17,30 @@ public class ControllerMapEditor implements EventHandler<ActionEvent> {
     public ControllerMapEditor(ModelMapEditor modelMapEditor, ViewMapEditor viewMapEditor) {
         this.modelMapEditor = modelMapEditor;
         this.viewMapEditor = viewMapEditor;
-        viewMapEditor.setController(this);
+        this.viewMapEditor.setController(this);
     }
 
     @Override
     public void handle(ActionEvent actionEvent) {
+        System.out.println("l'envent marche");
         EventHandler<MouseEvent> mouseEvent = new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
-                Node source = (Node) mouseEvent.getSource();
-                System.out.println(mouseEvent.getSource());
+                Node source = mouseEvent.getPickResult().getIntersectedNode();
                 Node imgSource = viewMapEditor.buttonStraight.getGraphic();
                 ImageView imageView = (ImageView) imgSource;
                 Image img = imageView.getImage();
                 Rectangle r = new Rectangle();
                 r.setFill(new ImagePattern(img));
-                Integer colIndex = viewMapEditor.paneMapEdited.getColumnIndex(source);
-                Integer rowIndex = viewMapEditor.paneMapEdited.getRowIndex(source);
+                Integer colIndex = GridPane.getColumnIndex(source) ;
+                Integer rowIndex = GridPane.getRowIndex(source);
                 viewMapEditor.paneMapEdited.add(r, colIndex, rowIndex);
-                viewMapEditor.paneMapEdited.requestFocus();
             }
         };
         if (actionEvent.getSource().equals(viewMapEditor.buttonStraight)){
-            viewMapEditor.paneMapEdited.addEventFilter(MouseEvent.MOUSE_CLICKED, mouseEvent);
-            viewMapEditor.paneMapEdited.removeEventFilter(MouseEvent.MOUSE_CLICKED,mouseEvent );
+            System.out.println("clique sur le straight");
+            viewMapEditor.paneMapEdited.setOnMouseClicked(mouseEvent);
+
         }
     }
 }

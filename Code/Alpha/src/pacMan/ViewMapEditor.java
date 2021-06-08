@@ -5,12 +5,11 @@ import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.SplitPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.*;
-import javafx.scene.paint.Color;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
@@ -46,7 +45,7 @@ public class ViewMapEditor {
         boxBoutons.setSpacing(10);
         for (int i = 0; i<28;i++){
             for (int j = 0; j<32; j++){
-                Rectangle uneCase = new Rectangle();
+                Rectangle uneCase = new Rectangle(16,16);
                 uneCase.setFill(new ImagePattern(new Image("file:img/Walls/0.png")));
                 paneMapEdited.add(uneCase,i,j,1,1);
             }
