@@ -2,19 +2,27 @@ package sample;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 public class ViewParametres {
     protected ModelParametres modelParametres;
     protected Stage primaryStage;
     protected Button fieldUp;
+    protected Label errFieldUp;
     protected Button fieldDown;
+    protected Label errFieldDown;
     protected Button fieldRight;
+    protected Label errFieldRight;
     protected Button fieldLeft;
+    protected Label errFieldLeft;
     protected Scene scene;
 
     public ViewParametres(ModelParametres modelParametres, Stage primaryStage) {
@@ -22,23 +30,53 @@ public class ViewParametres {
         this.primaryStage = primaryStage;
         init();
         addWidgetsToView();
+        primaryStage.setResizable(false);
     }
 
     public void init(){
         fieldUp = new Button();
         fieldUp.setText(modelParametres.getConfigTouches().get(0));
+        errFieldUp = new Label("Key already assignent");
+        errFieldUp.setVisible(false);
+        errFieldUp.setTextFill(Color.RED);
         fieldDown = new Button();
         fieldDown.setText(modelParametres.getConfigTouches().get(1));
+        errFieldDown = new Label("Key already assignent");
+        errFieldDown.setVisible(false);
+        errFieldDown.setTextFill(Color.RED);
         fieldRight = new Button();
         fieldRight.setText(modelParametres.getConfigTouches().get(2));
+        errFieldRight = new Label("Key already assignent");
+        errFieldRight.setVisible(false);
+        errFieldRight.setTextFill(Color.RED);
         fieldLeft = new Button();
         fieldLeft.setText(modelParametres.getConfigTouches().get(3));
+        errFieldLeft = new Label("Key already assignent");
+        errFieldLeft.setVisible(false);
+        errFieldLeft.setTextFill(Color.RED);
     }
 
     public void addWidgetsToView(){
-        Pane root = new VBox();
-        root.getChildren().addAll(fieldUp,fieldDown,fieldRight,fieldLeft);
-        scene = new Scene(root,200,200);
+        VBox root = new VBox();
+        root.setAlignment(Pos.CENTER);
+        HBox boxUp = new HBox();
+        Label labelUp = new Label("UP key : ");
+        boxUp.setAlignment(Pos.CENTER);
+        boxUp.getChildren().addAll(labelUp,fieldUp,errFieldUp);
+        HBox boxDown = new HBox();
+        Label labelDown = new Label("DOWN key : ");
+        boxDown.setAlignment(Pos.CENTER);
+        boxDown.getChildren().addAll(labelDown,fieldDown,errFieldDown);
+        HBox boxRight = new HBox();
+        Label labelRight = new Label("RIGHT key : ");
+        boxRight.setAlignment(Pos.CENTER);
+        boxRight.getChildren().addAll(labelRight,fieldRight,errFieldRight);
+        HBox boxLeft = new HBox();
+        Label labelLeft = new Label("UP key : ");
+        boxLeft.setAlignment(Pos.CENTER);
+        boxLeft.getChildren().addAll(labelLeft,fieldLeft,errFieldLeft);
+        root.getChildren().addAll(boxUp,boxDown,boxRight,boxLeft);
+        scene = new Scene(root,1200,800);
         primaryStage.setScene(scene);
     }
 

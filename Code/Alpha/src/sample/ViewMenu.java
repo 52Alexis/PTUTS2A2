@@ -29,6 +29,7 @@ public class ViewMenu {
         this.primaryStage = primaryStage;
         initAttributs();
         addWidgetToView();
+        primaryStage.setResizable(false);
     }
 
     public void initAttributs(){
