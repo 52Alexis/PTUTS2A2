@@ -35,7 +35,7 @@ public class ViewMenu {
 
     public void initAttributs(){
         titre = new Label();
-        titre.setGraphic(new ImageView(new Image("file:images/title.png")));
+        titre.setGraphic(new ImageView(new Image("file:img/title.png")));
 //        titre.setFill(Color.web("#ffe611"));
 
         boutonNouvellePartie = new Button("Nouvelle partie");
