@@ -3,6 +3,10 @@ package sample;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.Background;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -13,7 +17,7 @@ public class ViewMenu {
     protected ModelMenu modelMenu;
     protected Stage primaryStage;
 
-    protected Text titre;
+    protected Label titre;
     protected Button boutonNouvellePartie;
     protected Button boutonParametres;
     protected Button boutonMeilleursScores;
@@ -27,8 +31,9 @@ public class ViewMenu {
     }
 
     public void initAttributs(){
-        titre = new Text("PacMan");
-        titre.setFill(Color.web("#ffe611"));
+        titre = new Label();
+        titre.setGraphic(new ImageView(new Image("file:images/title.png")));
+//        titre.setFill(Color.web("#ffe611"));
 
         boutonNouvellePartie = new Button("Nouvelle partie");
         boutonNouvellePartie.setOnAction(e->{
@@ -51,7 +56,7 @@ public class ViewMenu {
 
         VBox boxTitre = new VBox(titre);
         boxTitre.setAlignment(Pos.CENTER);
-        boxTitre.setTranslateY(-300);
+        boxTitre.setTranslateY(-275);
         gridPane.add(boxTitre,3,0);
 
         VBox boxBoutons = new VBox(10,boutonNouvellePartie,boutonParametres,boutonMeilleursScores);
