@@ -24,7 +24,7 @@ public class ControllerParametres implements EventHandler<ActionEvent> {
 
         if (actionEvent.getSource().equals(viewParametres.fieldUp)){
             viewParametres.errFieldUp.setVisible(false);
-            viewParametres.fieldUp.addEventFilter(KeyEvent.KEY_RELEASED,keyEvent ->{
+            viewParametres.fieldUp.addEventFilter(KeyEvent.ANY,keyEvent ->{
                 String tmp = keyEvent.getCode().toString();
                 if(stringChecker(tmp,0)) {
                     viewParametres.fieldUp.setText(tmp);
@@ -35,7 +35,7 @@ public class ControllerParametres implements EventHandler<ActionEvent> {
                     viewParametres.errFieldUp.setVisible(true);
                 }
             });
-            viewParametres.fieldUp.removeEventFilter(KeyEvent.KEY_RELEASED,keyEvent ->{
+            viewParametres.fieldUp.removeEventFilter(KeyEvent.ANY,keyEvent ->{
                 String tmp = keyEvent.getCode().toString();
                 if(stringChecker(tmp,0)){
                     viewParametres.fieldUp.setText(tmp);
@@ -50,7 +50,7 @@ public class ControllerParametres implements EventHandler<ActionEvent> {
 
         if (actionEvent.getSource().equals(viewParametres.fieldDown)){
             viewParametres.errFieldDown.setVisible(false);
-            viewParametres.fieldDown.addEventFilter(KeyEvent.KEY_RELEASED, keyEvent ->{
+            viewParametres.fieldDown.addEventFilter(KeyEvent.ANY, keyEvent ->{
                 String tmp = keyEvent.getCode().toString();
                 if(stringChecker(tmp,1)){
                     viewParametres.fieldDown.setText(tmp);
@@ -61,7 +61,7 @@ public class ControllerParametres implements EventHandler<ActionEvent> {
                     viewParametres.errFieldDown.setVisible(true);
                 }
             });
-            viewParametres.fieldDown.removeEventFilter(KeyEvent.KEY_RELEASED,keyEvent ->{
+            viewParametres.fieldDown.removeEventFilter(KeyEvent.ANY,keyEvent ->{
                 String tmp = keyEvent.getCode().toString();
                 if(stringChecker(tmp,1)){
                     viewParametres.fieldDown.setText(tmp);
@@ -76,7 +76,7 @@ public class ControllerParametres implements EventHandler<ActionEvent> {
 
         if (actionEvent.getSource().equals(viewParametres.fieldRight)){
             viewParametres.errFieldRight.setVisible(false);
-            viewParametres.fieldRight.addEventFilter(KeyEvent.KEY_RELEASED, keyEvent ->{
+            viewParametres.fieldRight.addEventFilter(KeyEvent.ANY, keyEvent ->{
                 String tmp = keyEvent.getCode().toString();
                 if(stringChecker(tmp,2)){
                     viewParametres.fieldRight.setText(tmp);
@@ -87,7 +87,7 @@ public class ControllerParametres implements EventHandler<ActionEvent> {
                     viewParametres.errFieldRight.setVisible(true);
                 }
             });
-            viewParametres.fieldRight.removeEventFilter(KeyEvent.KEY_RELEASED,keyEvent ->{
+            viewParametres.fieldRight.removeEventFilter(KeyEvent.ANY,keyEvent ->{
                 String tmp = keyEvent.getCode().toString();
                 if(stringChecker(tmp,2)){
                     viewParametres.fieldRight.setText(tmp);
@@ -102,7 +102,7 @@ public class ControllerParametres implements EventHandler<ActionEvent> {
 
         if (actionEvent.getSource().equals(viewParametres.fieldLeft)){
             viewParametres.errFieldLeft.setVisible(false);
-            viewParametres.fieldLeft.addEventFilter(KeyEvent.KEY_RELEASED, keyEvent ->{
+            viewParametres.fieldLeft.addEventFilter(KeyEvent.ANY, keyEvent ->{
                 String tmp = keyEvent.getCode().toString();
                 if(stringChecker(tmp,3)) {
                     viewParametres.fieldLeft.setText(tmp);
@@ -113,7 +113,7 @@ public class ControllerParametres implements EventHandler<ActionEvent> {
                     viewParametres.errFieldLeft.setVisible(true);
                 }
             });
-            viewParametres.fieldLeft.removeEventFilter(KeyEvent.KEY_RELEASED,keyEvent ->{
+            viewParametres.fieldLeft.removeEventFilter(KeyEvent.ANY,keyEvent ->{
                 String tmp = keyEvent.getCode().toString();
                 if(stringChecker(tmp,3)) {
                     viewParametres.fieldLeft.setText(tmp);

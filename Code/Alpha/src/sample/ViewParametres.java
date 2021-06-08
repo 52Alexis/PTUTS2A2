@@ -80,11 +80,16 @@ public class ViewParametres {
         Label labelLeft = new Label("UP key : ");
         boxLeft.setAlignment(Pos.CENTER);
         boxLeft.getChildren().addAll(labelLeft,fieldLeft,errFieldLeft);
+
+        fieldUp.getStyleClass().add("boutons");
+        fieldDown.getStyleClass().add("boutons");
+        fieldRight.getStyleClass().add("boutons");
         fieldLeft.getStyleClass().add("boutons");
         //errFieldLeft
 
         root.getChildren().addAll(btnReturn,boxUp,boxDown,boxRight,boxLeft);
         scene = new Scene(root,1200,800);
+        scene.getStylesheets().add("file:src/sample/Style.css");
         primaryStage.setScene(scene);
     }
 
