@@ -72,6 +72,9 @@ public class ControllerMap extends Controller{
                     try {
                         started=false;
                         modelMap.nextlvl();
+                        timer.cancel();
+                        removeController();
+                        setController();
                     } catch (FileNotFoundException e) {
                         e.printStackTrace();
                     }
