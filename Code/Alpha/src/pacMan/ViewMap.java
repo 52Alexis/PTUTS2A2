@@ -10,6 +10,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 
 import java.io.FileInputStream;
@@ -133,9 +134,9 @@ public class ViewMap {
         }
 
         labelScore = new Label(Pacman.getScore()+"");
-        labelScore.setAlignment(Pos.CENTER_RIGHT);
+        labelScore.setTextAlignment(TextAlignment.RIGHT);
         boxBas.getChildren().addAll(paneVies,labelScore);
-        boxBas.setAlignment(Pos.BOTTOM_CENTER);
+        boxBas.setTranslateY(modelMap.getY()*modelMap.getTailleCase());
 
         root.getChildren().addAll(grid,boxBas);
         initEntity();
@@ -144,7 +145,7 @@ public class ViewMap {
             root.getChildren().add(rect);
         }
         setPoints();
-        Scene sceneMap = new Scene(root,modelMap.getX()*modelMap.getTailleCase()+20,modelMap.getY()*modelMap.getTailleCase());
+        Scene sceneMap = new Scene(root,modelMap.getX()*modelMap.getTailleCase(),modelMap.getY()*modelMap.getTailleCase()+30);
         primaryStage.setScene(sceneMap);
         primaryStage.setResizable(false);
     }
