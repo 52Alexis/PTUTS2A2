@@ -39,6 +39,7 @@ public class ViewMap {
     protected Rectangle bonus;
     protected int lastdirection;
     protected boolean hasMoved;
+    protected int cycleAnim;
 
 
     public ViewMap(ModelMap modelMap,Stage stage) {
@@ -220,6 +221,10 @@ public class ViewMap {
             }
             listMobile.get(i).setFill(sprite);
         }
+    }
+
+    public void deathAnim(){
+        listMobile.get(0).setFill(new ImagePattern(spritesPacmanDead.get(cycleAnim)));
     }
 
     public void allMur(){
