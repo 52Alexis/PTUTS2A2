@@ -35,7 +35,7 @@ public class ViewMenu {
 
     public void initAttributs(){
         titre = new Label();
-        titre.setGraphic(new ImageView(new Image("file:images/title.png")));
+        titre.setGraphic(new ImageView(new Image("file:img/title.png")));
 //        titre.setFill(Color.web("#ffe611"));
 
         boutonNouvellePartie = new Button("Nouvelle partie");
@@ -47,8 +47,9 @@ public class ViewMenu {
                 fileNotFoundException.printStackTrace();
             }
             ViewMap viewMap = new ViewMap(modelMap,primaryStage);
+            ModelParametres modelParametres = new ModelParametres();
             ModelMap.createBonus();
-            ControllerMap controllerMap=new ControllerMap(viewMap,modelMap);
+            ControllerMap controllerMap=new ControllerMap(viewMap,modelMap,modelParametres);
             controllerMap.setController();
         });
         boutonParametres = new Button(("Paramètres"));

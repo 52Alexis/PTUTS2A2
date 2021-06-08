@@ -77,7 +77,7 @@ public class ViewParametres {
         boxRight.setAlignment(Pos.CENTER);
         boxRight.getChildren().addAll(labelRight,fieldRight,errFieldRight);
         HBox boxLeft = new HBox();
-        Label labelLeft = new Label("UP key : ");
+        Label labelLeft = new Label("LEFT key : ");
         boxLeft.setAlignment(Pos.CENTER);
         boxLeft.getChildren().addAll(labelLeft,fieldLeft,errFieldLeft);
 
