@@ -18,19 +18,18 @@ public class ControllerMap extends Controller{
     ModelMap modelMap;
     boolean started;
     Timer timer;
-    EventHandler<javafx.scene.input.KeyEvent> keyEventEventHandler;
-    EventType<KeyEvent> eventType;
+    EventHandler<KeyEvent> keyEventEventHandler;
 
     public ControllerMap(ViewMap viewMap, ModelMap modelMap) {
         this.viewMap = viewMap;
         this.modelMap = modelMap;
         started=false;
         secondaryTimer();
-        keyEventEventHandler=new EventHandler<KeyEvent>() {
+        keyEventEventHandler= new EventHandler<>() {
             @Override
             public void handle(KeyEvent keyEvent) {
-                System.out.println("PRESSED! "+keyEvent.getCode());
-                modelMap.getPacman().lastDirection=modelMap.getPacman().direction;
+                System.out.println("PRESSED! " + keyEvent.getCode());
+                modelMap.getPacman().lastDirection = modelMap.getPacman().direction;
 
                 switch (keyEvent.getCode()) {
                     case UP:
@@ -48,21 +47,20 @@ public class ControllerMap extends Controller{
                     default:
                         break;
                 }
-                if(!started){
-                    started=true;
+                if (!started) {
+                    started = true;
                     timer();
                 }
             }
         };
-        eventType=new EventType<>();
     }
 
     public void setController(){
-        viewMap.primaryStage.getScene().addEventHandler(eventType,keyEventEventHandler);
+        viewMap.primaryStage.getScene().addEventHandler(KeyEvent.KEY_PRESSED,keyEventEventHandler);
     }
 
     public void removeController(){
-        viewMap.primaryStage.getScene().removeEventHandler(eventType,keyEventEventHandler);
+        viewMap.primaryStage.getScene().removeEventHandler(KeyEvent.KEY_PRESSED,keyEventEventHandler);
     }
 
     public void timer(){
