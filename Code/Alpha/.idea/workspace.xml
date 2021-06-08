@@ -20,173 +20,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Creation scores">
-      <change afterPath="$PROJECT_DIR$/data/mainMap.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Fantome/blinky/0.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Fantome/blinky/1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Fantome/blinky/10.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Fantome/blinky/11.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Fantome/blinky/12.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Fantome/blinky/13.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Fantome/blinky/14.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Fantome/blinky/15.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Fantome/blinky/2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Fantome/blinky/3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Fantome/blinky/4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Fantome/blinky/5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Fantome/blinky/6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Fantome/blinky/7.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Fantome/blinky/8.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Fantome/blinky/9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Fantome/clyde/0.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Fantome/clyde/1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Fantome/clyde/10.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Fantome/clyde/11.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Fantome/clyde/12.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Fantome/clyde/13.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Fantome/clyde/14.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Fantome/clyde/15.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Fantome/clyde/2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Fantome/clyde/3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Fantome/clyde/4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Fantome/clyde/5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Fantome/clyde/6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Fantome/clyde/7.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Fantome/clyde/8.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Fantome/clyde/9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Fantome/dead/0.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Fantome/dead/1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Fantome/dead/2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Fantome/dead/3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Fantome/dead/4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Fantome/dead/5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Fantome/dead/6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Fantome/dead/7.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Fantome/gum/0.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Fantome/gum/1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Fantome/gum/10.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Fantome/gum/11.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Fantome/gum/12.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Fantome/gum/13.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Fantome/gum/14.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Fantome/gum/15.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Fantome/gum/2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Fantome/gum/3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Fantome/gum/4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Fantome/gum/5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Fantome/gum/6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Fantome/gum/7.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Fantome/gum/8.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Fantome/gum/9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Fantome/inky/0.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Fantome/inky/1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Fantome/inky/10.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Fantome/inky/11.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Fantome/inky/12.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Fantome/inky/13.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Fantome/inky/14.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Fantome/inky/15.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Fantome/inky/2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Fantome/inky/3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Fantome/inky/4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Fantome/inky/5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Fantome/inky/6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Fantome/inky/7.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Fantome/inky/8.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Fantome/inky/9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Fantome/pinky/0.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Fantome/pinky/1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Fantome/pinky/10.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Fantome/pinky/11.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Fantome/pinky/12.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Fantome/pinky/13.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Fantome/pinky/14.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Fantome/pinky/15.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Fantome/pinky/2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Fantome/pinky/3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Fantome/pinky/4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Fantome/pinky/5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Fantome/pinky/6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Fantome/pinky/7.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Fantome/pinky/8.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Fantome/pinky/9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Pacman/death/0.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Pacman/death/1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Pacman/death/10.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Pacman/death/11.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Pacman/death/12.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Pacman/death/13.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Pacman/death/14.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Pacman/death/15.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Pacman/death/2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Pacman/death/3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Pacman/death/4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Pacman/death/5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Pacman/death/6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Pacman/death/7.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Pacman/death/8.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Pacman/death/9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Pacman/normal/0.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Pacman/normal/1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Pacman/normal/10.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Pacman/normal/11.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Pacman/normal/12.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Pacman/normal/13.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Pacman/normal/14.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Pacman/normal/15.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Pacman/normal/16.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Pacman/normal/17.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Pacman/normal/18.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Pacman/normal/19.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Pacman/normal/2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Pacman/normal/20.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Pacman/normal/21.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Pacman/normal/22.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Pacman/normal/23.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Pacman/normal/3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Pacman/normal/4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Pacman/normal/5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Pacman/normal/6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Pacman/normal/7.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Pacman/normal/8.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Pacman/normal/9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Entity/Mobile/Pacman/normal/pacman.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Walls/0.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Walls/EO.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Walls/NE.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Walls/NO.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Walls/NS.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Walls/P.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Walls/PG.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Walls/PO.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Walls/SE.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/Walls/SO.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sample/Bonus.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sample/Entite.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sample/Fantome.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sample/Fixe.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sample/Mobile.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sample/Pacman.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sample/Point.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/fruits/cerise.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/Entity/Fixe/Bonus/0.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/fruits/cloche.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/Entity/Fixe/Bonus/6.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/fruits/clé.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/Entity/Fixe/Bonus/7.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/fruits/fraise.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/Entity/Fixe/Bonus/1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/fruits/galboss.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/Entity/Fixe/Bonus/5.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/fruits/melon.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/Entity/Fixe/Bonus/4.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/fruits/orange.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/Entity/Fixe/Bonus/2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/fruits/pomme.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/Entity/Fixe/Bonus/3.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/title.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/title.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/walls/hori.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/walls/lignehori.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Alpha/sample/Style.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Alpha/sample/Style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Alpha/sample/ViewMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Alpha/sample/ViewMenu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Case.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Case.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/ControllerMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/ControllerMap.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/ModelMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/ModelMap.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/ViewMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/ViewMap.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/ViewMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/ViewMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/ViewScores.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/ViewScores.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Bonus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pacMan/Bonus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Case.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pacMan/Case.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pacMan/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/ControllerMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pacMan/ControllerMap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/ControllerMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pacMan/ControllerMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/ControllerParametres.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pacMan/ControllerParametres.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/ControllerScore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pacMan/ControllerScore.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Entite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pacMan/Entite.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Fantome.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pacMan/Fantome.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Fixe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pacMan/Fixe.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pacMan/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Mobile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pacMan/Mobile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/ModelMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pacMan/ModelMap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/ModelMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pacMan/ModelMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/ModelParametres.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pacMan/ModelParametres.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/ModelScores.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pacMan/ModelScores.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Pacman.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pacMan/Pacman.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Point.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pacMan/Point.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/pacMan/Style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/ViewMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pacMan/ViewMap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/ViewMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pacMan/ViewMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/ViewParametres.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pacMan/ViewParametres.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/ViewScores.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pacMan/ViewScores.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/sample.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/pacMan/sample.fxml" afterDir="false" />
     </list>
     <list id="c7ce7843-0a59-49ae-9990-e3eb04494ec4" name="Changes by bonlver" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -295,12 +152,17 @@
     <property name="recentsLimit" value="5" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\DUT\S2\PTUT\PTUTS2A2\Code\Alpha\src\pacMan" />
+      <recent name="$PROJECT_DIR$/img" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
+      <recent name="sample" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/src/sample" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/img" />
     </key>
   </component>
   <component name="RunManager">
@@ -330,7 +192,7 @@
       <Port>5050</Port>
     </configuration>
     <configuration name="Main" type="Application" factoryName="Application" temporary="true">
-      <option name="MAIN_CLASS_NAME" value="sample.Main" />
+      <option name="MAIN_CLASS_NAME" value="pacMan.Main" />
       <module name="Alpha" />
       <option name="VM_PARAMETERS" value="--module-path $PATH_TO_FX$ --add-modules javafx.controls,javafx.fxml" />
       <extension name="coverage">
@@ -347,6 +209,17 @@
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -399,6 +272,7 @@
       <workItem from="1359379250712" duration="1302000" />
       <workItem from="1620980700425" duration="1742000" />
       <workItem from="1622803157861" duration="2003000" />
+      <workItem from="1623162431104" duration="177000" />
     </task>
     <task id="LOCAL-00001" summary="Creation classe MVC Map">
       <created>1620304187437</created>
@@ -522,5 +396,35 @@
     <MESSAGE value="Modif param qui marche" />
     <MESSAGE value="Creation scores" />
     <option name="LAST_COMMIT_MESSAGE" value="Creation scores" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="383" y="194" width="1092" height="715" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1623162609714">
+      <screen x="0" y="0" width="1858" height="1080" />
+    </state>
+    <state x="383" y="194" width="1092" height="715" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1858.1080@0.0.1858.1080" timestamp="1623162609714" />
+    <state x="659" y="315" key="#com.intellij.ide.util.PackageChooserDialog" timestamp="1623162557721">
+      <screen x="0" y="0" width="1858" height="1080" />
+    </state>
+    <state x="659" y="315" key="#com.intellij.ide.util.PackageChooserDialog/0.0.1858.1080@0.0.1858.1080" timestamp="1623162557721" />
+    <state x="725" y="446" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.packages" timestamp="1623162560208">
+      <screen x="0" y="0" width="1858" height="1080" />
+    </state>
+    <state x="725" y="446" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.packages/0.0.1858.1080@0.0.1858.1080" timestamp="1623162560208" />
+    <state width="1815" height="295" key="GridCell.Tab.0.bottom" timestamp="1623162491786">
+      <screen x="0" y="0" width="1858" height="1080" />
+    </state>
+    <state width="1815" height="295" key="GridCell.Tab.0.bottom/0.0.1858.1080@0.0.1858.1080" timestamp="1623162491786" />
+    <state width="1815" height="295" key="GridCell.Tab.0.center" timestamp="1623162491786">
+      <screen x="0" y="0" width="1858" height="1080" />
+    </state>
+    <state width="1815" height="295" key="GridCell.Tab.0.center/0.0.1858.1080@0.0.1858.1080" timestamp="1623162491786" />
+    <state width="1815" height="295" key="GridCell.Tab.0.left" timestamp="1623162491786">
+      <screen x="0" y="0" width="1858" height="1080" />
+    </state>
+    <state width="1815" height="295" key="GridCell.Tab.0.left/0.0.1858.1080@0.0.1858.1080" timestamp="1623162491786" />
+    <state width="1815" height="295" key="GridCell.Tab.0.right" timestamp="1623162491786">
+      <screen x="0" y="0" width="1858" height="1080" />
+    </state>
+    <state width="1815" height="295" key="GridCell.Tab.0.right/0.0.1858.1080@0.0.1858.1080" timestamp="1623162491786" />
   </component>
 </project>
