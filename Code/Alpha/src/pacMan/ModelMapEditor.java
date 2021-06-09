@@ -1,6 +1,9 @@
 package pacMan;
 
 import javax.print.DocFlavor;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class ModelMapEditor {
@@ -8,12 +11,14 @@ public class ModelMapEditor {
     protected ArrayList<FantomeEditor> listFantome;
     protected int nPoint;
     protected Case[][] cases;
+    protected File file;
 
     public ModelMapEditor(){
         listFantome=new ArrayList<>();
         pacman=null;
         nPoint=0;
         cases=new Case[28][32];
+        file=null;
         for(int i=0;i<28;i++){
             for(int j=0;j<32;j++){
                 cases[i][j]=new Case(i,j,"0 ",null);
@@ -55,33 +60,7 @@ public class ModelMapEditor {
         c.setTypeMur("0 ");
     }
 
-    public void checkIntegrity(){
-        boolean status=false;
-        Case repere=null;
-        ArrayList<FantomeEditor> listBlinky=getAllFantome(1);
-        if(listBlinky.size()==0) {
-            return;
-        }
-        for(FantomeEditor f:listBlinky){
-            if (cases[f.emplacement.x][f.emplacement.y + 1].getTypeMur().equals("P ")) {
-                status = true;
-                repere=f.emplacement;
-                break;
-            }
-        }
-        if(!status){
-            return;
-        }
-        if(pacman==null){
-            return;
-        }
-        if(nPoint<1){
-            return;
-        }
-        export(repere);
-    }
-
-    public void export(Case repere){
+    public void export(Case repere, String txt){
         StringBuilder builder = new StringBuilder();
         builder.append("28 31\n");
         builder.append((1+listFantome.size())).append("\n");
@@ -95,7 +74,17 @@ public class ModelMapEditor {
         builder.append('\n');
         builder.append(maptostring());
         builder.append(repere.x).append(" ").append(repere.y).append('\n');
-        System.out.print(builder.toString());
+
+        String PATH = "data/";
+        file=new File(PATH +txt+".map");
+        try {
+            file.createNewFile();
+            FileWriter writer=new FileWriter(PATH +txt+".map");
+            writer.write(builder.toString());
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 

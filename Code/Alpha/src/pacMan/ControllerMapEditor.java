@@ -11,6 +11,8 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Rectangle;
 
+import java.util.ArrayList;
+
 public class ControllerMapEditor implements EventHandler<ActionEvent> {
     ModelMapEditor modelMapEditor;
     ViewMapEditor viewMapEditor;
@@ -185,7 +187,11 @@ public class ControllerMapEditor implements EventHandler<ActionEvent> {
                 type = 14;
             }
             if (actionEvent.getSource().equals(viewMapEditor.buttonExport)) {
-                modelMapEditor.checkIntegrity();
+                checkIntegrity(true);
+                return;
+            }
+            if (actionEvent.getSource().equals(viewMapEditor.buttonCheck)) {
+                checkIntegrity(false);
                 return;
             }
         }
@@ -203,5 +209,35 @@ public class ControllerMapEditor implements EventHandler<ActionEvent> {
         viewMapEditor.videCase(viewMapEditor.cases[i][j]);
         modelMapEditor.videCase(modelMapEditor.cases[i][j]);
         modelMapEditor.removeType(modelMapEditor.cases[i][j]);
+    }
+
+    public void checkIntegrity(Boolean exportation){
+        Boolean nbl;
+        Boolean bl=false;
+        Boolean po;
+        Boolean pa;
+        Boolean nom;
+        Case repere=null;
+        ArrayList<FantomeEditor> listBlinky=modelMapEditor.getAllFantome(1);
+        nbl=listBlinky.size()!=0;
+
+        for(FantomeEditor f:listBlinky){
+            if (modelMapEditor.cases[f.emplacement.x][f.emplacement.y + 1].getTypeMur().equals("P ")) {
+                bl = true;
+                repere=f.emplacement;
+                break;
+            }
+        }
+        pa= modelMapEditor.pacman!=null;
+
+        po= modelMapEditor.nPoint >= 1;
+
+        nom= !viewMapEditor.tFOut.getText().equals("");
+
+        if(exportation&&nbl&&bl&&po&&pa&&nom) {
+            modelMapEditor.export(repere,viewMapEditor.tFOut.getText());
+        }
+            viewMapEditor.updateIntegrity(nbl, bl, pa, po,nom);
+
     }
 }
