@@ -106,4 +106,8 @@ public class Case {
     public String getTypeMur() {
         return typeMur;
     }
+
+    public void setTypeMur(String typeMur) {
+        this.typeMur = typeMur;
+    }
 }

@@ -111,7 +111,7 @@ public class Fantome extends Mobile{
             return;
 
         }
-        if (type == 3&&emplacement.model.getTemps()<30) {
+        if (type==3&&emplacement.model.getTemps()<30) {
             gum=false;
             return;
 
