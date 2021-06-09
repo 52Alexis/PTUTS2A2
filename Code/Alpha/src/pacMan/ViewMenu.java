@@ -29,6 +29,7 @@ public class ViewMenu {
         initAttributs();
         addWidgetToView();
         primaryStage.setResizable(false);
+        StaticMusic.musicTitle.play();
     }
 
     public void initAttributs(){
@@ -38,6 +39,7 @@ public class ViewMenu {
 
         boutonNouvellePartie = new Button("Nouvelle partie");
         boutonNouvellePartie.setOnAction(e->{
+            StaticMusic.musicTitle.stop();
             ModelMap modelMap = null;
             try {
                 modelMap = new ModelMap(new File("data/mainMap.map"));
