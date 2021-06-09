@@ -22,7 +22,6 @@ public class ControllerMap extends Controller{
         this.viewMap = viewMap;
         this.modelMap = modelMap;
         touches = new ArrayList<>();
-        over = new ArrayList<>();
         this.modelParametres = modelParametres;
         touches = modelParametres.getConfigTouches();
         started=false;
