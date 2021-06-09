@@ -15,7 +15,10 @@ import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Rectangle;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+
+import java.io.File;
 
 public class ViewMapEditor {
     protected ModelMapEditor modelMapEditor;
@@ -42,6 +45,7 @@ public class ViewMapEditor {
 
     protected Button buttonCheck;
     protected Button buttonExport;
+    protected Button buttonImport;
 
     protected Image[] listImage;
     protected Rectangle[][] cases;
@@ -50,6 +54,7 @@ public class ViewMapEditor {
     protected Rectangle[] symbolIntegrity;
 
     protected TextField tFOut;
+    protected FileChooser fileChooser;
 
 
 
@@ -136,10 +141,15 @@ public class ViewMapEditor {
         buttonCheck.setText("Vérifier l'intégrité de la map");
         buttonExport=new Button();
         buttonExport.setText("Exporter la map");
+        buttonImport=new Button();
+        buttonImport.setText("Importer une map");
         tFOut=new TextField();
         tFOut.setPromptText("Nom de la map");
+        fileChooser=new FileChooser();
+        fileChooser.setTitle("Selectionner une map");
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Cartes","*.map"));
 
-        cases=new Rectangle[28][32];
+        cases=new Rectangle[28][31];
     }
 
     public void addWidgets(){
@@ -148,7 +158,7 @@ public class ViewMapEditor {
         root.setBackground(new Background(new BackgroundFill(Color.gray(0.2),CornerRadii.EMPTY,null)));
 
         for (int i = 0; i<28;i++){
-            for (int j = 0; j<32; j++){
+            for (int j = 0; j<31; j++){
                 Rectangle uneCase = new Rectangle(16,16);
                 uneCase.setFill(new ImagePattern(new Image("file:img/Walls/0.png")));
                 uneCase.setStroke(Color.RED);
@@ -191,7 +201,7 @@ public class ViewMapEditor {
         flwp3.getChildren().addAll(symbolIntegrity[3],lbl3);
         flwp4.getChildren().addAll(symbolIntegrity[4],lbl4);
 
-        paneVerif.getChildren().addAll(flwp0,flwp1,flwp2,flwp3,buttonCheck,tFOut,flwp4,buttonExport);
+        paneVerif.getChildren().addAll(buttonImport,flwp0,flwp1,flwp2,flwp3,buttonCheck,tFOut,flwp4,buttonExport);
         paneVerif.setSpacing(10);
         paneVerif.setAlignment(Pos.CENTER);
     }
@@ -241,6 +251,7 @@ public class ViewMapEditor {
         buttonf4.setOnAction(handler);
         buttonCheck.setOnAction(handler);
         buttonExport.setOnAction(handler);
+        buttonImport.setOnAction(handler);
     }
 
     public void videCase(Rectangle r){
@@ -273,5 +284,39 @@ public class ViewMapEditor {
         }else {
             symbolIntegrity[4].setFill(new ImagePattern(greenLight[0]));
         }
+    }
+
+    public File throwChooser(){
+        return fileChooser.showOpenDialog(primaryStage);
+    }
+
+    public void regen(){
+        for (int i=0; i<28;i++){
+            for(int j=0;j< 31;j++){
+                mur(i,j);
+            }
+        }
+        cases[modelMapEditor.pacman.emplacement.x][modelMapEditor.pacman.emplacement.y].setFill(new ImagePattern(listImage[9]));
+        for(FantomeEditor f : modelMapEditor.listFantome){
+            cases[f.emplacement.x][f.emplacement.y].setFill(new ImagePattern(listImage[10+f.type]));
+        }
+    }
+
+    public void mur(int x, int y){
+        Rectangle rect=cases[x][y];
+        String mur=modelMapEditor.cases[x][y].getTypeMur();
+        switch (mur) {
+            case "EO" -> rect.setFill(new ImagePattern(listImage[0]));
+            case "NS" -> rect.setFill(new ImagePattern(listImage[3]));
+            case "NO" -> rect.setFill(new ImagePattern(listImage[2]));
+            case "SO" -> rect.setFill(new ImagePattern(listImage[8]));
+            case "SE" -> rect.setFill(new ImagePattern(listImage[7]));
+            case "NE" -> rect.setFill(new ImagePattern(listImage[1]));
+            case "P" -> rect.setFill(new ImagePattern(listImage[4]));
+            case "PO" -> rect.setFill(new ImagePattern(listImage[6]));
+            case "PG" -> rect.setFill(new ImagePattern(listImage[5]));
+            default -> rect.setFill(new ImagePattern(listImage[10]));
+        }
+
     }
 }

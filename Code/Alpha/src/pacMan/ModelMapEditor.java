@@ -2,9 +2,11 @@ package pacMan;
 
 import javax.print.DocFlavor;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class ModelMapEditor {
     protected Pacman pacman;
@@ -17,10 +19,10 @@ public class ModelMapEditor {
         listFantome=new ArrayList<>();
         pacman=null;
         nPoint=0;
-        cases=new Case[28][32];
+        cases=new Case[28][31];
         file=null;
         for(int i=0;i<28;i++){
-            for(int j=0;j<32;j++){
+            for(int j=0;j<31;j++){
                 cases[i][j]=new Case(i,j,"0 ",null);
             }
         }
@@ -90,12 +92,61 @@ public class ModelMapEditor {
 
     public String maptostring(){
         StringBuilder builder=new StringBuilder();
-        for(int j=0;j<32;j++){
+        for(int j=0;j<31;j++){
             for (int i=0;i<28;i++){
                 builder.append(cases[i][j].typeMur).append(" ");
             }
             builder.append('\n');
         }
         return builder.toString();
+    }
+
+    public void loadMap(File file) throws FileNotFoundException {
+        Scanner input=new Scanner(file);
+        String txt= input.nextLine();
+        txt=input.next();
+        int nEntite=Integer.parseInt(txt);
+        int[][] coord=new int[nEntite][2];
+        for(int i=0;i<nEntite;i++){
+            txt=input.next();
+            coord[i][0]=Integer.parseInt(txt);
+            txt=input.next();
+            coord[i][1]=Integer.parseInt(txt);
+        }
+        int[] tabType=new int[nEntite-1];
+        for(int i=0;i<nEntite-1;i++){
+            txt=input.next();
+            tabType[i]=Integer.parseInt(txt);
+        }
+        txt=input.nextLine();
+        txt=input.nextLine();
+        cases = new Case[28][31];
+        for(int i=0;i<31;i++){
+            for(int j=0;j<28;j++) {
+                try{
+                    txt= input.next();
+                }catch (Exception e){
+                    System.out.println("fin de lecture");
+                }
+                cases[j][i] = new Case(j, i,txt, null);
+                if(txt.equals("PO")){
+                    Point po=new Point(cases[j][i],false);
+                    nPoint++;
+                    cases[j][i].setFixe(po);
+                }else{
+                    if(txt.equals("PG")){
+                        Point po=new Point(cases[j][i],true);
+                        nPoint++;
+                        cases[j][i].setFixe(po);
+                    }
+                }
+            }
+        }
+        pacman=new Pacman(cases[coord[0][0]][coord[0][1]]);
+        cases[coord[0][0]][coord[0][1]].mobile=pacman;
+        for(int i=0;i<nEntite-1;i++){
+            listFantome.add(new FantomeEditor(cases[coord[i+1][0]][coord[i+1][1]],tabType[i],new int[2]));
+            listFantome.get(i).emplacement.mobile=listFantome.get(i);
+        }
     }
 }

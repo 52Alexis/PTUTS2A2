@@ -11,6 +11,9 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Rectangle;
 
+import javax.swing.*;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
 public class ControllerMapEditor implements EventHandler<ActionEvent> {
@@ -194,6 +197,18 @@ public class ControllerMapEditor implements EventHandler<ActionEvent> {
                 checkIntegrity(false);
                 return;
             }
+            if(actionEvent.getSource().equals(viewMapEditor.buttonImport)){
+                File file=viewMapEditor.throwChooser();
+                if(file!=null){
+                    try {
+                        modelMapEditor.loadMap(file);
+                        viewMapEditor.regen();
+                    } catch (FileNotFoundException e) {
+                        e.printStackTrace();
+                    }
+                }
+                return;
+            }
         }
         viewMapEditor.grid.setOnMouseClicked(mouseEvent);
     }
@@ -222,7 +237,7 @@ public class ControllerMapEditor implements EventHandler<ActionEvent> {
         nbl=listBlinky.size()!=0;
 
         for(FantomeEditor f:listBlinky){
-            if (modelMapEditor.cases[f.emplacement.x][f.emplacement.y + 1].getTypeMur().equals("P ")) {
+            if (modelMapEditor.cases[f.emplacement.x][f.emplacement.y + 1].getTypeMur().equals("P ")||modelMapEditor.cases[f.emplacement.x][f.emplacement.y + 1].getTypeMur().equals("P")) {
                 bl = true;
                 repere=f.emplacement;
                 break;
