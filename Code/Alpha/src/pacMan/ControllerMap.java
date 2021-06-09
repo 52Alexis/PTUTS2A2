@@ -3,7 +3,6 @@ package pacMan;
 import javafx.event.EventHandler;
 import javafx.scene.input.KeyEvent;
 
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Timer;
@@ -18,7 +17,6 @@ public class ControllerMap extends Controller{
     Timer timer;
     EventHandler<KeyEvent> keyEventEventHandler;
     ArrayList<String> touches;
-    ArrayList<Image> over;
 
     public ControllerMap(ViewMap viewMap, ModelMap modelMap, ModelParametres modelParametres) {
         this.viewMap = viewMap;
@@ -27,7 +25,6 @@ public class ControllerMap extends Controller{
         over = new ArrayList<>();
         this.modelParametres = modelParametres;
         touches = modelParametres.getConfigTouches();
-        over.add(new Image(new FileInputStream("img/gameOver/0.png")));
         started=false;
         secondaryTimer();
         keyEventEventHandler= new EventHandler<>() {
@@ -152,6 +149,7 @@ public class ControllerMap extends Controller{
                     timer.cancel();
                     checkStatus.cancel();
                     removeController();
+
                 }
             }
         };
