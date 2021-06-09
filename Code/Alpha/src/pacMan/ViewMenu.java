@@ -29,6 +29,7 @@ public class ViewMenu {
         initAttributs();
         addWidgetToView();
         primaryStage.setResizable(false);
+        StaticMusic.musicTitle.play();
     }
 
     public void initAttributs(){
@@ -38,6 +39,7 @@ public class ViewMenu {
 
         boutonNouvellePartie = new Button("Nouvelle partie");
         boutonNouvellePartie.setOnAction(e->{
+            StaticMusic.musicTitle.stop();
             ModelMap modelMap = null;
             try {
                 modelMap = new ModelMap(new File("data/mainMap.map"));
@@ -73,7 +75,7 @@ public class ViewMenu {
 
         VBox boxTitre = new VBox(titre);
         boxTitre.setAlignment(Pos.CENTER);
-        boxTitre.setTranslateY(-275);
+        boxTitre.setTranslateY(-250);
         gridPane.add(boxTitre,3,0);
 
         VBox boxBoutons = new VBox(10,boutonNouvellePartie,boutonMapEditor,boutonParametres,boutonMeilleursScores);

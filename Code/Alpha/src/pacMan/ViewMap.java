@@ -1,16 +1,14 @@
 package pacMan;
 
-import javafx.geometry.Pos;
+import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
+import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Rectangle;
-import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 
 import java.io.FileInputStream;
@@ -38,8 +36,7 @@ public class ViewMap {
     protected int lastdirection;
     protected boolean hasMoved;
     protected int cycleAnim;
-    protected Label labelScore;
-    protected GridPane paneVies;
+    protected GridPane paneViesEtScore;
 
 
     public ViewMap(ModelMap modelMap,Stage stage) {
@@ -109,6 +106,7 @@ public class ViewMap {
 
     public void addWidgetsToView(){
         Pane root=new Pane();
+        root.setBackground(new Background(new BackgroundFill(Color.BLACK,CornerRadii.EMPTY,null)));
         GridPane grid = new GridPane();
         bonus=new Rectangle();
         bonus.setHeight(modelMap.getTailleCase());
@@ -124,18 +122,26 @@ public class ViewMap {
             }
         }
         HBox boxBas = new HBox();
-        paneVies = new GridPane();
-        paneVies.setHgap(5);
-        paneVies.setVgap(10);
+//        boxBas.setBackground(new Background(new BackgroundFill(Color.BLACK,CornerRadii.EMPTY,null)));
+        paneViesEtScore = new GridPane();
+        paneViesEtScore.setHgap(5);
+        paneViesEtScore.setPadding(new Insets(3));
         for (int i = 0; i<Pacman.getVies(); i++){
             Label label = new Label();
             label.setGraphic(new ImageView(new Image("file:img/Entity/Mobile/Pacman/normal/21.png")));
-            paneVies.add(label,i,0);
+            paneViesEtScore.add(label,i,0);
         }
 
-        labelScore = new Label(Pacman.getScore()+"");
-        labelScore.setTextAlignment(TextAlignment.RIGHT);
-        boxBas.getChildren().addAll(paneVies,labelScore);
+        Label labelScore = new Label("Score : ");
+        labelScore.getStyleClass().add("labelScore");
+        paneViesEtScore.add(labelScore,3,0,2,1);
+        Rectangle[] scores = new Rectangle[7];
+        for (int i = 0; i<scores.length; i++){
+            scores[i] = new Rectangle();
+            scores[i].setFill(new ImagePattern(new Image("file:img/Numbers/0.png")));
+            paneViesEtScore.add(scores[i],4+i,0);
+        }
+        boxBas.getChildren().addAll(paneViesEtScore);
         boxBas.setTranslateY(modelMap.getY()*modelMap.getTailleCase());
 
         root.getChildren().addAll(grid,boxBas);
@@ -146,6 +152,7 @@ public class ViewMap {
         }
         setPoints();
         Scene sceneMap = new Scene(root,modelMap.getX()*modelMap.getTailleCase(),modelMap.getY()*modelMap.getTailleCase()+30);
+        sceneMap.getStylesheets().add("file:src/pacMan/Style.css");
         primaryStage.setScene(sceneMap);
         primaryStage.setResizable(false);
     }
@@ -191,7 +198,7 @@ public class ViewMap {
     }
 
     public void manageVie(){
-
+        paneViesEtScore.getChildren().get(Pacman.getVies()).setVisible(false);
     }
 
     public void manageScore(){

@@ -54,6 +54,7 @@ public class ControllerMap extends Controller{
                 if (!started) {
                     started = true;
                     timer();
+                    StaticMusic.musicRunaway.stop();
                     StaticMusic.musicMain.play();
                 }
             }
@@ -141,6 +142,7 @@ public class ControllerMap extends Controller{
                     if(f.emplacement==modelMap.getPacman().emplacement){
                         if(f.isGum()){
                             f.die();
+                            StaticMusic.fxGhostDeath.stop();
                             StaticMusic.fxGhostDeath.play();
                             Pacman p = modelMap.getPacman();
                             p.nFantome++;
@@ -152,14 +154,19 @@ public class ControllerMap extends Controller{
                         }else {
                             if(!f.isDead()){
                             Pacman.setVies(Pacman.getVies() - 1);
-
+                            StaticMusic.musicMain.stop();
+                            StaticMusic.musicRunaway.stop();
+                            StaticMusic.fxDeath.play();
                             if(Pacman.getVies()==0) {
-                                StaticMusic.musicMain.stop();
-                                StaticMusic.musicGameOver.play();
-                            } else {
-                                StaticMusic.musicMain.stop();
-                                StaticMusic.fxDeath.play();
+                                StaticMusic.fxDeath.setOnEndOfMedia(new Runnable() {
+                                    public void run() {
+                                        StaticMusic.fxDeath.stop();
+                                        StaticMusic.musicGameOver.play();
+                                    }
+                                });
+
                             }
+
                             timer.cancel();
                             started = false;
                             removeController();

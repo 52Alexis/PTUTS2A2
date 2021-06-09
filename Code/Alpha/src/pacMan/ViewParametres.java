@@ -62,6 +62,7 @@ public class ViewParametres {
     }
 
     public void addWidgetsToView(){
+
         VBox root = new VBox();
         root.setAlignment(Pos.CENTER);
         HBox boxUp = new HBox();
@@ -82,18 +83,34 @@ public class ViewParametres {
         boxLeft.getChildren().addAll(labelLeft,fieldLeft,errFieldLeft);
 
         labelUp.getStyleClass().add("text");
+        labelUp.setTranslateX(100);
         labelRight.getStyleClass().add("text");
+        labelRight.setTranslateX(100);
         labelLeft.getStyleClass().add("text");
+        labelLeft.setTranslateX(100);
         labelDown.getStyleClass().add("text");
+        labelDown.setTranslateX(100);
 
 
-        btnReturn.getStyleClass().add("boutons");
+        btnReturn.getStyleClass().add("boutons2");
+        btnReturn.setTranslateY(-10);
         fieldUp.getStyleClass().add("boutons");
+        fieldUp.setTranslateX(100);
         fieldDown.getStyleClass().add("boutons");
+        fieldDown.setTranslateX(100);
         fieldRight.getStyleClass().add("boutons");
+        fieldRight.setTranslateX(100);
         fieldLeft.getStyleClass().add("boutons");
+        fieldLeft.setTranslateX(100);
         //errFieldLeft
+        errFieldDown.setTranslateX(100);
+        errFieldUp.setTranslateX(100);
+        errFieldLeft.setTranslateX(100);
+        errFieldRight.setTranslateX(100);
 
+        root.setBorder(new Border(new BorderStroke(Color.YELLOW, Color.YELLOW, Color.YELLOW, Color.YELLOW,
+                BorderStrokeStyle.SOLID, BorderStrokeStyle.SOLID, BorderStrokeStyle.SOLID, BorderStrokeStyle.SOLID,
+                CornerRadii.EMPTY, new BorderWidths(5), Insets.EMPTY)));
         root.getChildren().addAll(btnReturn,boxUp,boxDown,boxRight,boxLeft);
         root.setBackground(new Background(new BackgroundFill(Color.rgb(0, 0, 0), CornerRadii.EMPTY, Insets.EMPTY)));
         scene = new Scene(root,1200,800);

@@ -16,9 +16,9 @@ public class StaticMusic {
     static MediaPlayer fxGhostDeath;
     static MediaPlayer fxBonus;
 
+    static boolean isRunaway;
 
     public static void initMusic(){
-        boolean playingSound;
 
         String songPath0 = "sounds/MainTheme.mp3";
         Media sound0 = new Media(new File(songPath0).toURI().toString());
@@ -60,13 +60,14 @@ public class StaticMusic {
 
         musicTitle.setOnEndOfMedia(new Runnable() {
             public void run() {
-                musicMain.seek(Duration.ZERO);
+                musicTitle.seek(Duration.ZERO);
             }
         });
 
         musicRunaway.setOnEndOfMedia(new Runnable() {
             public void run() {
                 musicRunaway.stop();
+                isRunaway = false;
                 musicMain.play();
             }
         });
@@ -74,6 +75,12 @@ public class StaticMusic {
         musicGameOver.setOnEndOfMedia(new Runnable() {
             public void run() {
                 musicGameOver.seek(Duration.ZERO);
+            }
+        });
+
+        fxVictory.setOnEndOfMedia(new Runnable() {
+            public void run() {
+                fxVictory.stop();
             }
         });
 
@@ -85,7 +92,6 @@ public class StaticMusic {
 
         fxGhostDeath.setOnEndOfMedia(new Runnable() {
             public void run() {
-
                 fxGhostDeath.stop();
             }
         });

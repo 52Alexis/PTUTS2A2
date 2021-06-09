@@ -21,12 +21,17 @@
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Creation scores">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/src/pacMan/Case.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pacMan/Case.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pacMan/ControllerMapEditor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pacMan/ControllerMapEditor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pacMan/Fantome.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pacMan/Fantome.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pacMan/ModelMapEditor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pacMan/ModelMapEditor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pacMan/ViewMapEditor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pacMan/ViewMapEditor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pacMan/sample.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/pacMan/sample.fxml" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/src/pacMan/ControllerMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pacMan/ControllerMap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/config.cfg" beforeDir="false" afterPath="$PROJECT_DIR$/user/config.cfg" afterDir="false" />
+>>>>>>> 73e9084d43ff3a832cae10f3d253eeec94f57332
     </list>
     <list id="c7ce7843-0a59-49ae-9990-e3eb04494ec4" name="Changes by bonlver" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -180,7 +185,11 @@
     <configuration name="Main" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="pacMan.Main" />
       <module name="Alpha" />
+<<<<<<< HEAD
       <option name="VM_PARAMETERS" value="--module-path C:\DUT\S2\PTUT\PTUTS2A2\Code\Lib\JAVAFX\lib\ --add-modules javafx.controls,javafx.fxml" />
+=======
+      <option name="VM_PARAMETERS" value="--module-path &quot;C:\Program Files\Java\javafx-sdk-11.0.2\lib&quot; --add-modules javafx.controls,javafx.fxml,javafx.media" />
+>>>>>>> 73e9084d43ff3a832cae10f3d253eeec94f57332
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="sample.*" />
@@ -260,7 +269,12 @@
       <workItem from="1622803157861" duration="2003000" />
       <workItem from="1623162431104" duration="177000" />
       <workItem from="1623167204961" duration="493000" />
+<<<<<<< HEAD
       <workItem from="1623217911889" duration="17800000" />
+=======
+      <workItem from="1623219464164" duration="2517000" />
+      <workItem from="1623229313198" duration="1207000" />
+>>>>>>> 73e9084d43ff3a832cae10f3d253eeec94f57332
     </task>
     <task id="LOCAL-00001" summary="Creation classe MVC Map">
       <created>1620304187437</created>
