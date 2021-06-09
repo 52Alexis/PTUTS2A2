@@ -101,26 +101,26 @@ public class ControllerParametres implements EventHandler<ActionEvent> {
 
         if (actionEvent.getSource().equals(viewParametres.fieldLeft)){
             viewParametres.errFieldLeft.setVisible(false);
-            viewParametres.fieldLeft.addEventFilter(KeyEvent.ANY, keyEvent ->{
+            viewParametres.fieldLeft.addEventFilter(KeyEvent.ANY,keyEvent ->{
                 String tmp = keyEvent.getCode().toString();
                 if(stringChecker(tmp,3)) {
                     viewParametres.fieldLeft.setText(tmp);
                     modelParametres.getConfigTouches().set(3, tmp);
                     modelParametres.updateConfig();
                     viewParametres.btnReturn.requestFocus();
-                }else{
-                    viewParametres.errFieldLeft.setVisible(true);
+                }else {
+                    viewParametres.errFieldUp.setVisible(true);
                 }
             });
             viewParametres.fieldLeft.removeEventFilter(KeyEvent.ANY,keyEvent ->{
                 String tmp = keyEvent.getCode().toString();
-                if(stringChecker(tmp,3)) {
+                if(stringChecker(tmp,3)){
                     viewParametres.fieldLeft.setText(tmp);
-                    modelParametres.getConfigTouches().set(3, tmp);
+                    modelParametres.getConfigTouches().set(3,tmp);
                     modelParametres.updateConfig();
                     viewParametres.btnReturn.requestFocus();
-                }else{
-                    viewParametres.errFieldLeft.setVisible(true);
+                }else {
+                    viewParametres.errFieldUp.setVisible(true);
                 }
             });
         }
