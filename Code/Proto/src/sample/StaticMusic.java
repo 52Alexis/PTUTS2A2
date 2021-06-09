@@ -16,9 +16,9 @@ public class StaticMusic {
     static MediaPlayer fxGhostDeath;
     static MediaPlayer fxBonus;
 
+    static boolean isRunaway;
 
     public static void initMusic(){
-        boolean playingSound;
 
         String songPath0 = "sounds/MainTheme.mp3";
         Media sound0 = new Media(new File(songPath0).toURI().toString());
@@ -67,6 +67,7 @@ public class StaticMusic {
         musicRunaway.setOnEndOfMedia(new Runnable() {
             public void run() {
                 musicRunaway.stop();
+                isRunaway = false;
                 musicMain.play();
             }
         });

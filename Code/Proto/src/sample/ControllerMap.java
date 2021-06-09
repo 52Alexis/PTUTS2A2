@@ -54,6 +54,7 @@ public class ControllerMap extends Controller{
                 if (!started) {
                     started = true;
                     timer();
+                    StaticMusic.musicRunaway.stop();
                     StaticMusic.musicMain.play();
                 }
             }
@@ -154,6 +155,7 @@ public class ControllerMap extends Controller{
                             if(!f.isDead()){
                             Pacman.setVies(Pacman.getVies() - 1);
                             StaticMusic.musicMain.stop();
+                            StaticMusic.musicRunaway.stop();
                             StaticMusic.fxDeath.play();
                             if(Pacman.getVies()==0) {
                                 StaticMusic.fxDeath.setOnEndOfMedia(new Runnable() {
