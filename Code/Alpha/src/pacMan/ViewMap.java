@@ -64,6 +64,7 @@ public class ViewMap {
         spritesPacmanDead=new ArrayList<>();
         spritesBonus=new ArrayList<>();
         chiffreScore=new ArrayList<>();
+        over = new ArrayList<>();
 
         images_mur.add(new Image(new FileInputStream("img/Walls/0.png")));  //0
         images_mur.add(new Image(new FileInputStream("img/Walls/EO.png"))); //1
