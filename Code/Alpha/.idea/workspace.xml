@@ -19,191 +19,54 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Creation scores">
+    <list default="true" id="1b0712ba-916e-412c-a5ce-4246b88e3382" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/description.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/lib.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-<<<<<<< HEAD
-      <change beforePath="$PROJECT_DIR$/src/pacMan/Case.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pacMan/Case.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pacMan/ControllerMapEditor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pacMan/ControllerMapEditor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pacMan/Fantome.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pacMan/Fantome.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pacMan/ModelMapEditor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pacMan/ModelMapEditor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pacMan/ViewMapEditor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pacMan/ViewMapEditor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pacMan/sample.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/pacMan/sample.fxml" afterDir="false" />
-=======
-      <change beforePath="$PROJECT_DIR$/src/pacMan/ControllerMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pacMan/ControllerMap.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/config.cfg" beforeDir="false" afterPath="$PROJECT_DIR$/user/config.cfg" afterDir="false" />
->>>>>>> 73e9084d43ff3a832cae10f3d253eeec94f57332
+      <change beforePath="$PROJECT_DIR$/Alpha.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Alpha.iml" afterDir="false" />
     </list>
-    <list id="c7ce7843-0a59-49ae-9990-e3eb04494ec4" name="Changes by bonlver" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings">
-    <execution />
-  </component>
-  <component name="CreatePatchCommitExecutor">
-    <option name="PATCH_PATH" value="" />
-  </component>
-  <component name="DebuggerManager">
-    <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true" converted="true">
-      <breakpoint>
-        <option name="NOTIFY_CAUGHT" value="true" />
-        <option name="NOTIFY_UNCAUGHT" value="true" />
-        <option name="ENABLED" value="false" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="SUSPEND" value="true" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="true" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-      <breakpoint>
-        <option name="NOTIFY_CAUGHT" value="true" />
-        <option name="NOTIFY_UNCAUGHT" value="true" />
-        <option name="ENABLED" value="false" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="SUSPEND" value="true" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="true" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-    </breakpoint_any>
-    <ui_properties converted="true" />
-    <breakpoint_rules converted="true" />
-  </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Class" />
-      </list>
-    </option>
-  </component>
-  <component name="FindManager">
-    <FindUsagesManager>
-      <setting name="OPEN_NEW_TAB" value="false" />
-    </FindUsagesManager>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
-  <component name="GithubPullRequestsUISettings">
-    <option name="selectedUrlAndAccountId">
-      <UrlAndAccount>
-        <option name="accountId" value="80788719-ed07-4ad8-8dad-a6c10838a405" />
-        <option name="url" value="https://github.com/52Alexis/PTUTS2A2.git" />
-      </UrlAndAccount>
-    </option>
-  </component>
-  <component name="ProjectId" id="1s1DVrtGuI85x5WbDrYSHQc0o8e" />
-  <component name="ProjectReloadState">
-    <option name="STATE" value="0" />
-  </component>
+  <component name="ProjectId" id="1ti5D1MaTR1NJhXzrTaQG7c4Gdz" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="GoToClass.includeLibraries" value="false" />
-    <property name="GoToClass.toSaveIncludeLibraries" value="false" />
-    <property name="GoToFile.includeJavaFiles" value="false" />
-    <property name="MemberChooser.copyJavadoc" value="false" />
-    <property name="MemberChooser.showClasses" value="true" />
-    <property name="MemberChooser.sorted" value="false" />
-    <property name="OverrideImplement.combined" value="false" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="codeWithMe.voiceChat.enabledByDefault" value="false" />
-    <property name="dynamic.classpath" value="false" />
-    <property name="extract.method.default.visibility" value="private" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="node.js.detected.package.eslint" value="true" />
-    <property name="node.js.detected.package.tslint" value="true" />
-    <property name="node.js.path.for.package.eslint" value="project" />
-    <property name="node.js.path.for.package.tslint" value="project" />
-    <property name="node.js.selected.package.eslint" value="(autodetect)" />
-    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Lib/JAVAFX/lib" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
-    <property name="recentsLimit" value="5" />
-  </component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\DUT\S2\PTUT\PTUTS2A2\Code\Alpha\src\pacMan" />
-      <recent name="$PROJECT_DIR$/img" />
-    </key>
-    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="" />
-      <recent name="sample" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/src/sample" />
-    </key>
+    <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="RunManager">
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <method />
-    </configuration>
-    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
-      <option name="VMOptions" />
-      <option name="arguments" />
-      <option name="filePath" />
-      <option name="scope" value="ALL" />
-      <option name="testName" />
-      <method />
-    </configuration>
-    <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
-      <Host>localhost</Host>
-      <Port>5050</Port>
-    </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true">
+    <configuration name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="pacMan.Main" />
       <module name="Alpha" />
-<<<<<<< HEAD
-      <option name="VM_PARAMETERS" value="--module-path C:\DUT\S2\PTUT\PTUTS2A2\Code\Lib\JAVAFX\lib\ --add-modules javafx.controls,javafx.fxml" />
-=======
-      <option name="VM_PARAMETERS" value="--module-path &quot;C:\Program Files\Java\javafx-sdk-11.0.2\lib&quot; --add-modules javafx.controls,javafx.fxml,javafx.media" />
->>>>>>> 73e9084d43ff3a832cae10f3d253eeec94f57332
+      <option name="VM_PARAMETERS" value="--module-path &quot;C:\DUT\S2\PTUT\PTUTS2A2\Code\Lib\JAVAFX\lib&quot; --add-modules javafx.controls,javafx.fxml,javafx.media" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="sample.*" />
+          <option name="PATTERN" value="pacMan.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Run" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="Application" factoryName="Application">
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -219,155 +82,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="JUnit" factoryName="JUnit">
-      <option name="TEST_OBJECT" value="class" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="moduleWithDependencies" />
-      </option>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="TestNG">
-      <option name="TEST_OBJECT" value="CLASS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="moduleWithDependencies" />
-      </option>
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType">
-      <module name="" />
-      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m" />
-      <option name="PROGRAM_PARAMETERS" />
-      <predefined_log_file enabled="true" id="idea.log" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.Main" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="" />
-      <created>1359379246138</created>
+      <changelist id="1b0712ba-916e-412c-a5ce-4246b88e3382" name="Default Changelist" comment="" />
+      <created>1623238947163</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1359379246138</updated>
-      <workItem from="1359379250712" duration="1302000" />
-      <workItem from="1620980700425" duration="1742000" />
-      <workItem from="1622803157861" duration="2003000" />
-      <workItem from="1623162431104" duration="177000" />
-      <workItem from="1623167204961" duration="493000" />
-<<<<<<< HEAD
-      <workItem from="1623217911889" duration="17800000" />
-=======
-      <workItem from="1623219464164" duration="2517000" />
-      <workItem from="1623229313198" duration="1207000" />
->>>>>>> 73e9084d43ff3a832cae10f3d253eeec94f57332
+      <updated>1623238947163</updated>
+      <workItem from="1623238950414" duration="65000" />
     </task>
-    <task id="LOCAL-00001" summary="Creation classe MVC Map">
-      <created>1620304187437</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1620304187437</updated>
-    </task>
-    <task id="LOCAL-00002" summary="Creation classe MVC Map">
-      <created>1620304250568</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1620304250568</updated>
-    </task>
-    <task id="LOCAL-00003" summary="Creation classe MVC Map">
-      <created>1620304304136</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1620304304136</updated>
-    </task>
-    <task id="LOCAL-00004" summary="Creation classe MVC Map">
-      <created>1620304422653</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1620304422653</updated>
-    </task>
-    <task id="LOCAL-00005" summary="Creation classe MVC Map">
-      <created>1620316539292</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1620316539292</updated>
-    </task>
-    <task id="LOCAL-00006" summary="Affichage fenetre blanche pour Map">
-      <created>1620757717577</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1620757717577</updated>
-    </task>
-    <task id="LOCAL-00007" summary="Début menu départ">
-      <created>1620761059009</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1620761059009</updated>
-    </task>
-    <task id="LOCAL-00008" summary="Nouvelle partie on click button">
-      <created>1622790316902</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1622790316902</updated>
-    </task>
-    <task id="LOCAL-00009" summary="optimize import">
-      <created>1623047280536</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1623047280536</updated>
-    </task>
-    <task id="LOCAL-00010" summary="Test et création param">
-      <created>1623053529639</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1623053529639</updated>
-    </task>
-    <task id="LOCAL-00011" summary="Test modif param">
-      <created>1623066702791</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1623066702791</updated>
-    </task>
-    <task id="LOCAL-00012" summary="Modif param qui marche">
-      <created>1623136141521</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1623136141524</updated>
-    </task>
-    <task id="LOCAL-00013" summary="Creation scores">
-      <created>1623136997808</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1623136997808</updated>
-    </task>
-    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -383,66 +108,15 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="VcsManagerConfiguration">
-    <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
-    <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
-    <MESSAGE value="Creation classe MVC Map" />
-    <MESSAGE value="Affichage fenetre blanche pour Map" />
-    <MESSAGE value="Début menu départ" />
-    <MESSAGE value="Nouvelle partie on click button" />
-    <MESSAGE value="optimize import" />
-    <MESSAGE value="Test et création param" />
-    <MESSAGE value="Test modif param" />
-    <MESSAGE value="Modif param qui marche" />
-    <MESSAGE value="Creation scores" />
-    <option name="LAST_COMMIT_MESSAGE" value="Creation scores" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="251" y="31" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1623218515005">
+    <state x="635" y="281" key="FileChooserDialogImpl" timestamp="1623239011505">
       <screen x="0" y="0" width="1858" height="1080" />
     </state>
-    <state x="251" y="31" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1858.1080@0.0.1858.1080" timestamp="1623218515005" />
-    <state width="1815" height="406" key="GridCell.Tab.0.bottom" timestamp="1623237341239">
+    <state x="635" y="281" key="FileChooserDialogImpl/0.0.1858.1080@0.0.1858.1080" timestamp="1623239011505" />
+    <state x="409" y="114" key="SettingsEditor" timestamp="1623239015222">
       <screen x="0" y="0" width="1858" height="1080" />
     </state>
-    <state width="1815" height="406" key="GridCell.Tab.0.bottom/0.0.1858.1080@0.0.1858.1080" timestamp="1623237341239" />
-    <state width="1815" height="406" key="GridCell.Tab.0.center" timestamp="1623237341238">
-      <screen x="0" y="0" width="1858" height="1080" />
-    </state>
-    <state width="1815" height="406" key="GridCell.Tab.0.center/0.0.1858.1080@0.0.1858.1080" timestamp="1623237341238" />
-    <state width="1815" height="406" key="GridCell.Tab.0.left" timestamp="1623237341238">
-      <screen x="0" y="0" width="1858" height="1080" />
-    </state>
-    <state width="1815" height="406" key="GridCell.Tab.0.left/0.0.1858.1080@0.0.1858.1080" timestamp="1623237341238" />
-    <state width="1815" height="406" key="GridCell.Tab.0.right" timestamp="1623237341239">
-      <screen x="0" y="0" width="1858" height="1080" />
-    </state>
-    <state width="1815" height="406" key="GridCell.Tab.0.right/0.0.1858.1080@0.0.1858.1080" timestamp="1623237341239" />
-    <state width="1815" height="192" key="GridCell.Tab.1.bottom" timestamp="1623219013669">
-      <screen x="0" y="0" width="1858" height="1080" />
-    </state>
-    <state width="1815" height="192" key="GridCell.Tab.1.bottom/0.0.1858.1080@0.0.1858.1080" timestamp="1623219013669" />
-    <state width="1815" height="192" key="GridCell.Tab.1.center" timestamp="1623219013669">
-      <screen x="0" y="0" width="1858" height="1080" />
-    </state>
-    <state width="1815" height="192" key="GridCell.Tab.1.center/0.0.1858.1080@0.0.1858.1080" timestamp="1623219013669" />
-    <state width="1815" height="192" key="GridCell.Tab.1.left" timestamp="1623219013669">
-      <screen x="0" y="0" width="1858" height="1080" />
-    </state>
-    <state width="1815" height="192" key="GridCell.Tab.1.left/0.0.1858.1080@0.0.1858.1080" timestamp="1623219013669" />
-    <state width="1815" height="192" key="GridCell.Tab.1.right" timestamp="1623219013669">
-      <screen x="0" y="0" width="1858" height="1080" />
-    </state>
-    <state width="1815" height="192" key="GridCell.Tab.1.right/0.0.1858.1080@0.0.1858.1080" timestamp="1623219013669" />
-    <state x="659" y="295" key="extract.method.dialog" timestamp="1623227189864">
-      <screen x="0" y="0" width="1858" height="1080" />
-    </state>
-    <state x="659" y="295" key="extract.method.dialog/0.0.1858.1080@0.0.1858.1080" timestamp="1623227189864" />
-    <state x="585" y="250" key="run.anything.popup" timestamp="1623236167414">
-      <screen x="0" y="0" width="1858" height="1080" />
-    </state>
-    <state x="585" y="250" key="run.anything.popup/0.0.1858.1080@0.0.1858.1080" timestamp="1623236167414" />
+    <state x="409" y="114" key="SettingsEditor/0.0.1858.1080@0.0.1858.1080" timestamp="1623239015222" />
   </component>
 </project>
