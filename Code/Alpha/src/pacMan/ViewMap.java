@@ -1,13 +1,13 @@
 package pacMan;
 
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
+import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.TextAlignment;
@@ -38,7 +38,7 @@ public class ViewMap {
     protected int lastdirection;
     protected boolean hasMoved;
     protected int cycleAnim;
-    protected Label labelScore;
+    protected static Label labelScore;
     protected GridPane paneVies;
 
 
@@ -109,6 +109,7 @@ public class ViewMap {
 
     public void addWidgetsToView(){
         Pane root=new Pane();
+        root.setBackground(new Background(new BackgroundFill(Color.BLACK,CornerRadii.EMPTY,null)));
         GridPane grid = new GridPane();
         bonus=new Rectangle();
         bonus.setHeight(modelMap.getTailleCase());
@@ -124,17 +125,22 @@ public class ViewMap {
             }
         }
         HBox boxBas = new HBox();
+//        boxBas.setBackground(new Background(new BackgroundFill(Color.BLACK,CornerRadii.EMPTY,null)));
         paneVies = new GridPane();
         paneVies.setHgap(5);
-        paneVies.setVgap(10);
+        paneVies.setPadding(new Insets(3));
         for (int i = 0; i<Pacman.getVies(); i++){
             Label label = new Label();
             label.setGraphic(new ImageView(new Image("file:img/Entity/Mobile/Pacman/normal/21.png")));
             paneVies.add(label,i,0);
         }
 
-        labelScore = new Label(Pacman.getScore()+"");
-        labelScore.setTextAlignment(TextAlignment.RIGHT);
+        labelScore = new Label("Score : "+Pacman.getScore()+"");
+        labelScore.getStyleClass().add("labelScore");
+//        labelScore.setTextAlignment(TextAlignment.CENTER);
+//        labelScore.setTextFill(Color.WHITE);
+//        labelScore.setPadding(new Insets(3));
+        labelScore.setTranslateX(150);
         boxBas.getChildren().addAll(paneVies,labelScore);
         boxBas.setTranslateY(modelMap.getY()*modelMap.getTailleCase());
 
@@ -146,6 +152,7 @@ public class ViewMap {
         }
         setPoints();
         Scene sceneMap = new Scene(root,modelMap.getX()*modelMap.getTailleCase(),modelMap.getY()*modelMap.getTailleCase()+30);
+        sceneMap.getStylesheets().add("file:src/pacMan/Style.css");
         primaryStage.setScene(sceneMap);
         primaryStage.setResizable(false);
     }
@@ -191,11 +198,11 @@ public class ViewMap {
     }
 
     public void manageVie(){
-
+        paneVies.getChildren().get(3-Pacman.getVies()).setVisible(false);
     }
 
     public void manageScore(){
-
+        getLabelScore().setText("Score : "+Pacman.getScore()+"");
     }
 
     public void anim(){
@@ -335,4 +342,7 @@ public class ViewMap {
         return group;
     }
 
+    public static Label getLabelScore() {
+        return labelScore;
+    }
 }
