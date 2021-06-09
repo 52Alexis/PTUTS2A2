@@ -72,6 +72,7 @@ public class ControllerMap extends Controller{
                 viewMap.move();
                 if(modelMap.getListPointDispo().isEmpty()){
                     try {
+                        StaticMusic.musicRunaway.stop();
                         StaticMusic.musicMain.stop();
                         StaticMusic.fxVictory.play();
                         started=false;
