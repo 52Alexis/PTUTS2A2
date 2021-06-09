@@ -192,7 +192,7 @@ public class ViewMap {
     }
 
     public void manageVie(){
-        paneViesEtScore.getChildren().get(3-Pacman.getVies()).setVisible(false);
+        paneViesEtScore.getChildren().get(Pacman.getVies()).setVisible(false);
     }
 
     public void manageScore(){
