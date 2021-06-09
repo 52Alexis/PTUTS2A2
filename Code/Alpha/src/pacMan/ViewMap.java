@@ -1,5 +1,9 @@
 package pacMan;
 
+import javafx.animation.Animation;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
+import javafx.application.Platform;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
@@ -10,10 +14,17 @@ import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
+import javafx.scene.*;
+import javafx.scene.paint.*;
+import javafx.scene.shape.*;
+import javafx.util.Duration;
 
+import java.awt.*;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class ViewMap {
     protected ModelMap modelMap;
@@ -30,7 +41,7 @@ public class ViewMap {
     protected ArrayList<Image> spritesPacmanDead;
     protected ArrayList<Image> spritesBonus;
     protected ArrayList<Image> chiffreScore;
-
+    protected ArrayList<Image> over;
 
     protected ArrayList<Rectangle> listMobile;
     protected Rectangle bonus;
@@ -39,7 +50,7 @@ public class ViewMap {
     protected int cycleAnim;
     protected GridPane paneViesEtScore;
     protected Rectangle[] scores;
-    protected ArrayList<Image> over;
+
 
     public ViewMap(ModelMap modelMap,Stage stage) {
         this.modelMap = modelMap;
@@ -360,5 +371,23 @@ public class ViewMap {
         group=group*2;
         return group;
     }
+
+    public void gameOver() {
+        Rectangle r = new Rectangle(25, 25, 125, 125);
+        Timeline time = new Timeline(new KeyFrame(Duration.seconds(1),ev -> {
+            for (int i = 0; i<16;i++) {
+                Pane root = new Pane();
+                root.setBackground(new Background(new BackgroundFill(Color.BLACK, CornerRadii.EMPTY, null)));
+                r.setFill(new ImagePattern(over.get(cycleAnim)));
+                root.getChildren().add(r);
+                Scene scene = new Scene(root, 200, 200);
+                primaryStage.setScene(scene);
+                primaryStage.setResizable(false);
+                display();
+            }
+        } ));
+        time.setCycleCount(Animation.INDEFINITE);
+        time.play();
+    };
 
 }
