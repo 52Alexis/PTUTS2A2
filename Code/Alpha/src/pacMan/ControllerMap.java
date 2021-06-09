@@ -171,7 +171,7 @@ public class ControllerMap extends Controller{
                             Pacman.setScore(Pacman.getScore()+score);
                         }else {
                             if(!f.isDead()){
-                            Pacman.setVies(Pacman.getVies() - 1);
+                                Pacman.setVies(Pacman.getVies() - 1);
                                 StaticMusic.musicMain.stop();
                                 StaticMusic.musicRunaway.stop();
                                 StaticMusic.fxDeath.play();
@@ -184,12 +184,12 @@ public class ControllerMap extends Controller{
                                     });
 
                                 }
-                            timer.cancel();
-                            started = false;
-                            removeController();
-                            viewMap.manageVie();
-                            animDeath();
-                            modelMap.death();
+                                timer.cancel();
+                                started = false;
+                                removeController();
+                                viewMap.manageVie();
+                                animDeath();
+                                modelMap.death();
                             }
                         }
                     }
