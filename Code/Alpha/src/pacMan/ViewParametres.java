@@ -103,6 +103,11 @@ public class ViewParametres {
         fieldLeft.getStyleClass().add("boutons");
         fieldLeft.setTranslateX(100);
         //errFieldLeft
+        errFieldDown.setTranslateX(100);
+        errFieldUp.setTranslateX(100);
+        errFieldLeft.setTranslateX(100);
+        errFieldRight.setTranslateX(100);
+
         root.setBorder(new Border(new BorderStroke(Color.YELLOW, Color.YELLOW, Color.YELLOW, Color.YELLOW,
                 BorderStrokeStyle.SOLID, BorderStrokeStyle.SOLID, BorderStrokeStyle.SOLID, BorderStrokeStyle.SOLID,
                 CornerRadii.EMPTY, new BorderWidths(5), Insets.EMPTY)));
