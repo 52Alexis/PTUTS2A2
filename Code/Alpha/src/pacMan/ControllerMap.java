@@ -1,5 +1,7 @@
 package pacMan;
 
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.event.EventHandler;
 import javafx.scene.input.KeyEvent;
 
@@ -8,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 import javafx.scene.image.Image;
+import javafx.util.Duration;
 
 public class ControllerMap extends Controller{
     ViewMap viewMap;
@@ -182,12 +185,12 @@ public class ControllerMap extends Controller{
                                             StaticMusic.musicGameOver.play();
                                         }
                                     });
-
                                 }
                                 timer.cancel();
                                 started = false;
                                 removeController();
                                 viewMap.manageVie();
+                                viewMap.endGame();
                                 animDeath();
                                 modelMap.death();
                             }
@@ -220,4 +223,6 @@ public class ControllerMap extends Controller{
         };
         deathAnim.scheduleAtFixedRate(animDeath,0,1000/8);
     }
+
+
 }

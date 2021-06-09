@@ -75,7 +75,7 @@ public class ViewMenu {
 
         VBox boxTitre = new VBox(titre);
         boxTitre.setAlignment(Pos.CENTER);
-        boxTitre.setTranslateY(-250);
+        boxTitre.setTranslateY(-225);
         gridPane.add(boxTitre,3,0);
 
         VBox boxBoutons = new VBox(10,boutonNouvellePartie,boutonMapEditor,boutonParametres,boutonMeilleursScores);
