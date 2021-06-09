@@ -148,7 +148,6 @@ public class ControllerMap extends Controller{
                     timer.cancel();
                     checkStatus.cancel();
                     removeController();
-
                 }
             }
         };
