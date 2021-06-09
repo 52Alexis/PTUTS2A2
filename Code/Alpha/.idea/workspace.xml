@@ -20,36 +20,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Creation scores">
-      <change beforePath="$PROJECT_DIR$/src/sample/Bonus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pacMan/Bonus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Case.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pacMan/Case.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pacMan/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/ControllerMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pacMan/ControllerMap.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/ControllerMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pacMan/ControllerMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/ControllerParametres.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pacMan/ControllerParametres.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/ControllerScore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pacMan/ControllerScore.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Entite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pacMan/Entite.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Fantome.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pacMan/Fantome.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Fixe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pacMan/Fixe.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pacMan/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Mobile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pacMan/Mobile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/ModelMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pacMan/ModelMap.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/ModelMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pacMan/ModelMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/ModelParametres.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pacMan/ModelParametres.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/ModelScores.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pacMan/ModelScores.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Pacman.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pacMan/Pacman.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Point.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pacMan/Point.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/pacMan/Style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/ViewMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pacMan/ViewMap.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/ViewMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pacMan/ViewMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/ViewParametres.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pacMan/ViewParametres.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/ViewScores.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pacMan/ViewScores.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/sample.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/pacMan/sample.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pacMan/ControllerMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pacMan/ControllerMap.java" afterDir="false" />
     </list>
     <list id="c7ce7843-0a59-49ae-9990-e3eb04494ec4" name="Changes by bonlver" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
@@ -115,7 +96,6 @@
       </UrlAndAccount>
     </option>
   </component>
-  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectId" id="1s1DVrtGuI85x5WbDrYSHQc0o8e" />
   <component name="ProjectReloadState">
     <option name="STATE" value="0" />
@@ -194,7 +174,7 @@
     <configuration name="Main" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="pacMan.Main" />
       <module name="Alpha" />
-      <option name="VM_PARAMETERS" value="--module-path $PATH_TO_FX$ --add-modules javafx.controls,javafx.fxml" />
+      <option name="VM_PARAMETERS" value="--module-path c:\Users\Alexis\Desktop\DUT\S2\PTUT\Code\Lib\JAVAFX\lib\ --add-modules javafx.controls,javafx.fxml" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="sample.*" />
@@ -209,17 +189,6 @@
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -273,6 +242,7 @@
       <workItem from="1620980700425" duration="1742000" />
       <workItem from="1622803157861" duration="2003000" />
       <workItem from="1623162431104" duration="177000" />
+      <workItem from="1623167204961" duration="493000" />
     </task>
     <task id="LOCAL-00001" summary="Creation classe MVC Map">
       <created>1620304187437</created>
@@ -396,35 +366,5 @@
     <MESSAGE value="Modif param qui marche" />
     <MESSAGE value="Creation scores" />
     <option name="LAST_COMMIT_MESSAGE" value="Creation scores" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="383" y="194" width="1092" height="715" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1623162609714">
-      <screen x="0" y="0" width="1858" height="1080" />
-    </state>
-    <state x="383" y="194" width="1092" height="715" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1858.1080@0.0.1858.1080" timestamp="1623162609714" />
-    <state x="659" y="315" key="#com.intellij.ide.util.PackageChooserDialog" timestamp="1623162557721">
-      <screen x="0" y="0" width="1858" height="1080" />
-    </state>
-    <state x="659" y="315" key="#com.intellij.ide.util.PackageChooserDialog/0.0.1858.1080@0.0.1858.1080" timestamp="1623162557721" />
-    <state x="725" y="446" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.packages" timestamp="1623162560208">
-      <screen x="0" y="0" width="1858" height="1080" />
-    </state>
-    <state x="725" y="446" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.packages/0.0.1858.1080@0.0.1858.1080" timestamp="1623162560208" />
-    <state width="1815" height="295" key="GridCell.Tab.0.bottom" timestamp="1623162491786">
-      <screen x="0" y="0" width="1858" height="1080" />
-    </state>
-    <state width="1815" height="295" key="GridCell.Tab.0.bottom/0.0.1858.1080@0.0.1858.1080" timestamp="1623162491786" />
-    <state width="1815" height="295" key="GridCell.Tab.0.center" timestamp="1623162491786">
-      <screen x="0" y="0" width="1858" height="1080" />
-    </state>
-    <state width="1815" height="295" key="GridCell.Tab.0.center/0.0.1858.1080@0.0.1858.1080" timestamp="1623162491786" />
-    <state width="1815" height="295" key="GridCell.Tab.0.left" timestamp="1623162491786">
-      <screen x="0" y="0" width="1858" height="1080" />
-    </state>
-    <state width="1815" height="295" key="GridCell.Tab.0.left/0.0.1858.1080@0.0.1858.1080" timestamp="1623162491786" />
-    <state width="1815" height="295" key="GridCell.Tab.0.right" timestamp="1623162491786">
-      <screen x="0" y="0" width="1858" height="1080" />
-    </state>
-    <state width="1815" height="295" key="GridCell.Tab.0.right/0.0.1858.1080@0.0.1858.1080" timestamp="1623162491786" />
   </component>
 </project>

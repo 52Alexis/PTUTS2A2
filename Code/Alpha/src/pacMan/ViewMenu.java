@@ -19,6 +19,7 @@ public class ViewMenu {
 
     protected Label titre;
     protected Button boutonNouvellePartie;
+    protected Button boutonMapEditor;
     protected Button boutonParametres;
     protected Button boutonMeilleursScores;
 
@@ -49,6 +50,13 @@ public class ViewMenu {
             ControllerMap controllerMap=new ControllerMap(viewMap,modelMap,modelParametres);
             controllerMap.setController();
         });
+
+        boutonMapEditor = new Button("Editeur de maps");
+        boutonMapEditor.setOnAction(e->{
+            ModelMapEditor modelMapEditor = new ModelMapEditor();
+            ViewMapEditor viewMapEditor = new ViewMapEditor(modelMapEditor,primaryStage);
+            ControllerMapEditor controllerMapEditor = new ControllerMapEditor(modelMapEditor,viewMapEditor);
+        });
         boutonParametres = new Button(("Paramètres"));
         boutonParametres.setOnAction(e->{
             ModelParametres modelParametres = new ModelParametres();
@@ -68,13 +76,14 @@ public class ViewMenu {
         boxTitre.setTranslateY(-275);
         gridPane.add(boxTitre,3,0);
 
-        VBox boxBoutons = new VBox(10,boutonNouvellePartie,boutonParametres,boutonMeilleursScores);
+        VBox boxBoutons = new VBox(10,boutonNouvellePartie,boutonMapEditor,boutonParametres,boutonMeilleursScores);
         boxBoutons.setAlignment(Pos.CENTER);
         gridPane.add(boxBoutons,3,4);
 
         gridPane.setAlignment(Pos.CENTER);
 
         boutonNouvellePartie.getStyleClass().add("boutons");
+        boutonMapEditor.getStyleClass().add("boutons");
         boutonParametres.getStyleClass().add("boutons");
         boutonMeilleursScores.getStyleClass().add("boutons");
 
