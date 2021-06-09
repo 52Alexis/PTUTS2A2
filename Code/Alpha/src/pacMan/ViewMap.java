@@ -1,7 +1,6 @@
 package pacMan;
 
 import javafx.geometry.Insets;
-import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -10,7 +9,6 @@ import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Rectangle;
-import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 
 import java.io.FileInputStream;
@@ -38,8 +36,7 @@ public class ViewMap {
     protected int lastdirection;
     protected boolean hasMoved;
     protected int cycleAnim;
-    protected static Label labelScore;
-    protected GridPane paneVies;
+    protected GridPane paneViesEtScore;
 
 
     public ViewMap(ModelMap modelMap,Stage stage) {
@@ -126,22 +123,19 @@ public class ViewMap {
         }
         HBox boxBas = new HBox();
 //        boxBas.setBackground(new Background(new BackgroundFill(Color.BLACK,CornerRadii.EMPTY,null)));
-        paneVies = new GridPane();
-        paneVies.setHgap(5);
-        paneVies.setPadding(new Insets(3));
+        paneViesEtScore = new GridPane();
+        paneViesEtScore.setHgap(5);
+        paneViesEtScore.setPadding(new Insets(3));
         for (int i = 0; i<Pacman.getVies(); i++){
             Label label = new Label();
             label.setGraphic(new ImageView(new Image("file:img/Entity/Mobile/Pacman/normal/21.png")));
-            paneVies.add(label,i,0);
+            paneViesEtScore.add(label,i,0);
         }
 
-        labelScore = new Label("Score : "+Pacman.getScore()+"");
+        Label labelScore = new Label("Score : ");
         labelScore.getStyleClass().add("labelScore");
-//        labelScore.setTextAlignment(TextAlignment.CENTER);
-//        labelScore.setTextFill(Color.WHITE);
-//        labelScore.setPadding(new Insets(3));
-        labelScore.setTranslateX(150);
-        boxBas.getChildren().addAll(paneVies,labelScore);
+        paneViesEtScore.add(labelScore,3,0,2,1);
+        boxBas.getChildren().addAll(paneViesEtScore);
         boxBas.setTranslateY(modelMap.getY()*modelMap.getTailleCase());
 
         root.getChildren().addAll(grid,boxBas);
@@ -198,11 +192,11 @@ public class ViewMap {
     }
 
     public void manageVie(){
-        paneVies.getChildren().get(3-Pacman.getVies()).setVisible(false);
+        paneViesEtScore.getChildren().get(3-Pacman.getVies()).setVisible(false);
     }
 
     public void manageScore(){
-        getLabelScore().setText("Score : "+Pacman.getScore()+"");
+
     }
 
     public void anim(){
@@ -342,7 +336,4 @@ public class ViewMap {
         return group;
     }
 
-    public static Label getLabelScore() {
-        return labelScore;
-    }
 }

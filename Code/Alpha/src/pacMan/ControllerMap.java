@@ -87,7 +87,6 @@ public class ControllerMap extends Controller{
                 modelMap.increment();
                 modelMap.setBonus();
                 viewMap.anim();
-                viewMap.manageScore();
                 viewMap.setBonus();
             }
         };
