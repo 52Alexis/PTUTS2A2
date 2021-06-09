@@ -29,6 +29,7 @@ public class ViewMap {
     protected ArrayList<Image> spritesDeadFantome;
     protected ArrayList<Image> spritesPacmanDead;
     protected ArrayList<Image> spritesBonus;
+    protected ArrayList<Image> chiffreScore;
 
 
     protected ArrayList<Rectangle> listMobile;
@@ -37,6 +38,7 @@ public class ViewMap {
     protected boolean hasMoved;
     protected int cycleAnim;
     protected GridPane paneViesEtScore;
+    protected Rectangle[] scores;
 
 
     public ViewMap(ModelMap modelMap,Stage stage) {
@@ -61,6 +63,7 @@ public class ViewMap {
         spritesDeadFantome=new ArrayList<>();
         spritesPacmanDead=new ArrayList<>();
         spritesBonus=new ArrayList<>();
+        chiffreScore=new ArrayList<>();
 
         images_mur.add(new Image(new FileInputStream("img/Walls/0.png")));  //0
         images_mur.add(new Image(new FileInputStream("img/Walls/EO.png"))); //1
@@ -101,6 +104,10 @@ public class ViewMap {
             spritesBonus.add(new Image(new FileInputStream("img/Entity/Fixe/Bonus/"+i+".png")));
         }
 
+        for(int i=0;i<10;i++){
+            chiffreScore.add(new Image(new FileInputStream("img/Numbers/"+i+".png")));
+        }
+
 
     }
 
@@ -135,11 +142,11 @@ public class ViewMap {
         Label labelScore = new Label("Score : ");
         labelScore.getStyleClass().add("labelScore");
         paneViesEtScore.add(labelScore,3,0,2,1);
-        Rectangle[] scores = new Rectangle[7];
+        scores = new Rectangle[7];
         for (int i = 0; i<scores.length; i++){
-            scores[i] = new Rectangle();
+            scores[i] = new Rectangle(modelMap.getTailleCase(),modelMap.getTailleCase());
             scores[i].setFill(new ImagePattern(new Image("file:img/Numbers/0.png")));
-            paneViesEtScore.add(scores[i],4+i,0);
+            paneViesEtScore.add(scores[i],5+i,0);
         }
         boxBas.getChildren().addAll(paneViesEtScore);
         boxBas.setTranslateY(modelMap.getY()*modelMap.getTailleCase());
@@ -202,7 +209,15 @@ public class ViewMap {
     }
 
     public void manageScore(){
-
+        int unit = 1;
+        int score = Pacman.getScore();
+        int chiffre;
+        while(score>=1){
+            chiffre=score%10;
+            score=score/10;
+            scores[scores.length-unit].setFill(new ImagePattern(chiffreScore.get(chiffre)));
+            unit++;
+        }
     }
 
     public void anim(){
