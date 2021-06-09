@@ -29,6 +29,8 @@ public class ControllerMap extends Controller{
         touches = modelParametres.getConfigTouches();
         started=false;
         secondaryTimer();
+        this.viewMap.endGame();
+
         keyEventEventHandler= new EventHandler<>() {
             @Override
             public void handle(KeyEvent keyEvent) {
@@ -54,6 +56,7 @@ public class ControllerMap extends Controller{
                     StaticMusic.musicMain.play();
                     started = true;
                     timer();
+
                 }
             }
         };
@@ -137,8 +140,6 @@ public class ControllerMap extends Controller{
         timer.scheduleAtFixedRate(anim,0,1000/24);
         timer.scheduleAtFixedRate(tps,0,1000);
         timer.scheduleAtFixedRate(gum,0,1000);
-
-
     }
 
     public void secondaryTimer(){
@@ -190,7 +191,6 @@ public class ControllerMap extends Controller{
                                 started = false;
                                 removeController();
                                 viewMap.manageVie();
-                                viewMap.endGame();
                                 animDeath();
                                 modelMap.death();
                             }

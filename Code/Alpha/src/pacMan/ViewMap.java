@@ -390,4 +390,16 @@ public class ViewMap {
         time.play();
     };
 
+    public void endGame(){
+        Timeline endGame = new Timeline(new KeyFrame(Duration.seconds(5), e->{
+            if (Pacman.getVies()<=0){
+                ModelScores modelScores = new ModelScores();
+                ViewEndGame viewEndGame = new ViewEndGame(modelScores,primaryStage);
+                ControllerEndGame ceg = new ControllerEndGame(modelScores,viewEndGame);
+            }
+        }));
+        endGame.setCycleCount(Animation.INDEFINITE);
+        endGame.play();
+    }
+
 }
