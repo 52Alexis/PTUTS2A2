@@ -60,7 +60,7 @@ public class StaticMusic {
 
         musicTitle.setOnEndOfMedia(new Runnable() {
             public void run() {
-                musicMain.seek(Duration.ZERO);
+                musicTitle.seek(Duration.ZERO);
             }
         });
 
@@ -77,6 +77,12 @@ public class StaticMusic {
             }
         });
 
+        fxVictory.setOnEndOfMedia(new Runnable() {
+            public void run() {
+                fxVictory.stop();
+            }
+        });
+
         fxDeath.setOnEndOfMedia(new Runnable() {
             public void run() {
                 fxDeath.stop();
@@ -85,7 +91,6 @@ public class StaticMusic {
 
         fxGhostDeath.setOnEndOfMedia(new Runnable() {
             public void run() {
-
                 fxGhostDeath.stop();
             }
         });
