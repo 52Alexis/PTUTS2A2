@@ -135,6 +135,12 @@ public class ViewMap {
         Label labelScore = new Label("Score : ");
         labelScore.getStyleClass().add("labelScore");
         paneViesEtScore.add(labelScore,3,0,2,1);
+        Rectangle[] scores = new Rectangle[7];
+        for (int i = 0; i<scores.length; i++){
+            scores[i] = new Rectangle();
+            scores[i].setFill(new ImagePattern(new Image("file:img/Numbers/0.png")));
+            paneViesEtScore.add(scores[i],4+i,0);
+        }
         boxBas.getChildren().addAll(paneViesEtScore);
         boxBas.setTranslateY(modelMap.getY()*modelMap.getTailleCase());
 
