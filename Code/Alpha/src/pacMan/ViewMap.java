@@ -39,7 +39,7 @@ public class ViewMap {
     protected int cycleAnim;
     protected GridPane paneViesEtScore;
     protected Rectangle[] scores;
-
+    protected ArrayList<Image> over;
 
     public ViewMap(ModelMap modelMap,Stage stage) {
         this.modelMap = modelMap;
@@ -108,6 +108,9 @@ public class ViewMap {
             chiffreScore.add(new Image(new FileInputStream("img/Numbers/"+i+".png")));
         }
 
+        for(int i=0;i<16;i++) {
+            over.add(new Image(new FileInputStream("img/gameOver/"+i+".png")));
+        }
 
     }
 
