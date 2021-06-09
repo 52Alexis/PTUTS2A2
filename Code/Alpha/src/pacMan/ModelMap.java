@@ -276,12 +276,16 @@ public class ModelMap {
 
     public void eatPoint(Fixe f){
         if(f.type==0){
+            StaticMusic.fxBonus.play(); //lance le fx bonus quand le joueur ramasse un bonus
             currentBonus=null;
             f.emplacement.setFixe(null);
             f.emplacement=null;
         }else{
             Point p=(Point)f;
             if(p.isGum()){
+                StaticMusic.musicMain.pause(); //pause la musique principale
+                StaticMusic.musicRunaway.stop(); //stop la music de runaway si elle est active (debug)
+                StaticMusic.musicRunaway.play(); //lance la musique de runaway
                 activatedgum=true;
                 tps=0;
                 getPacman().nFantome=0;

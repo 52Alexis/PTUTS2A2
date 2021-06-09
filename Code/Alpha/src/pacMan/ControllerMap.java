@@ -46,6 +46,8 @@ public class ControllerMap extends Controller{
                     return;
                 }
                 if (!started) {
+                    StaticMusic.musicRunaway.stop();
+                    StaticMusic.musicMain.play();
                     started = true;
                     timer();
                 }
@@ -70,6 +72,8 @@ public class ControllerMap extends Controller{
                 viewMap.move();
                 if(modelMap.getListPointDispo().isEmpty()){
                     try {
+                        StaticMusic.musicMain.stop();
+                        StaticMusic.fxVictory.play();
                         started=false;
                         modelMap.nextlvl();
                         timer.cancel();
@@ -153,6 +157,8 @@ public class ControllerMap extends Controller{
                     if(f.emplacement==modelMap.getPacman().emplacement){
                         if(f.isGum()){
                             f.die();
+                            StaticMusic.fxGhostDeath.stop();
+                            StaticMusic.fxGhostDeath.play();
                             Pacman p = modelMap.getPacman();
                             p.nFantome++;
                             int score=100;
@@ -163,6 +169,18 @@ public class ControllerMap extends Controller{
                         }else {
                             if(!f.isDead()){
                             Pacman.setVies(Pacman.getVies() - 1);
+                                StaticMusic.musicMain.stop();
+                                StaticMusic.musicRunaway.stop();
+                                StaticMusic.fxDeath.play();
+                                if(Pacman.getVies()==0) { //Si le joueur n a plus de vie, lance la musique de game over apres la musique de la mort
+                                    StaticMusic.fxDeath.setOnEndOfMedia(new Runnable() {
+                                        public void run() {
+                                            StaticMusic.fxDeath.stop();
+                                            StaticMusic.musicGameOver.play();
+                                        }
+                                    });
+
+                                }
                             timer.cancel();
                             started = false;
                             removeController();

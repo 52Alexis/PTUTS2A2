@@ -23,6 +23,11 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Alpha/pacMan/Style.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Alpha/pacMan/Style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Alpha/pacMan/ViewMap.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Alpha/pacMan/ViewMap.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pacMan/ControllerMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pacMan/ControllerMap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pacMan/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pacMan/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pacMan/ModelMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pacMan/ModelMap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pacMan/ViewMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pacMan/ViewMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/config.cfg" beforeDir="false" afterPath="$PROJECT_DIR$/user/config.cfg" afterDir="false" />
     </list>
     <list id="c7ce7843-0a59-49ae-9990-e3eb04494ec4" name="Changes by bonlver" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -175,7 +180,7 @@
     <configuration name="Main" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="pacMan.Main" />
       <module name="Alpha" />
-      <option name="VM_PARAMETERS" value="--module-path c:\Users\aurel\OneDrive\Documents\GitHub\PTUTS2A2\Code\Lib\JAVAFX\lib\ --add-modules javafx.controls,javafx.fxml" />
+      <option name="VM_PARAMETERS" value="--module-path &quot;C:\Program Files\Java\javafx-sdk-11.0.2\lib&quot; --add-modules javafx.controls,javafx.fxml,javafx.media" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="sample.*" />
@@ -245,6 +250,7 @@
       <workItem from="1623162431104" duration="177000" />
       <workItem from="1623167204961" duration="493000" />
       <workItem from="1623219464164" duration="2517000" />
+      <workItem from="1623229313198" duration="1207000" />
     </task>
     <task id="LOCAL-00001" summary="Creation classe MVC Map">
       <created>1620304187437</created>
