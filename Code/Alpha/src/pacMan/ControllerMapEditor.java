@@ -16,6 +16,9 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
+/**
+ * Controller de l'editeur de carte
+ */
 public class ControllerMapEditor implements EventHandler<ActionEvent> {
     ModelMapEditor modelMapEditor;
     ViewMapEditor viewMapEditor;
@@ -35,114 +38,110 @@ public class ControllerMapEditor implements EventHandler<ActionEvent> {
             public void handle(MouseEvent mouseEvent) {
                 Image img;
                 Node source = mouseEvent.getPickResult().getIntersectedNode();
-//                Node imgSource = viewMapEditor.buttonNS.getGraphic();
-//                ImageView imageView = (ImageView) imgSource;
-//                Image img = imageView.getImage();
-//                Rectangle r = new Rectangle();
-//                r.setFill(new ImagePattern(img));
                 Integer colIndex = GridPane.getColumnIndex(source) ;
                 Integer rowIndex = GridPane.getRowIndex(source);
-//                viewMapEditor.grid.add(r, colIndex, rowIndex);
                 System.out.println(type);
-                switch (type){
-                    case 0:     //VIDE
-                        clean(colIndex,rowIndex);
-                        break;
-                    case 1:     //HORI
-                        img=viewMapEditor.listImage[0];
-                        clean(colIndex,rowIndex);
+                switch (type) {
+                    //type 0 à 9, positionnement de mur
+                    //type 10, positionnement du pacman
+                    //type 11 à 14, positionnement de fantomes
+                    case 0 ->     //VIDE
+                            clean(colIndex, rowIndex); //vide tout contenu de la cellule
+                    case 1 -> {     //HORI
+                        img = viewMapEditor.listImage[0];//change l'image de la case pour mettre celle appropropriée
+                        clean(colIndex, rowIndex);
                         modelMapEditor.cases[colIndex][rowIndex].setTypeMur("EO");
                         viewMapEditor.cases[colIndex][rowIndex].setFill(new ImagePattern(img));
-                        break;
-                    case 2:     //VERTI
-                        img=viewMapEditor.listImage[3];
-                        clean(colIndex,rowIndex);
+                    }
+                    case 2 -> {     //VERTI
+                        img = viewMapEditor.listImage[3];
+                        clean(colIndex, rowIndex);
                         modelMapEditor.cases[colIndex][rowIndex].setTypeMur("NS");
                         viewMapEditor.cases[colIndex][rowIndex].setFill(new ImagePattern(img));
-                        break;
-                    case 3:     //BASGAUCHE
-                        img=viewMapEditor.listImage[1];
-                        clean(colIndex,rowIndex);
+                    }
+                    case 3 -> {     //BASGAUCHE
+                        img = viewMapEditor.listImage[1];
+                        clean(colIndex, rowIndex);
                         modelMapEditor.cases[colIndex][rowIndex].setTypeMur("NE");
                         viewMapEditor.cases[colIndex][rowIndex].setFill(new ImagePattern(img));
-                        break;
-                    case 4:     //BASDROITE
-                        img=viewMapEditor.listImage[2];
-                        clean(colIndex,rowIndex);
+                    }
+                    case 4 -> {     //BASDROITE
+                        img = viewMapEditor.listImage[2];
+                        clean(colIndex, rowIndex);
                         modelMapEditor.cases[colIndex][rowIndex].setTypeMur("NO");
                         viewMapEditor.cases[colIndex][rowIndex].setFill(new ImagePattern(img));
-                        break;
-                    case 5:     //HAUTGAUCHE
-                        img=viewMapEditor.listImage[7];
-                        clean(colIndex,rowIndex);
+                    }
+                    case 5 -> {     //HAUTGAUCHE
+                        img = viewMapEditor.listImage[7];
+                        clean(colIndex, rowIndex);
                         modelMapEditor.cases[colIndex][rowIndex].setTypeMur("SE");
                         viewMapEditor.cases[colIndex][rowIndex].setFill(new ImagePattern(img));
-                        break;
-                    case 6:     //HAUTDROIT
-                        img=viewMapEditor.listImage[8];
-                        clean(colIndex,rowIndex);
+                    }
+                    case 6 -> {     //HAUTDROIT
+                        img = viewMapEditor.listImage[8];
+                        clean(colIndex, rowIndex);
                         modelMapEditor.cases[colIndex][rowIndex].setTypeMur("SO");
                         viewMapEditor.cases[colIndex][rowIndex].setFill(new ImagePattern(img));
-                        break;
-                    case 7:     //PORTE
-                        img=viewMapEditor.listImage[4];
-                        clean(colIndex,rowIndex);
+                    }
+                    case 7 -> {     //PORTE
+                        img = viewMapEditor.listImage[4];
+                        clean(colIndex, rowIndex);
                         modelMapEditor.cases[colIndex][rowIndex].setTypeMur("P ");
                         viewMapEditor.cases[colIndex][rowIndex].setFill(new ImagePattern(img));
-                        break;
-                    case 8:     //GUM
-                        img=viewMapEditor.listImage[5];
-                        clean(colIndex,rowIndex);
+                    }
+                    case 8 -> {     //GUM
+                        img = viewMapEditor.listImage[5];
+                        clean(colIndex, rowIndex);
                         modelMapEditor.nPoint++;
                         modelMapEditor.cases[colIndex][rowIndex].setTypeMur("PG");
                         viewMapEditor.cases[colIndex][rowIndex].setFill(new ImagePattern(img));
-                        break;
-                    case 9:     //POINT
-                        img=viewMapEditor.listImage[6];
-                        clean(colIndex,rowIndex);
-                        modelMapEditor.nPoint++;
+                    }
+                    case 9 -> {     //POINT
+                        img = viewMapEditor.listImage[6];
+                        clean(colIndex, rowIndex);
+                        modelMapEditor.nPoint++;//incrémente le compteur de points posés sur la map
                         modelMapEditor.cases[colIndex][rowIndex].setTypeMur("PO");
                         viewMapEditor.cases[colIndex][rowIndex].setFill(new ImagePattern(img));
-                        break;
-                    case 10:    //PACMAN
-                        img=viewMapEditor.listImage[9];
-                        clean(colIndex,rowIndex);
+                    }
+                    case 10 -> {    //PACMAN
+                        img = viewMapEditor.listImage[9];
+                        clean(colIndex, rowIndex);
                         viewMapEditor.cases[colIndex][rowIndex].setFill(new ImagePattern(img));
-                        if(modelMapEditor.pacman!=null){
-                            Pacman pac= modelMapEditor.pacman;
-                            clean(pac.emplacement.getX(),pac.emplacement.getY());
-                            modelMapEditor.pacman=null;
+                        if (modelMapEditor.pacman != null) {//change de position le pacman si déjà positionner --> il ne peut y avoir qu'un pacman sur la carte
+                            Pacman pac = modelMapEditor.pacman;
+                            clean(pac.emplacement.getX(), pac.emplacement.getY());
+                            modelMapEditor.pacman = null;
                         }
-                        modelMapEditor.pacman=new Pacman(modelMapEditor.cases[colIndex][rowIndex]);
-                        break;
-                    case 11:    //BLINKY
-                        img=viewMapEditor.listImage[11];
-                        clean(colIndex,rowIndex);
-                        modelMapEditor.newFant(modelMapEditor.cases[colIndex][rowIndex],1);
+                        modelMapEditor.pacman = new Pacman(modelMapEditor.cases[colIndex][rowIndex]);
+                    }
+                    case 11 -> {    //BLINKY
+                        img = viewMapEditor.listImage[11];
+                        clean(colIndex, rowIndex);
+                        modelMapEditor.newFant(modelMapEditor.cases[colIndex][rowIndex], 1); //créée un fantome
                         viewMapEditor.cases[colIndex][rowIndex].setFill(new ImagePattern(img));
-                        break;
-                    case 12:    //PINKY
-                        img=viewMapEditor.listImage[12];
-                        clean(colIndex,rowIndex);
-                        modelMapEditor.newFant(modelMapEditor.cases[colIndex][rowIndex],2);
+                    }
+                    case 12 -> {    //PINKY
+                        img = viewMapEditor.listImage[12];
+                        clean(colIndex, rowIndex);
+                        modelMapEditor.newFant(modelMapEditor.cases[colIndex][rowIndex], 2);
                         viewMapEditor.cases[colIndex][rowIndex].setFill(new ImagePattern(img));
-                        break;
-                    case 13:    //INKY
-                        img=viewMapEditor.listImage[13];
-                        clean(colIndex,rowIndex);
-                        modelMapEditor.newFant(modelMapEditor.cases[colIndex][rowIndex],3);
+                    }
+                    case 13 -> {    //INKY
+                        img = viewMapEditor.listImage[13];
+                        clean(colIndex, rowIndex);
+                        modelMapEditor.newFant(modelMapEditor.cases[colIndex][rowIndex], 3);
                         viewMapEditor.cases[colIndex][rowIndex].setFill(new ImagePattern(img));
-                        break;
-                    case 14:    //CLYDE
-                        img=viewMapEditor.listImage[14];
-                        clean(colIndex,rowIndex);
-                        modelMapEditor.newFant(modelMapEditor.cases[colIndex][rowIndex],4);
+                    }
+                    case 14 -> {    //CLYDE
+                        img = viewMapEditor.listImage[14];
+                        clean(colIndex, rowIndex);
+                        modelMapEditor.newFant(modelMapEditor.cases[colIndex][rowIndex], 4);
                         viewMapEditor.cases[colIndex][rowIndex].setFill(new ImagePattern(img));
-                        break;
+                    }
                 }
             }
         };
-        {
+        {//if permettant de définir quel bouton a été actionné
             if (actionEvent.getSource().equals(viewMapEditor.button0)) {
                 type = 0;
             }
@@ -209,14 +208,13 @@ public class ControllerMapEditor implements EventHandler<ActionEvent> {
                 return;
             }
             if(actionEvent.getSource().equals(viewMapEditor.buttonBack)){
-                ModelMenu modelMenu = new ModelMenu();
-                ViewMenu viewMenu = new ViewMenu(modelMenu,viewMapEditor.primaryStage);
+                ViewMenu viewMenu = new ViewMenu(viewMapEditor.primaryStage);
             }
         }
         viewMapEditor.grid.setOnMouseClicked(mouseEvent);
     }
 
-    private void clean(int i, int j){
+    private void clean(int i, int j){ //nettoie la case pour changer son contenu
         FantomeEditor f=modelMapEditor.searchFantome(modelMapEditor.cases[i][j]);
         if(f!=null){
             modelMapEditor.listFantome.remove(f);
@@ -229,7 +227,7 @@ public class ControllerMapEditor implements EventHandler<ActionEvent> {
         modelMapEditor.removeType(modelMapEditor.cases[i][j]);
     }
 
-    public void checkIntegrity(Boolean exportation){
+    public void checkIntegrity(Boolean exportation){ //vérifie que le carte conçue respecte les exigences nécessaire pour un bon fonctionnement du jeu
         Boolean nbl;
         Boolean bl=false;
         Boolean po;
@@ -252,7 +250,7 @@ public class ControllerMapEditor implements EventHandler<ActionEvent> {
 
         nom= !viewMapEditor.tFOut.getText().equals("");
 
-        if(exportation&&nbl&&bl&&po&&pa&&nom) {
+        if(exportation&&nbl&&bl&&po&&pa&&nom) { //lance l'exportation si le bouton export a été appuyé
             modelMapEditor.export(repere,viewMapEditor.tFOut.getText());
         }
             viewMapEditor.updateIntegrity(nbl, bl, pa, po,nom);

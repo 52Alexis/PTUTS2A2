@@ -8,14 +8,18 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.ImagePattern;
+import javafx.scene.shape.Rectangle;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class ViewMenu {
-    protected ModelMenu modelMenu;
     protected Stage primaryStage;
 
     protected Label titre;
@@ -26,15 +30,21 @@ public class ViewMenu {
     protected Button boutonMeilleursScores;
     protected Button boutonQuitter;
 
+    private Rectangle rectangle;
+    private ArrayList<Image> animbackground;
+    private Timer anim;
+    private int tick;
+
     protected FileChooser fileChooser;
 
-    public ViewMenu(ModelMenu modelMenu, Stage primaryStage) {
-        this.modelMenu = modelMenu;
+    public ViewMenu(Stage primaryStage) {
         this.primaryStage = primaryStage;
         initAttributs();
         addWidgetToView();
         primaryStage.setResizable(false);
         StaticMusic.musicTitle.play();
+        lauchanim();
+
     }
 
     public void initAttributs(){
@@ -56,12 +66,12 @@ public class ViewMenu {
             ModelMap.createBonus();
             ControllerMap controllerMap=new ControllerMap(viewMap,modelMap,modelParametres);
             controllerMap.setController();
+            anim.cancel();
         });
 
         boutonPartiePerso=new Button();
         boutonPartiePerso.setText("Partie personnalisée");
         boutonPartiePerso.setOnAction(e->{
-            StaticMusic.musicTitle.stop();
             File file=throwChooser();
             ModelMap modelMap = null;
             if(file!=null){
@@ -70,13 +80,14 @@ public class ViewMenu {
                 } catch (FileNotFoundException e2) {
                     e2.printStackTrace();
                 }
+                StaticMusic.musicTitle.stop();
                 ViewMap viewMap = new ViewMap(modelMap,primaryStage);
                 ModelParametres modelParametres = new ModelParametres();
                 ModelMap.createBonus();
                 ControllerMap controllerMap=new ControllerMap(viewMap,modelMap,modelParametres);
                 controllerMap.setController();
+                anim.cancel();
             }
-            return;
         });
 
         boutonMapEditor = new Button("Editeur de maps");
@@ -84,28 +95,38 @@ public class ViewMenu {
             ModelMapEditor modelMapEditor = new ModelMapEditor();
             ViewMapEditor viewMapEditor = new ViewMapEditor(modelMapEditor,primaryStage);
             ControllerMapEditor controllerMapEditor = new ControllerMapEditor(modelMapEditor,viewMapEditor);
+            anim.cancel();
         });
         boutonParametres = new Button(("Paramètres"));
         boutonParametres.setOnAction(e->{
             ModelParametres modelParametres = new ModelParametres();
             ViewParametres viewParametres = new ViewParametres(modelParametres,primaryStage);
             ControllerParametres cp = new ControllerParametres(modelParametres,viewParametres);
+            anim.cancel();
 
         });
         boutonMeilleursScores = new Button("Meilleurs Scores");
         boutonMeilleursScores.setOnAction(e->{
             ModelScores modelScores = new ModelScores();
             ViewScores viewScores = new ViewScores(modelScores,primaryStage);
+            anim.cancel();
         });
 
         boutonQuitter = new Button("Quitter");
         boutonQuitter.setOnAction(e->{
+            anim.cancel();
             primaryStage.close();
         });
 
         fileChooser=new FileChooser();
         fileChooser.setTitle("Selectionner une map");
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Cartes","*.map"));
+
+        animbackground=new ArrayList<>();
+        for(int i=0; i<114;i++){
+            animbackground.add(new Image("file:animation/"+i+".png"));
+        }
+        rectangle=new Rectangle(280,80);
 
     }
 
@@ -114,8 +135,10 @@ public class ViewMenu {
 
         VBox boxTitre = new VBox(titre);
         boxTitre.setAlignment(Pos.CENTER);
-        boxTitre.setTranslateY(-200);
+        boxTitre.setTranslateY(-50);
         gridPane.add(boxTitre,3,0);
+
+        gridPane.add(rectangle,3,2);
 
         VBox boxBoutons = new VBox(10,boutonNouvellePartie,boutonPartiePerso,boutonMapEditor,boutonParametres,boutonMeilleursScores,boutonQuitter);
         boxBoutons.setAlignment(Pos.CENTER);
@@ -136,6 +159,18 @@ public class ViewMenu {
         Scene scene = new Scene(gridPane,1200,800);
         scene.getStylesheets().add("file:src/pacMan/Style.css");
         primaryStage.setScene(scene);
+    }
+
+    public void lauchanim(){
+        anim=new Timer("Anim Menu",false);
+        TimerTask task=new TimerTask() {
+            @Override
+            public void run() {
+                tick++;
+                rectangle.setFill(new ImagePattern(animbackground.get(tick% animbackground.size())));
+            }
+        };
+        anim.scheduleAtFixedRate(task,0,1000/24);
     }
 
     public void display(){

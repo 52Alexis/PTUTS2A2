@@ -38,10 +38,9 @@ public class ViewScores {
         btnReturn = new Button();
         btnReturn.setText("<");
         btnReturn.setOnAction(e->{
-            ModelMenu modelMenu = new ModelMenu();
-            ViewMenu viewMenu = new ViewMenu(modelMenu,primaryStage);
+            ViewMenu viewMenu = new ViewMenu(primaryStage);
         });
-        btnReturn.setTranslateY(-180);
+        btnReturn.setTranslateY(-130);
         btnReturn.setTranslateX(-500);
 
         scores = modelScores.scores;

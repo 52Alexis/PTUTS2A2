@@ -3,13 +3,16 @@ package pacMan;
 import java.util.ArrayList;
 import java.util.Random;
 
+/**
+ * Classe gérant les fantome et leur comportements
+ */
 public class Fantome extends Mobile{
     private boolean gum;
     private boolean dead;
     protected int direction; //1 up, 2 droite, 3 down, 4 left
     protected Case destination;
     protected Case lastCase;
-    protected int[] desti;
+    protected int[] desti; //coordonnées designant la case "mère" des fantomes où il (re)deviennent actif
     protected boolean door;
 
     public boolean isGum() {
@@ -35,17 +38,23 @@ public class Fantome extends Mobile{
 
     public void move(){
         algo();
-    }
-    
-    public void move(Case desti){
+    }//implémentation de méthode abstaite lançant les algorithmes des fantomes
+
+    /**
+     * Fonction faisant le choix entre les differents possibilité des fantomes
+     * le chemin dépend de la distance linéaire entre leur destination et la case choisie de manière semblable au pacman originel
+     * Le fantome ne peut pas faire demi tour
+     * @param destination destination
+     */
+    public void move(Case destination){
         ArrayList<Case> listValidCase;
         listValidCase=getCaseAdj(emplacement.model, emplacement.getX(), emplacement.getY());
-        listValidCase.remove(lastCase);
+        listValidCase.remove(lastCase);//empêche le fantome de faire demi tour
         Case nxtCase = null;
-        double distMin=500000;
+        double distMin=500000; //valeur impossible à atteindre
         for(int i=1; i<=listValidCase.size();i++){
             Case c=listValidCase.get(i-1);
-            double dist=Math.sqrt((desti.getX()-c.getX())*(desti.getX()-c.getX())+(desti.getY()-c.getY())*(desti.getY()-c.getY()));
+            double dist=Math.sqrt((destination.getX()-c.getX())*(destination.getX()-c.getX())+(destination.getY()-c.getY())*(destination.getY()-c.getY())); //calcul de la distance
             if(dist<distMin){
                 distMin=dist;
                 nxtCase=c;
@@ -59,6 +68,13 @@ public class Fantome extends Mobile{
         exchange(nxtCase);
     }
 
+    /**
+     * fonction déterminant les déplacement possible du fantome
+     * @param model modèle de la map
+     * @param x coordonnée en x
+     * @param y coordonnée en Y
+     * @return retourne une lise te case posible
+     */
     public ArrayList<Case> getCaseAdj(ModelMap model, int x, int y){
         ArrayList<Case> listAdjPrimitive = new ArrayList<>();
         try {
@@ -82,7 +98,7 @@ public class Fantome extends Mobile{
             listAdjPrimitive.add(model.getCase(model.getX() - 1, y));
         }
         ArrayList<Case> listAdj=new ArrayList<>();
-        for(Case c: listAdjPrimitive){
+        for(Case c: listAdjPrimitive){ //vérifie si les déplacements sont possibles
             if(c!=null){
                 if(!door) {
                     if(c.isPorte()||!c.isMur()){
@@ -97,7 +113,11 @@ public class Fantome extends Mobile{
         }
         return listAdj;
     }
-    
+
+    /**
+     * réalise le mouvement
+     * @param nxtCase case où se réalise le mouvement
+     */
     public void exchange(Case nxtCase){
         emplacement.mobile=null;
         lastCase=emplacement;
@@ -105,6 +125,9 @@ public class Fantome extends Mobile{
         emplacement.mobile=this;
     }
 
+    /**
+     * lance l'algo correspondant au type de fantome
+     */
     public void algo(){
         if(type==2&&emplacement.model.getTemps()<15){
             gum=false;
@@ -121,7 +144,7 @@ public class Fantome extends Mobile{
             return;
 
         }
-        if(commonalgo()) {
+        if(commonalgo()) { //lance l'algo selon le type de fantome
             switch (type) {
                 case 1 -> blinky();
                 case 2 -> pinky();
@@ -133,6 +156,10 @@ public class Fantome extends Mobile{
         }
     }
 
+    /**
+     * Pièce d'algorithme communes à tous les types de fantomes
+     * @return booléen si les algorithmes propres aux types de fantomes se lancent
+     */
     public boolean commonalgo(){
         if(emplacement==destination){
             if(dead){
@@ -158,11 +185,11 @@ public class Fantome extends Mobile{
         }
     }
 
-    public void blinky(){ //shadow
+    public void blinky(){ //shadow suit aveuglement le pacman
         destination=emplacement.model.getPacman().emplacement;
     }
 
-    public void pinky(){ //speeky
+    public void pinky(){ //speeky prend un emplacement devant le pacman pour tenter d'arriver de devant
             int posX = emplacement.model.getPacman().emplacement.getX();
             int posY = emplacement.model.getPacman().emplacement.getY();
             switch (emplacement.model.getPacman().direction) {
@@ -209,7 +236,7 @@ public class Fantome extends Mobile{
 
     }
 
-    public void inky(){ //bashful
+    public void inky(){ //bashful comportement hybride entre blinky et pinky
             int posX = emplacement.model.getPacman().emplacement.getX();
             int posY = emplacement.model.getPacman().emplacement.getY();
             switch (emplacement.model.getPacman().direction) {
@@ -268,7 +295,7 @@ public class Fantome extends Mobile{
 
     }
 
-    public void clyde(){ //pokey
+    public void clyde(){ //pokey comportement dépendant de la distance oscillant entre blinky et la panique
             Pacman pc = emplacement.model.getPacman();
             double dist = Math.sqrt(((pc.emplacement.getX() - emplacement.getX()) * (pc.emplacement.getX() - emplacement.getX()) +
                     (pc.emplacement.getY() - emplacement.getY()) * (pc.emplacement.getY() - emplacement.getY())));//(
@@ -280,6 +307,9 @@ public class Fantome extends Mobile{
 
     }
 
+    /**
+     * choisi une destination aléatoire pour tenter d'échapper au pacman
+     */
     public void panic(){
         Random rand= new Random();
         int x= rand.nextInt(emplacement.model.getX());
@@ -287,6 +317,9 @@ public class Fantome extends Mobile{
         destination=emplacement.model.getCase(x,y);
     }
 
+    /**
+     * fait osciller le fantome d'état lorsqu'il se fait manger par pacman
+     */
     public void die(){
         dead=true;
         gum=false;

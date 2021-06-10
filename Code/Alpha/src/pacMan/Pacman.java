@@ -1,5 +1,8 @@
 package pacMan;
 
+/**
+ * Classe gérant le pacman
+ */
 public class Pacman extends Mobile {
     protected int direction; //1 up, 2 droite, 3 down, 4 left
     protected int lastDirection;
@@ -24,6 +27,7 @@ public class Pacman extends Mobile {
         return score;
     }
 
+
     public Pacman(Case emplacement){
         super(emplacement,1);
         lastDirection=0;
@@ -32,7 +36,9 @@ public class Pacman extends Mobile {
     }
 
 
-
+    /**
+     * Réalise le mouvement du pacman selon sa direction
+     */
     public void move(){
         //System.out.println(emplacement+"; nextdirection :"+nextDirection+"; direction :"+direction+"; lastdirection :"+lastDirection);
         Case nxtcase=getNxtCase(nextDirection);
@@ -76,6 +82,11 @@ public class Pacman extends Mobile {
         return getNxtCase(direction);
     }
 
+    /**
+     * Récupère la case selon sa direction
+     * @param dir direction
+     * @return case
+     */
     public Case getNxtCase(int dir){
         Case nxtcase;
         int posX= emplacement.getX();

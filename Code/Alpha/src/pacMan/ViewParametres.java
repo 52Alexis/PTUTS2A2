@@ -37,7 +37,7 @@ public class ViewParametres {
 
     public void init(){
         btnReturn = new Button("<");
-        btnReturn.setTranslateY(-310);
+        btnReturn.setTranslateY(-200);
         btnReturn.setTranslateX(-500);
         fieldUp = new Button();
         fieldUp.setText(modelParametres.getConfigTouches().get(0));

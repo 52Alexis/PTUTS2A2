@@ -1,5 +1,8 @@
 package pacMan;
 
+/**
+ * Classe gérant les points
+ */
 public class Point extends Fixe{
     protected boolean gum;
     public static final int valeur_gum = 50;

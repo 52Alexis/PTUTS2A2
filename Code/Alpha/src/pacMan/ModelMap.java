@@ -5,6 +5,9 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * Gère de manière logique la partie
+ */
 public class ModelMap {
     protected File file;
     protected Case[][] cases;
@@ -25,6 +28,9 @@ public class ModelMap {
     boolean activatedgum=false;
     int tps=0;
 
+    /**
+     * initialise les valeur des bonus
+     */
     public static void createBonus(){
         bonusValue=new int[8];
         bonusValue[0]=100;
@@ -37,6 +43,11 @@ public class ModelMap {
         bonusValue[7]=5000;
     }
 
+    /**
+     * Construit la partie à partir d'un fichier .map structuré
+     * @param file fichier
+     * @throws FileNotFoundException le fichier n'existe pas
+     */
     public ModelMap(File file) throws FileNotFoundException {
         t=0;
         temps=0;
@@ -169,6 +180,10 @@ public class ModelMap {
         return temps;
     }
 
+    /**
+     * recrée la map et la réinitialise en cas de victoire
+     * @throws FileNotFoundException le fichier n'existe pas
+     */
     public void regen() throws FileNotFoundException {
         t=0;
         temps=0;
@@ -228,6 +243,9 @@ public class ModelMap {
         return listPoint;
     }
 
+    /**
+     * gère l'apparition du bonus selon le niveau et le temps passé dans celui-ci
+     */
     public void setBonus(){
         if(temps==20 && currentBonus==null) {
             int i;
@@ -263,6 +281,9 @@ public class ModelMap {
         return currentBonus;
     }
 
+    /**
+     * Réinitialise les mobiles à leurs emplacement initial
+     */
     public void death(){
         listMobile=new ArrayList<>();
         listMobile.add(new Pacman(cases[listPos.get(0)[0]][listPos.get(0)[1]]));
@@ -274,6 +295,10 @@ public class ModelMap {
         currentBonus=null;
     }
 
+    /**
+     * Réalise le fait de manger un point au niveau logique
+     * @param f point mangé
+     */
     public void eatPoint(Fixe f){
         if(f.type==0){
             StaticMusic.fxBonus.play(); //lance le fx bonus quand le joueur ramasse un bonus
@@ -282,7 +307,7 @@ public class ModelMap {
             f.emplacement=null;
         }else{
             Point p=(Point)f;
-            if(p.isGum()){
+            if(p.isGum()){ //active le mode pacgum si le point est pacgum
                 StaticMusic.musicMain.pause(); //pause la musique principale
                 StaticMusic.musicRunaway.stop(); //stop la music de runaway si elle est active (debug)
                 StaticMusic.musicRunaway.play(); //lance la musique de runaway

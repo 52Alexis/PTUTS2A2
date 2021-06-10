@@ -8,6 +8,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * Classe gérant l'édition d'une carte
+ */
 public class ModelMapEditor {
     protected Pacman pacman;
     protected ArrayList<FantomeEditor> listFantome;
@@ -15,6 +18,9 @@ public class ModelMapEditor {
     protected Case[][] cases;
     protected File file;
 
+    /**
+     * Créer une carte vide
+     */
     public ModelMapEditor(){
         listFantome=new ArrayList<>();
         pacman=null;
@@ -28,6 +34,11 @@ public class ModelMapEditor {
         }
     }
 
+    /**
+     * Initialise un simili fantome
+     * @param c case
+     * @param type type
+     */
     public void newFant(Case c, int type){
         listFantome.add(new FantomeEditor(c,type,new int[2]));
     }
@@ -62,27 +73,25 @@ public class ModelMapEditor {
         c.setTypeMur("0 ");
     }
 
+    /**
+     * gère l'exportation de la carte
+     * @param repere case mère des fantome déterminer par la position d'un blinky
+     * @param txt nom de la carte
+     */
     public void export(Case repere, String txt){
         StringBuilder builder = new StringBuilder();
         builder.append("28 31\n");
-        System.out.println(builder.toString());
         builder.append((1+listFantome.size())).append("\n");
-        System.out.println(builder.toString());
         builder.append(pacman.emplacement.x).append(" ").append(pacman.emplacement.y).append("\n");
-        System.out.println(builder.toString());
         for(FantomeEditor f:listFantome){
             builder.append(f.emplacement.x).append(" ").append(f.emplacement.y).append("\n");
-            System.out.println(builder.toString());
         }
         for(FantomeEditor f:listFantome){
             builder.append(f.type).append(" ");
-            System.out.println(builder.toString());
         }
         builder.append('\n');
         builder.append(repere.x).append(" ").append(repere.y).append('\n');
-        System.out.println(builder.toString());
         builder.append(maptostring());
-        System.out.println(builder.toString());
 
         String PATH = "data/";
         file=new File(PATH +txt+".map");
@@ -98,6 +107,10 @@ public class ModelMapEditor {
 
     }
 
+    /**
+     * Gère la conversion de la carte vers une chaine de caractère
+     * @return String
+     */
     public String maptostring(){
         StringBuilder builder=new StringBuilder();
         for(int j=0;j<31;j++){
@@ -109,6 +122,11 @@ public class ModelMapEditor {
         return builder.toString();
     }
 
+    /**
+     * Gère l'importation de la carte de manière semblable au modèle de la carte
+     * @param file fichier map structuré
+     * @throws FileNotFoundException fichier non existant
+     */
     public void loadMap(File file) throws FileNotFoundException {
         Scanner input=new Scanner(file);
         listFantome=new ArrayList<>();

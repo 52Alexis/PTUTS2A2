@@ -31,12 +31,13 @@
 
 .title{
     -fx-font-family : Helvetica;
-    -fx-font-size : 64px;
-    -fx-color : #ffe611;
-    -fx-stroke : #3b40db;
-    -fx-stroke-width : 2px;
+    -fx-font-size : 40pt;
+    -fx-text-fill : #ffe611;
+    -fx-text-alignemt : center;
+    -fx-padding : 10px 0px 10px 0px;
 }
 .text{
+    -fx-font-family : Helvetica;
     -fx-text-fill : #ffe611;
     -fx-font-size : 20px;
 }
@@ -44,7 +45,7 @@
 .labelScore{
     -fx-font-family : Helvetica;
     -fx-font-size : 18px;
-    -fx-text-fill : #ffffff;
+    -fx-text-fill : #ffe611;
     -fx-text-alignemt : center;
     -fx-padding : 2px 0px 3px 0px;
 }

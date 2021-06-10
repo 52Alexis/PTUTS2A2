@@ -9,6 +9,9 @@ import java.util.Locale;
 import java.util.Timer;
 import java.util.TimerTask;
 
+/**
+ * Controlleur de la page de fin de partie
+ */
 public class ControllerEndGame implements EventHandler<ActionEvent> {
     protected ModelScores modelScores;
     protected ViewEndGame viewEndGame;
@@ -19,17 +22,21 @@ public class ControllerEndGame implements EventHandler<ActionEvent> {
         this.viewEndGame = viewEndGame;
         this.viewEndGame.setController(this);
         this.modelMap=modelMap;
-        gameOVer();
-
+        gameOver();
     }
-
 
     @Override
     public void handle(ActionEvent actionEvent) {
         StaticMusic.musicGameOver.stop();
-        if (actionEvent.getSource().equals(viewEndGame.rejouer)){
+        if (viewEndGame.fieldPseudo.getText().length() != 3 ) { //verification de la longueur des initiales du joueur
+            String s = viewEndGame.fieldPseudo.getText();
+            viewEndGame.fieldPseudo.setText(s);
+            viewEndGame.errFieldPseudo.setVisible(true);
+            return;
+        }
+        if (actionEvent.getSource().equals(viewEndGame.rejouer)){ //gestion du bouton rejouer
             String strScore = Pacman.getScore()+"";
-            int zta=7-strScore.length();
+            int zta=7-strScore.length();//mise en forme du score
             for(int i=0;i<zta ;i++)
             {
                 strScore="0"+strScore;
@@ -40,6 +47,7 @@ public class ControllerEndGame implements EventHandler<ActionEvent> {
             modelScores.getScores().add(strScore);
             modelScores.updateScores();
 
+            //creation de la nouvelle partie
             try {
                 modelMap = new ModelMap(modelMap.file);
             } catch (FileNotFoundException fileNotFoundException) {
@@ -55,7 +63,7 @@ public class ControllerEndGame implements EventHandler<ActionEvent> {
 
         if (actionEvent.getSource().equals(viewEndGame.saveAndQuit)){
             String strScore = Pacman.getScore()+"";
-            int zta=7-strScore.length();
+            int zta=7-strScore.length();//mise en forme du score
             for(int i=0;i<zta ;i++)
             {
                 strScore="0"+strScore;
@@ -66,14 +74,17 @@ public class ControllerEndGame implements EventHandler<ActionEvent> {
             modelScores.getScores().add(strScore);
             modelScores.updateScores();
 
-            ModelMenu modelMenu = new ModelMenu();
-            ViewMenu viewMenu = new ViewMenu(modelMenu,viewEndGame.primaryStage);
+            //retour sur le menu
+            ViewMenu viewMenu = new ViewMenu(viewEndGame.primaryStage);
 
         }
 
     }
 
-    public void gameOVer() {
+    /**
+     * Fonction lançant l'animation d'apparation du text "Game Over"
+     */
+    public void gameOver() {
         Timer OverAnim=new Timer("overAnim",false);
         TimerTask overAnim=new TimerTask() {
             @Override

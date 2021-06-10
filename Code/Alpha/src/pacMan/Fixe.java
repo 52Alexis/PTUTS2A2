@@ -1,5 +1,8 @@
 package pacMan;
 
+/**
+ * classe mère de tous les points et bonus
+ */
 public abstract class Fixe extends Entite{
     protected int score;
     protected int type;

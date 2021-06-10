@@ -1,14 +1,17 @@
 package pacMan;
 
+/**
+ * Classe permetant la représentation des cases
+ */
 public class Case {
-    protected int x;
+    protected int x; //position x et y des cases
     protected int y;
-    protected Mobile mobile;
+    protected Mobile mobile; // permet un lien permanent entre les cases et leurs contenu
     protected Fixe fixe;
-    protected boolean mur;
+    protected boolean mur; //critère de calcul pour les cillisions
     protected boolean porte;
-    public ModelMap model;
-    protected String typeMur;
+    public ModelMap model; //lien vers le partie
+    protected String typeMur; //représentation du mur
 
     public Case(int x, int y,String typeMur, ModelMap model) {
         this.x = x;
@@ -91,16 +94,6 @@ public class Case {
 
     public void setFixe(Fixe fixe) {
         this.fixe = fixe;
-    }
-
-    @Override
-    public String toString() {
-        return "Case{" +
-                "x=" + x +
-                ", y=" + y +
-                ", mur=" + mur +
-                ", typeMur='" + typeMur + '\'' +
-                '}';
     }
 
     public String getTypeMur() {

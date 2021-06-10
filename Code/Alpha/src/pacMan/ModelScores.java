@@ -6,6 +6,9 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 
+/**
+ *
+ */
 public class ModelScores {
     protected ArrayList<String> scores;
     protected final String PATH_TO_SCORES = "user/scores.txt";
@@ -14,6 +17,9 @@ public class ModelScores {
         readScores();
     }
 
+    /**
+     * Lit les scores stockés dans user
+     */
     public void readScores(){
         File file = new File(PATH_TO_SCORES);
         scores = new ArrayList<>(10);
@@ -27,9 +33,11 @@ public class ModelScores {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        System.out.println(scores);
     }
 
+    /**
+     * Trie les scores
+     */
     public void updateScores(){
         ArrayList<Integer> listeScore=new ArrayList<>();
         File file = new File(PATH_TO_SCORES);
@@ -39,14 +47,11 @@ public class ModelScores {
         int[] tabScoreTriee = new int[listeScore.size()];
         for(int i=0;i<listeScore.size();i++){
             tabScoreTriee[i]=listeScore.get(i);
-            System.out.println(listeScore.get(i));
         }
         Arrays.sort(tabScoreTriee);
-        System.out.println(tabScoreTriee);
         ArrayList<Integer> listeScoreTriee=new ArrayList<>();
         for(int i=0;i<listeScore.size();i++){
             listeScoreTriee.add(tabScoreTriee[i]);
-            System.out.println(listeScoreTriee.get(i));
         }
         Collections.reverse(listeScoreTriee);
         ArrayList<String> nScore=new ArrayList<>(scores);
@@ -54,7 +59,6 @@ public class ModelScores {
             nScore.remove(listeScoreTriee.indexOf(listeScore.get(i)));
             nScore.add(listeScoreTriee.indexOf(listeScore.get(i)),scores.get(i));
         }
-        System.out.println(nScore);
         scores=nScore;
 
         BufferedWriter writer = null;

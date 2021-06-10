@@ -12,8 +12,7 @@ public class Main extends Application {
         primaryStage.setTitle("PacMan");
         StaticMusic.initMusic();
 
-        ModelMenu modelMenu = new ModelMenu();
-        ViewMenu viewMenu = new ViewMenu(modelMenu,primaryStage);
+        ViewMenu viewMenu = new ViewMenu(primaryStage);
         viewMenu.display();
     }
 

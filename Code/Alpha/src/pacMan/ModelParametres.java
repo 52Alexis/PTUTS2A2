@@ -3,6 +3,9 @@ package pacMan;
 import java.io.*;
 import java.util.ArrayList;
 
+/**
+ * Modèle logique gérant l'affectation des touches
+ */
 public class ModelParametres {
     protected ArrayList<String> configTouches;
     protected final String PATH_TO_CONFIG = "user/config.cfg";
@@ -11,6 +14,9 @@ public class ModelParametres {
         readConfig();
     }
 
+    /**
+     * lit la configuration utilisateur
+     */
     public void readConfig(){
         File file = new File(PATH_TO_CONFIG);
         configTouches = new ArrayList<>(4);
@@ -26,6 +32,9 @@ public class ModelParametres {
         }
     }
 
+    /**
+     * met à jour la configuration utilisateur
+     */
     public void updateConfig(){
         File file = new File(PATH_TO_CONFIG);
         BufferedWriter writer = null;

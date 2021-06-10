@@ -4,6 +4,9 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.input.KeyEvent;
 
+/**
+ * classe gérant l'affection de touche réalisée dans paramètre
+ */
 public class ControllerParametres implements EventHandler<ActionEvent> {
     protected ModelParametres modelParametres;
     protected ViewParametres viewParametres;
@@ -16,11 +19,11 @@ public class ControllerParametres implements EventHandler<ActionEvent> {
 
     @Override
     public void handle(ActionEvent actionEvent) {
-        if (actionEvent.getSource().equals(viewParametres.btnReturn)){
-            ModelMenu modelMenu = new ModelMenu();
-            ViewMenu viewMenu = new ViewMenu(modelMenu,viewParametres.primaryStage);
+        if (actionEvent.getSource().equals(viewParametres.btnReturn)){//retourne au menu
+            ViewMenu viewMenu = new ViewMenu(viewParametres.primaryStage);
         }
 
+        //gère la captation des touches
         if (actionEvent.getSource().equals(viewParametres.fieldUp)){
             viewParametres.errFieldUp.setVisible(false);
             viewParametres.fieldUp.addEventFilter(KeyEvent.ANY,keyEvent ->{
@@ -127,17 +130,13 @@ public class ControllerParametres implements EventHandler<ActionEvent> {
         actionEvent.consume();
     }
 
+    //Vérifie que la touche n'est pas déjà affectée
     public boolean stringChecker(String s, int pos){
         for (int i = 0; i<modelParametres.getConfigTouches().size();i++){
-            if (i == pos){
-
-            }else{
-//                System.out.println("RELEASED  : " + s + " / Compared " + i + " : " + modelParametres.getConfigTouches().get(i));
+            if (i != pos) {
                 if (s.matches(modelParametres.getConfigTouches().get(i))){
-//                    System.out.println(false);
                     return false;
                 }
-
             }
         }
         return true;

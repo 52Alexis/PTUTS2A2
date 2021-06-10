@@ -1,5 +1,6 @@
 package pacMan;
 
+import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.EventHandler;
@@ -12,7 +13,10 @@ import java.util.TimerTask;
 import javafx.scene.image.Image;
 import javafx.util.Duration;
 
-public class ControllerMap extends Controller{
+/**
+ * Controller de la partie
+ */
+public class ControllerMap{
     ViewMap viewMap;
     ModelMap modelMap;
     ModelParametres modelParametres;
@@ -20,6 +24,8 @@ public class ControllerMap extends Controller{
     Timer timer;
     EventHandler<KeyEvent> keyEventEventHandler;
     ArrayList<String> touches;
+    Timeline endGame;
+    Timer checkStatus;
 
     public ControllerMap(ViewMap viewMap, ModelMap modelMap, ModelParametres modelParametres) {
         this.viewMap = viewMap;
@@ -29,16 +35,17 @@ public class ControllerMap extends Controller{
         touches = modelParametres.getConfigTouches();
         started=false;
         secondaryTimer();
-        this.viewMap.endGame();
+        endGame();
         StaticMusic.musicGameOver.stop();
 
+        // Evenement gérant les appuis sur une touche
         keyEventEventHandler= new EventHandler<>() {
             @Override
             public void handle(KeyEvent keyEvent) {
-                System.out.println("PRESSED! " + keyEvent.getCode());
-                modelMap.getPacman().lastDirection = modelMap.getPacman().direction;
+                //System.out.println("PRESSED! " + keyEvent.getCode());
+                modelMap.getPacman().lastDirection = modelMap.getPacman().direction; //conserve un court historique de la direction du pacman
 
-                String s = keyEvent.getCode().toString();
+                String s = keyEvent.getCode().toString(); //captation des touches
                 if (touches.get(0).equals(s)) {
                     modelMap.getPacman().nextDirection = 1;
                 } else if (touches.get(2).equals(s)) {
@@ -47,14 +54,14 @@ public class ControllerMap extends Controller{
                     modelMap.getPacman().nextDirection = 3;
                 } else if (touches.get(3).equals(s)) {
                     modelMap.getPacman().nextDirection = 4;
-                }else if (s.equals("ESCAPE")&&started){
+                }else if (s.equals("ESCAPE")&&started){ //Pause si appuyé sur espace
                     started=false;
                     if (StaticMusic.isRunaway) StaticMusic.musicRunaway.pause();
                     else StaticMusic.musicMain.pause();
                     timer.cancel();
                     return;
                 }
-                if (!started) {
+                if (!started) { //lance ou relance la partie après une pause
                     StaticMusic.musicGameOver.stop();
                     if (StaticMusic.isRunaway) StaticMusic.musicRunaway.play();
                     else {
@@ -69,17 +76,20 @@ public class ControllerMap extends Controller{
         };
     }
 
-    public void setController(){
+    public void setController(){ //active le controller pour la partie
         viewMap.primaryStage.getScene().addEventHandler(KeyEvent.KEY_PRESSED,keyEventEventHandler);
     }
 
-    public void removeController(){
+    public void removeController(){ //retire le controller pour la partie
         viewMap.primaryStage.getScene().removeEventHandler(KeyEvent.KEY_PRESSED,keyEventEventHandler);
     }
 
+    /**
+     * Fonction gérant les boucle d'animation principales, le déplacement des personnages et la gestion globale du temps
+     */
     public void timer(){
         timer=new Timer("mainTimer",true);
-        TimerTask movpac=new TimerTask() {
+        TimerTask movpac=new TimerTask() { // tache gérant les deplacements des personnages et la victoire d'un niveau
             @Override
             public void run() {
                 modelMap.getPacman().move();
@@ -92,6 +102,7 @@ public class ControllerMap extends Controller{
                         StaticMusic.isRunaway = false;
                         started=false;
                         modelMap.nextlvl();
+                        viewMap.move();
                         timer.cancel();
                         removeController();
                         setController();
@@ -101,7 +112,7 @@ public class ControllerMap extends Controller{
                 }
             }
         };
-        TimerTask anim= new TimerTask() {
+        TimerTask anim= new TimerTask() { //tache gérant les cycle d'animation des fantomes
             @Override
             public void run() {
                 modelMap.increment();
@@ -111,7 +122,7 @@ public class ControllerMap extends Controller{
                 viewMap.setBonus();
             }
         };
-        TimerTask movfantome=new TimerTask() {
+        TimerTask movfantome=new TimerTask() { //tache lançant l'algorithme de chaque fantome
             @Override
             public void run() {
                 ArrayList<Fantome> listFantome=modelMap.getAllFantome();
@@ -121,13 +132,16 @@ public class ControllerMap extends Controller{
             }
         };
 
+        /*
         TimerTask tps=new TimerTask() {
             @Override
             public void run() {
                 System.out.println("Temps :"+modelMap.getTemps()+" Score :"+Pacman.getScore()+" Vies :"+Pacman.getVies());
             }
         };
-        TimerTask gum=new TimerTask() {
+        */
+
+        TimerTask gum=new TimerTask() {//tache gérant la vulnérabilité des fantome et le temps
             @Override
             public void run() {
                 if(modelMap.activatedgum){
@@ -147,25 +161,28 @@ public class ControllerMap extends Controller{
         timer.scheduleAtFixedRate(movfantome,0,1000/(6+modelMap.getLevel()));
         timer.scheduleAtFixedRate(movpac,0,1000/8);
         timer.scheduleAtFixedRate(anim,0,1000/24);
-        timer.scheduleAtFixedRate(tps,0,1000);
+        //timer.scheduleAtFixedRate(tps,0,1000);
         timer.scheduleAtFixedRate(gum,0,1000);
     }
 
+    /**
+     * Timer secondaire gérant les taches liés aux collisions et au game over
+     */
     public void secondaryTimer(){
-        Timer checkStatus=new Timer("secondaryTimer", true);
+        checkStatus=new Timer("secondaryTimer", true);
+        /*
         TimerTask chk=new TimerTask() {
             @Override
             public void run() {
                 if(Pacman.getVies()<=0){
-                    System.out.println("GAME OVER");
                     timer.cancel();
                     checkStatus.cancel();
                     removeController();
                 }
             }
         };
-
-        TimerTask death=new TimerTask() {
+        */
+        TimerTask death=new TimerTask() {//Tache gérant les collisions
             @Override
             public void run() {
                 ArrayList<Fantome> listFantome=modelMap.getAllFantome();
@@ -203,9 +220,12 @@ public class ControllerMap extends Controller{
         };
 
         checkStatus.scheduleAtFixedRate(death,0,1000/240);
-        checkStatus.scheduleAtFixedRate(chk,0,1000);
+        //checkStatus.scheduleAtFixedRate(chk,0,1000);
     }
 
+    /**
+     * Cycle d'animation de la mort du pacman
+     */
     public void animDeath(){
         Timer deathAnim=new Timer("animDeath",false);
         TimerTask animDeath=new TimerTask() {
@@ -226,5 +246,20 @@ public class ControllerMap extends Controller{
         deathAnim.scheduleAtFixedRate(animDeath,0,1000/8);
     }
 
+    public void endGame(){
+        endGame = new Timeline(new KeyFrame(Duration.seconds(2), e->{
+            if (Pacman.getVies()<=0){
+                timer.cancel();
+                checkStatus.cancel();
+                StaticMusic.musicGameOver.play();
+                ModelScores modelScores = new ModelScores();
+                ViewEndGame viewEndGame = new ViewEndGame(modelScores, viewMap.primaryStage);
+                ControllerEndGame ceg = new ControllerEndGame(modelScores,modelMap,viewEndGame);
+                endGame.stop();
+            }
+        }));
+        endGame.setCycleCount(Animation.INDEFINITE);
+        endGame.play();
+    }
 
 }

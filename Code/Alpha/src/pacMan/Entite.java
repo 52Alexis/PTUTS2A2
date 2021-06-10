@@ -2,6 +2,9 @@ package pacMan;
 
 import java.util.Objects;
 
+/**
+ * Classe abstraite permettant de gérer les fixes et les mobile et de le comparer
+ */
 public abstract class Entite {
     protected Case emplacement;
 

@@ -23,6 +23,9 @@ import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
+/**
+ * Classe affichant les points
+ */
 public class ViewEndGame {
     protected ModelScores modelScores;
     protected Stage primaryStage;
@@ -63,13 +66,6 @@ public class ViewEndGame {
         }
 
         fieldPseudo = new TextField();
-        fieldPseudo.textProperty().addListener(l->{
-            if (fieldPseudo.getText().length() > 3) {
-                String s = fieldPseudo.getText().substring(0, 3);
-                fieldPseudo.setText(s);
-                errFieldPseudo.setVisible(true);
-            }
-        });
 
         errFieldPseudo = new Label("Rentrez 3 lettres");
         errFieldPseudo.setTextFill(Color.RED);
