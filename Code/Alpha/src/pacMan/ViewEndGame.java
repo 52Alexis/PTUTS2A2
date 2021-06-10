@@ -13,7 +13,9 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
+import javax.imageio.stream.FileImageInputStream;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
 public class ViewEndGame {
@@ -31,11 +33,15 @@ public class ViewEndGame {
     public ViewEndGame(ModelScores modelScores,Stage primaryStage) {
         this.modelScores = modelScores;
         this.primaryStage = primaryStage;
-        init();
+        try {
+            init();
+            }catch (Exception e){
+                e.printStackTrace();
+            }
         addWidgetToView();
     }
 
-    public void init(){
+    public void init() throws FileNotFoundException {
         labelScores = new Label();
         labelScores.setText(String.valueOf(Pacman.getScore()));
 
@@ -45,7 +51,7 @@ public class ViewEndGame {
         over = new ArrayList<>();
 
         for(int i=0;i<16;i++) {
-            over.add(new Image("img/gameOver/"+i+".png"));
+            over.add(new Image(new FileInputStream("img/gameOver/"+i+".png")));
         }
 
         fieldPseudo = new TextField();

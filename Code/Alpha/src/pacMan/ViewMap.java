@@ -366,7 +366,7 @@ public class ViewMap {
         group=group*2;
         return group;
     }
-    
+
 
     public void endGame(){
             endGame = new Timeline(new KeyFrame(Duration.seconds(5), e->{
