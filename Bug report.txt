@@ -1,4 +1,3 @@
-- Desfois, je perds deux vies
 - des fois les sprites bug (sprite d'une entité mobile qui plante, ou d'une entité immobile qui disparaît
 - des fois, pas d'amin mort: l'animation ne se finit pas avant de bloquer le jeu
 - bonus: Quand il disparaît (par temps ou par mort), on ne le voit plus mais il est toujours là
