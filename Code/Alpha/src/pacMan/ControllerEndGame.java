@@ -5,6 +5,8 @@ import javafx.event.EventHandler;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class ControllerEndGame implements EventHandler<ActionEvent> {
     protected ModelScores modelScores;
@@ -64,6 +66,20 @@ public class ControllerEndGame implements EventHandler<ActionEvent> {
 
             ModelMenu modelMenu = new ModelMenu();
             ViewMenu viewMenu = new ViewMenu(modelMenu,viewEndGame.primaryStage);
+            gameOVer();
         }
+    }
+
+    public void gameOVer() {
+        Timer OverAnim=new Timer(false);
+        TimerTask overAnim=new TimerTask() {
+            @Override
+            public void run() {
+                if (viewEndGame.cycleAnim2 >= 0 )
+                viewEndGame.cycleAnim2++;
+                viewEndGame.gameOver();
+            }
+        };
+        OverAnim.scheduleAtFixedRate(overAnim,0,1000/8);
     }
 }

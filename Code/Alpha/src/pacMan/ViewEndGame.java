@@ -3,6 +3,7 @@ package pacMan;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -11,12 +12,16 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import javafx.scene.paint.ImagePattern;
 import javafx.stage.Stage;
-
+import javafx.scene.shape.*;
 import javax.imageio.stream.FileImageInputStream;
+import java.awt.*;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class ViewEndGame {
     protected ModelScores modelScores;
@@ -28,6 +33,8 @@ public class ViewEndGame {
     protected Button rejouer;
     protected Button saveAndQuit;
     protected ArrayList<Image> over;
+    protected int cycleAnim2;
+    javafx.scene.shape.Rectangle im = new javafx.scene.shape.Rectangle(0, 0, 400, 175);
 
 
     public ViewEndGame(ModelScores modelScores,Stage primaryStage) {
@@ -73,8 +80,11 @@ public class ViewEndGame {
         root.setSpacing(15);
         Label labelNice = new Label("Nice Try !");
         root.setAlignment(Pos.CENTER);
+        root.getChildren().add(im);
         root.getChildren().add(labelNice);
         labelNice.getStyleClass().add("text");
+
+        root.getChildren().add(new Label("Nice Try!"));
 
         HBox boxScore = new HBox();
         Label label = new Label("Score : ");
@@ -102,4 +112,9 @@ public class ViewEndGame {
         rejouer.setOnAction(handler);
         saveAndQuit.setOnAction(handler);
     }
+
+    public void gameOver() {
+        im.setFill(new ImagePattern(over.get(cycleAnim2)));
+    }
+
 }
