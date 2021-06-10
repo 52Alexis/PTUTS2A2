@@ -2,6 +2,7 @@ package pacMan;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Scene;
@@ -9,8 +10,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.stage.Stage;
@@ -84,25 +84,32 @@ public class ViewEndGame {
         root.getChildren().add(labelNice);
         labelNice.getStyleClass().add("text");
 
-        root.getChildren().add(new Label("Nice Try!"));
-
         HBox boxScore = new HBox();
         Label label = new Label("Score : ");
         boxScore.getChildren().addAll(label,labelScores);
         label.getStyleClass().add("text");
+        label.setTranslateX(+86);
+        labelScores.setTranslateX(+86);
+        labelScores.getStyleClass().add("text");
 
         HBox boxPseudo = new HBox();
         Label label1 = new Label("Enter pseudo : ");
         boxPseudo.getChildren().addAll(label1,fieldPseudo);
-        label1.getStyleClass().add("labelScore");
+        boxPseudo.setTranslateX(+10);
+        label1.getStyleClass().add("text");
 
         HBox boxBtn = new HBox();
         boxBtn.setSpacing(10);
         boxBtn.getChildren().addAll(rejouer,saveAndQuit);
+        boxBtn.setTranslateX(+55);
         rejouer.getStyleClass().add("boutons");
         saveAndQuit.getStyleClass().add("boutons");
 
         root.getChildren().addAll(boxScore,boxPseudo,boxBtn);
+        root.setBorder(new Border(new BorderStroke(Color.YELLOW, Color.YELLOW, Color.YELLOW, Color.YELLOW,
+                BorderStrokeStyle.SOLID, BorderStrokeStyle.SOLID, BorderStrokeStyle.SOLID, BorderStrokeStyle.SOLID,
+                CornerRadii.EMPTY, new BorderWidths(5), javafx.geometry.Insets.EMPTY)));
+        root.setBackground(new Background(new BackgroundFill(Color.rgb(0, 0, 0), CornerRadii.EMPTY, Insets.EMPTY)));
         Scene scene = new Scene(root,448,512);
         scene.getStylesheets().add("file:src/pacMan/Style.css");
         primaryStage.setScene(scene);
