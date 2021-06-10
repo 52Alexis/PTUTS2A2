@@ -47,15 +47,21 @@ public class ControllerMap extends Controller{
                     modelMap.getPacman().nextDirection = 3;
                 } else if (touches.get(3).equals(s)) {
                     modelMap.getPacman().nextDirection = 4;
-                }else if (s.equals("ESCAPE")){
+                }else if (s.equals("ESCAPE")&&started){
                     started=false;
+                    if (StaticMusic.isRunaway) StaticMusic.musicRunaway.pause();
+                    else StaticMusic.musicMain.pause();
                     timer.cancel();
                     return;
                 }
                 if (!started) {
-                    StaticMusic.musicRunaway.stop();
+//                    StaticMusic.musicRunaway.stop();
                     StaticMusic.musicGameOver.stop();
-                    StaticMusic.musicMain.play();
+                    if (StaticMusic.isRunaway) StaticMusic.musicRunaway.play();
+                    else {
+                        StaticMusic.musicMain.play();
+                        StaticMusic.musicRunaway.stop();
+                    }
                     started = true;
                     timer();
 
@@ -132,6 +138,7 @@ public class ControllerMap extends Controller{
                             f.setGum(false);
                         }
                         modelMap.activatedgum=false;
+                        StaticMusic.isRunaway = false;
                         modelMap.tps=0;
                     }
                 }
@@ -181,6 +188,7 @@ public class ControllerMap extends Controller{
                                 StaticMusic.musicMain.stop();
                                 StaticMusic.musicRunaway.stop();
                                 StaticMusic.fxDeath.play();
+                                StaticMusic.isRunaway = false;
                                 if(Pacman.getVies()==0) { //Si le joueur n a plus de vie, lance la musique de game over apres la musique de la mort
                                     StaticMusic.fxDeath.setOnEndOfMedia(new Runnable() {
                                         public void run() {
