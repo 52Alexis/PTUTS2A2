@@ -19,7 +19,7 @@ Gantt (*PTUT.pod*)
 * Utiliser comme source de votre projet IntelliJ le dossier /Code/Alpha
 * Utiliser **Java 16** comme version de java
 * Suivre [ce tutoriel](https://www.jetbrains.com/help/idea/javafx.html) pour configurer votre IntelliJ.
-* Dans la rubrique "*Add VM options*" du tutoriel, rajouter à la fin des modules **javafx.media**. Si vous l'avez oublier, un erreur de compilation surviendra pour les musiques.
+* Dans la rubrique "*Add VM options*" du tutoriel, rajouter à la fin des modules **javafx.media**. Si vous l'avez oublié, un erreur de compilation surviendra pour les musiques.
 * Sélectionner la classe *Main.java* comme main class pour la compilation
 
 
