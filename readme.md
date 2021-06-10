@@ -1,4 +1,4 @@
-#Structure des dossiers :
+# Structure des dossiers :
 * ## Code : 
 Contient les dossiers **Alpha**, **Lib** et **Proto** : 
 * **Alpha** contient la version _définitive_ du jeu. Il doit être la racine de votre projet.
@@ -17,7 +17,7 @@ Gantt (*PTUT.pod*)
 
 
 
-#Utilisation du dossier Alpha :
+# Utilisation du dossier Alpha :
 * Utiliser IntelliJ Idea pour l'utilisation générale du programme __(fortement recommandé)__
 * Utiliser comme source de votre projet IntelliJ le dossier /Code/Alpha
 * Utiliser **Java 16** comme version de java
