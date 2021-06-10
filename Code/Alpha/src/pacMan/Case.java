@@ -18,7 +18,7 @@ public class Case {
             porte=false;
         }else{
             mur=true;
-            porte= typeMur.equals("P");
+            porte= typeMur.equals("P")||typeMur.equals("P ");;
         }
         this.model=model;
         this.typeMur=typeMur;

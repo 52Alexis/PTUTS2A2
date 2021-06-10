@@ -111,7 +111,6 @@ public class ControllerMapEditor implements EventHandler<ActionEvent> {
                         if(modelMapEditor.pacman!=null){
                             Pacman pac= modelMapEditor.pacman;
                             clean(pac.emplacement.getX(),pac.emplacement.getY());
-                            pac.emplacement.mobile=null;
                             modelMapEditor.pacman=null;
                         }
                         modelMapEditor.pacman=new Pacman(modelMapEditor.cases[colIndex][rowIndex]);
@@ -131,13 +130,13 @@ public class ControllerMapEditor implements EventHandler<ActionEvent> {
                     case 13:    //INKY
                         img=viewMapEditor.listImage[13];
                         clean(colIndex,rowIndex);
-                        modelMapEditor.newFant(modelMapEditor.cases[colIndex][rowIndex],2);
+                        modelMapEditor.newFant(modelMapEditor.cases[colIndex][rowIndex],3);
                         viewMapEditor.cases[colIndex][rowIndex].setFill(new ImagePattern(img));
                         break;
                     case 14:    //CLYDE
                         img=viewMapEditor.listImage[14];
                         clean(colIndex,rowIndex);
-                        modelMapEditor.newFant(modelMapEditor.cases[colIndex][rowIndex],2);
+                        modelMapEditor.newFant(modelMapEditor.cases[colIndex][rowIndex],4);
                         viewMapEditor.cases[colIndex][rowIndex].setFill(new ImagePattern(img));
                         break;
                 }
