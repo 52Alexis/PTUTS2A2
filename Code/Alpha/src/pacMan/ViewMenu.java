@@ -24,6 +24,7 @@ public class ViewMenu {
     protected Button boutonMapEditor;
     protected Button boutonParametres;
     protected Button boutonMeilleursScores;
+    protected Button boutonQuitter;
 
     protected FileChooser fileChooser;
 
@@ -46,7 +47,7 @@ public class ViewMenu {
             StaticMusic.musicTitle.stop();
             ModelMap modelMap = null;
             try {
-                modelMap = new ModelMap(new File("data/essaiMathias.map"));
+                modelMap = new ModelMap(new File("data/mainMap.map"));
             } catch (FileNotFoundException fileNotFoundException) {
                 fileNotFoundException.printStackTrace();
             }
@@ -93,6 +94,11 @@ public class ViewMenu {
         });
         boutonMeilleursScores = new Button("Meilleurs Scores");
 
+        boutonQuitter = new Button("Quitter");
+        boutonQuitter.setOnAction(e->{
+            primaryStage.close();
+        });
+
         fileChooser=new FileChooser();
         fileChooser.setTitle("Selectionner une map");
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Cartes","*.map"));
@@ -107,7 +113,7 @@ public class ViewMenu {
         boxTitre.setTranslateY(-225);
         gridPane.add(boxTitre,3,0);
 
-        VBox boxBoutons = new VBox(10,boutonNouvellePartie,boutonPartiePerso,boutonMapEditor,boutonParametres,boutonMeilleursScores);
+        VBox boxBoutons = new VBox(10,boutonNouvellePartie,boutonPartiePerso,boutonMapEditor,boutonParametres,boutonMeilleursScores,boutonQuitter);
         boxBoutons.setAlignment(Pos.CENTER);
         gridPane.add(boxBoutons,3,4);
 
