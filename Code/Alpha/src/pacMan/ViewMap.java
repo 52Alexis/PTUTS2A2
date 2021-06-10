@@ -384,8 +384,9 @@ public class ViewMap {
     };
 
     public void endGame(){
-        endGame = new Timeline(new KeyFrame(Duration.seconds(5), e->{
+        endGame = new Timeline(new KeyFrame(Duration.seconds(2), e->{
             if (Pacman.getVies()<=0){
+                StaticMusic.musicGameOver.play();
                 ModelScores modelScores = new ModelScores();
                 ViewEndGame viewEndGame = new ViewEndGame(modelScores,primaryStage);
                 ControllerEndGame ceg = new ControllerEndGame(modelScores,modelMap,viewEndGame);

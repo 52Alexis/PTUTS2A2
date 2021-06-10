@@ -90,6 +90,7 @@ public class ControllerMap extends Controller{
                         StaticMusic.musicRunaway.stop();
                         StaticMusic.musicMain.stop();
                         StaticMusic.fxVictory.play();
+                        StaticMusic.isRunaway = false;
                         started=false;
                         modelMap.nextlvl();
                         timer.cancel();
@@ -189,14 +190,6 @@ public class ControllerMap extends Controller{
                                 StaticMusic.musicRunaway.stop();
                                 StaticMusic.fxDeath.play();
                                 StaticMusic.isRunaway = false;
-                                if(Pacman.getVies()==0) { //Si le joueur n a plus de vie, lance la musique de game over apres la musique de la mort
-                                    StaticMusic.fxDeath.setOnEndOfMedia(new Runnable() {
-                                        public void run() {
-                                            StaticMusic.fxDeath.stop();
-                                            StaticMusic.musicGameOver.play();
-                                        }
-                                    });
-                                }
                                 timer.cancel();
                                 started = false;
                                 removeController();
@@ -210,7 +203,7 @@ public class ControllerMap extends Controller{
             }
         };
 
-        checkStatus.scheduleAtFixedRate(death,0,1000/120);
+        checkStatus.scheduleAtFixedRate(death,0,1000/240);
         checkStatus.scheduleAtFixedRate(chk,0,1000);
     }
 

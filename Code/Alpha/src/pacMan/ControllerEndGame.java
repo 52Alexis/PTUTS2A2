@@ -5,6 +5,7 @@ import javafx.event.EventHandler;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.Locale;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -19,13 +20,14 @@ public class ControllerEndGame implements EventHandler<ActionEvent> {
         this.viewEndGame.setController(this);
         this.modelMap=modelMap;
         gameOVer();
-        StaticMusic.musicGameOver.stop();
-        StaticMusic.initMusic();
+
     }
 
 
     @Override
     public void handle(ActionEvent actionEvent) {
+        StaticMusic.musicGameOver.stop();
+        StaticMusic.initMusic();
         if (actionEvent.getSource().equals(viewEndGame.rejouer)){
             String strScore = Pacman.getScore()+"";
             int zta=7-strScore.length();
@@ -34,7 +36,7 @@ public class ControllerEndGame implements EventHandler<ActionEvent> {
                 strScore="0"+strScore;
             }
 
-            strScore= viewEndGame.fieldPseudo.getText()+"....."+strScore;
+            strScore= viewEndGame.fieldPseudo.getText().toUpperCase()+"....."+strScore;
 
             modelScores.getScores().add(strScore);
             modelScores.updateScores();
@@ -60,7 +62,7 @@ public class ControllerEndGame implements EventHandler<ActionEvent> {
                 strScore="0"+strScore;
             }
 
-            strScore= viewEndGame.fieldPseudo.getText()+"....."+strScore;
+            strScore= viewEndGame.fieldPseudo.getText().toUpperCase()+"....."+strScore;
 
             modelScores.getScores().add(strScore);
             modelScores.updateScores();
