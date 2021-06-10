@@ -46,6 +46,7 @@ public class ViewMapEditor {
     protected Button buttonCheck;
     protected Button buttonExport;
     protected Button buttonImport;
+    protected Button buttonBack;
 
     protected Image[] listImage;
     protected Rectangle[][] cases;
@@ -143,6 +144,8 @@ public class ViewMapEditor {
         buttonExport.setText("Exporter la map");
         buttonImport=new Button();
         buttonImport.setText("Importer une map");
+        buttonBack=new Button();
+        buttonBack.setText("Retour au menu");
         tFOut=new TextField();
         tFOut.setPromptText("Nom de la map");
         fileChooser=new FileChooser();
@@ -201,7 +204,7 @@ public class ViewMapEditor {
         flwp3.getChildren().addAll(symbolIntegrity[3],lbl3);
         flwp4.getChildren().addAll(symbolIntegrity[4],lbl4);
 
-        paneVerif.getChildren().addAll(buttonImport,flwp0,flwp1,flwp2,flwp3,buttonCheck,tFOut,flwp4,buttonExport);
+        paneVerif.getChildren().addAll(buttonImport,flwp0,flwp1,flwp2,flwp3,buttonCheck,tFOut,flwp4,buttonExport,buttonBack);
         paneVerif.setSpacing(10);
         paneVerif.setAlignment(Pos.CENTER);
     }
@@ -252,6 +255,7 @@ public class ViewMapEditor {
         buttonCheck.setOnAction(handler);
         buttonExport.setOnAction(handler);
         buttonImport.setOnAction(handler);
+        buttonBack.setOnAction(handler);
     }
 
     public void videCase(Rectangle r){

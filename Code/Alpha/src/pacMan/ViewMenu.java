@@ -42,7 +42,7 @@ public class ViewMenu {
             StaticMusic.musicTitle.stop();
             ModelMap modelMap = null;
             try {
-                modelMap = new ModelMap(new File("data/mainMap.map"));
+                modelMap = new ModelMap(new File("data/essaiMathias.map"));
             } catch (FileNotFoundException fileNotFoundException) {
                 fileNotFoundException.printStackTrace();
             }

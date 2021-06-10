@@ -209,6 +209,10 @@ public class ControllerMapEditor implements EventHandler<ActionEvent> {
                 }
                 return;
             }
+            if(actionEvent.getSource().equals(viewMapEditor.buttonBack)){
+                ModelMenu modelMenu = new ModelMenu();
+                ViewMenu viewMenu = new ViewMenu(modelMenu,viewMapEditor.primaryStage);
+            }
         }
         viewMapEditor.grid.setOnMouseClicked(mouseEvent);
     }
