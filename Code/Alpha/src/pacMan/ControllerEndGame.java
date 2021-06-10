@@ -27,7 +27,6 @@ public class ControllerEndGame implements EventHandler<ActionEvent> {
     @Override
     public void handle(ActionEvent actionEvent) {
         StaticMusic.musicGameOver.stop();
-        StaticMusic.initMusic();
         if (actionEvent.getSource().equals(viewEndGame.rejouer)){
             String strScore = Pacman.getScore()+"";
             int zta=7-strScore.length();
@@ -36,7 +35,7 @@ public class ControllerEndGame implements EventHandler<ActionEvent> {
                 strScore="0"+strScore;
             }
 
-            strScore= viewEndGame.fieldPseudo.getText().toUpperCase(Locale.ROOT)+"....."+strScore;
+            strScore= viewEndGame.fieldPseudo.getText().toUpperCase()+"....."+strScore;
 
             modelScores.getScores().add(strScore);
             modelScores.updateScores();
@@ -62,7 +61,7 @@ public class ControllerEndGame implements EventHandler<ActionEvent> {
                 strScore="0"+strScore;
             }
 
-            strScore= viewEndGame.fieldPseudo.getText().toUpperCase(Locale.ROOT)+"....."+strScore;
+            strScore= viewEndGame.fieldPseudo.getText().toUpperCase()+"....."+strScore;
 
             modelScores.getScores().add(strScore);
             modelScores.updateScores();
