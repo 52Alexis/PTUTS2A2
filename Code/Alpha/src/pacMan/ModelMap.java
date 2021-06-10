@@ -287,6 +287,7 @@ public class ModelMap {
                 StaticMusic.musicRunaway.stop(); //stop la music de runaway si elle est active (debug)
                 StaticMusic.musicRunaway.play(); //lance la musique de runaway
                 activatedgum=true;
+                StaticMusic.isRunaway=true;
                 tps=0;
                 getPacman().nFantome=0;
                 for(int i=1;i<nEntite;i++){
