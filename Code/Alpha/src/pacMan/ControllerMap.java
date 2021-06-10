@@ -30,6 +30,7 @@ public class ControllerMap extends Controller{
         started=false;
         secondaryTimer();
         this.viewMap.endGame();
+        StaticMusic.musicGameOver.stop();
 
         keyEventEventHandler= new EventHandler<>() {
             @Override
@@ -53,6 +54,7 @@ public class ControllerMap extends Controller{
                 }
                 if (!started) {
                     StaticMusic.musicRunaway.stop();
+                    StaticMusic.musicGameOver.stop();
                     StaticMusic.musicMain.play();
                     started = true;
                     timer();
