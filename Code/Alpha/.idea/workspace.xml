@@ -20,8 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1b0712ba-916e-412c-a5ce-4246b88e3382" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pacMan/ViewMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pacMan/ViewMap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/scores.txt" beforeDir="false" afterPath="$PROJECT_DIR$/user/scores.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,6 +75,7 @@
       <option name="presentableId" value="Default" />
       <updated>1623238947163</updated>
       <workItem from="1623238950414" duration="65000" />
+      <workItem from="1623306349438" duration="1079000" />
     </task>
     <servers />
   </component>

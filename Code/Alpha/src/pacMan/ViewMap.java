@@ -50,6 +50,7 @@ public class ViewMap {
     protected int cycleAnim;
     protected GridPane paneViesEtScore;
     protected Rectangle[] scores;
+    protected Timeline endGame;
 
 
     public ViewMap(ModelMap modelMap,Stage stage) {
@@ -391,11 +392,12 @@ public class ViewMap {
     };
 
     public void endGame(){
-        Timeline endGame = new Timeline(new KeyFrame(Duration.seconds(5), e->{
+            endGame = new Timeline(new KeyFrame(Duration.seconds(5), e->{
             if (Pacman.getVies()<=0){
                 ModelScores modelScores = new ModelScores();
                 ViewEndGame viewEndGame = new ViewEndGame(modelScores,primaryStage);
                 ControllerEndGame ceg = new ControllerEndGame(modelScores,viewEndGame);
+                endGame.stop();
             }
         }));
         endGame.setCycleCount(Animation.INDEFINITE);
