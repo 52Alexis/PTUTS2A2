@@ -3,7 +3,6 @@ package pacMan;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
-import javafx.application.Platform;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
@@ -14,17 +13,11 @@ import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
-import javafx.scene.*;
-import javafx.scene.paint.*;
-import javafx.scene.shape.*;
 import javafx.util.Duration;
 
-import java.awt.*;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.Timer;
-import java.util.TimerTask;
 
 public class ViewMap {
     protected ModelMap modelMap;
@@ -50,6 +43,7 @@ public class ViewMap {
     protected int cycleAnim;
     protected GridPane paneViesEtScore;
     protected Rectangle[] scores;
+    protected Timeline endGame;
 
     public ViewMap(ModelMap modelMap,Stage stage) {
         this.modelMap = modelMap;
@@ -390,11 +384,12 @@ public class ViewMap {
     };
 
     public void endGame(){
-        Timeline endGame = new Timeline(new KeyFrame(Duration.seconds(5), e->{
+        endGame = new Timeline(new KeyFrame(Duration.seconds(5), e->{
             if (Pacman.getVies()<=0){
                 ModelScores modelScores = new ModelScores();
                 ViewEndGame viewEndGame = new ViewEndGame(modelScores,primaryStage);
                 ControllerEndGame ceg = new ControllerEndGame(modelScores,viewEndGame);
+                endGame.stop();
             }
         }));
         endGame.setCycleCount(Animation.INDEFINITE);
