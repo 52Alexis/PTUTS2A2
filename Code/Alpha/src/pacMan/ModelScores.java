@@ -16,7 +16,7 @@ public class ModelScores {
         scores = new ArrayList<>(10);
         try {
             BufferedReader reader = new BufferedReader(new FileReader(file));
-            for (int i = 0; i<4;i++){
+            for (int i = 0; i< 10;i++){
                 scores.add(i,String.valueOf(reader.readLine()));
                 //System.out.println("Read : " + configTouches.get(i));
             }
@@ -24,11 +24,14 @@ public class ModelScores {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        System.out.println(scores);
     }
 
     public void updateScores(){
         File file = new File(PATH_TO_SCORES);
-        
+        for (int i =0; i<scores.size();i++){
+
+        }
         BufferedWriter writer = null;
         try {
             writer = new BufferedWriter(new FileWriter(file));

@@ -33,7 +33,7 @@ public class ControllerEndGame implements EventHandler<ActionEvent> {
                 strScore="0"+strScore;
             }
 
-            strScore= viewEndGame.fieldPseudo+"....."+strScore;
+            strScore= viewEndGame.fieldPseudo.getText()+"....."+strScore;
 
             modelScores.getScores().add(strScore);
             modelScores.updateScores();
@@ -63,7 +63,7 @@ public class ControllerEndGame implements EventHandler<ActionEvent> {
                 strScore="0"+strScore;
             }
 
-            strScore= viewEndGame.fieldPseudo+"....."+strScore;
+            strScore= viewEndGame.fieldPseudo.getText()+"....."+strScore;
 
             modelScores.getScores().add(strScore);
             modelScores.updateScores();
