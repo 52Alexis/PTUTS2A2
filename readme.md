@@ -5,9 +5,6 @@ Contient les dossiers **Alpha**, **Lib** et **Proto** :
 * **Lib** contient la version **11.0.2** de JavaFx, que vous pouvez utiliser sous windows.
 * **Proto** contient un prototype du programme (et donc _incomplète_).
 
-* ## Songs :
-Contient les musiques et bruitages du jeu. On les retrouve aussi dans Code/Alpha/sounds
-
 * ## docs : 
 Contient les dossiers **Gestion**, **consignes** et **rapport** :
 * **Gestion** contient le document de la conception du projet (*Conception.odt*) et le
