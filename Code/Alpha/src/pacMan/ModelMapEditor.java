@@ -65,17 +65,24 @@ public class ModelMapEditor {
     public void export(Case repere, String txt){
         StringBuilder builder = new StringBuilder();
         builder.append("28 31\n");
+        System.out.println(builder.toString());
         builder.append((1+listFantome.size())).append("\n");
+        System.out.println(builder.toString());
         builder.append(pacman.emplacement.x).append(" ").append(pacman.emplacement.y).append("\n");
+        System.out.println(builder.toString());
         for(FantomeEditor f:listFantome){
             builder.append(f.emplacement.x).append(" ").append(f.emplacement.y).append("\n");
+            System.out.println(builder.toString());
         }
         for(FantomeEditor f:listFantome){
             builder.append(f.type).append(" ");
+            System.out.println(builder.toString());
         }
         builder.append('\n');
-        builder.append(maptostring());
         builder.append(repere.x).append(" ").append(repere.y).append('\n');
+        System.out.println(builder.toString());
+        builder.append(maptostring());
+        System.out.println(builder.toString());
 
         String PATH = "data/";
         file=new File(PATH +txt+".map");
@@ -84,6 +91,7 @@ public class ModelMapEditor {
             FileWriter writer=new FileWriter(PATH +txt+".map");
             writer.write(builder.toString());
             writer.close();
+            System.out.println("writer closed");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -103,31 +111,40 @@ public class ModelMapEditor {
 
     public void loadMap(File file) throws FileNotFoundException {
         Scanner input=new Scanner(file);
+        listFantome=new ArrayList<>();
         String txt= input.nextLine();
         txt=input.next();
+        System.out.println(txt);
         int nEntite=Integer.parseInt(txt);
         int[][] coord=new int[nEntite][2];
         for(int i=0;i<nEntite;i++){
             txt=input.next();
+            System.out.println(txt);
             coord[i][0]=Integer.parseInt(txt);
             txt=input.next();
+            System.out.println(txt);
             coord[i][1]=Integer.parseInt(txt);
         }
         int[] tabType=new int[nEntite-1];
         for(int i=0;i<nEntite-1;i++){
             txt=input.next();
+            System.out.println(txt);
             tabType[i]=Integer.parseInt(txt);
         }
-        txt=input.nextLine();
-        txt=input.nextLine();
+        txt = input.nextLine();
+        System.out.println(txt);
+        txt = input.nextLine();
+        System.out.println(txt);
         cases = new Case[28][31];
         for(int i=0;i<31;i++){
             for(int j=0;j<28;j++) {
                 try{
                     txt= input.next();
+                    System.out.println(txt);
                 }catch (Exception e){
                     System.out.println("fin de lecture");
                 }
+                if(txt.equals("0"))txt="0 ";
                 cases[j][i] = new Case(j, i,txt, null);
                 if(txt.equals("PO")){
                     Point po=new Point(cases[j][i],false);
@@ -145,8 +162,7 @@ public class ModelMapEditor {
         pacman=new Pacman(cases[coord[0][0]][coord[0][1]]);
         cases[coord[0][0]][coord[0][1]].mobile=pacman;
         for(int i=0;i<nEntite-1;i++){
-            listFantome.add(new FantomeEditor(cases[coord[i+1][0]][coord[i+1][1]],tabType[i],new int[2]));
-            listFantome.get(i).emplacement.mobile=listFantome.get(i);
+            newFant(cases[coord[i+1][0]][coord[i+1][1]],tabType[i]);
         }
     }
 }
