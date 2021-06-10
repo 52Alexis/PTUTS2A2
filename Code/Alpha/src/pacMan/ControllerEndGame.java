@@ -36,7 +36,7 @@ public class ControllerEndGame implements EventHandler<ActionEvent> {
                 strScore="0"+strScore;
             }
 
-            strScore= viewEndGame.fieldPseudo.getText().toUpperCase(Locale.ROOT)+"....."+strScore;
+            strScore= viewEndGame.fieldPseudo.getText().toUpperCase()+"....."+strScore;
 
             modelScores.getScores().add(strScore);
             modelScores.updateScores();
@@ -62,7 +62,7 @@ public class ControllerEndGame implements EventHandler<ActionEvent> {
                 strScore="0"+strScore;
             }
 
-            strScore= viewEndGame.fieldPseudo.getText().toUpperCase(Locale.ROOT)+"....."+strScore;
+            strScore= viewEndGame.fieldPseudo.getText().toUpperCase()+"....."+strScore;
 
             modelScores.getScores().add(strScore);
             modelScores.updateScores();
