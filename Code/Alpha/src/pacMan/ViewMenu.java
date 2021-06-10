@@ -110,7 +110,7 @@ public class ViewMenu {
 
         VBox boxTitre = new VBox(titre);
         boxTitre.setAlignment(Pos.CENTER);
-        boxTitre.setTranslateY(-225);
+        boxTitre.setTranslateY(-200);
         gridPane.add(boxTitre,3,0);
 
         VBox boxBoutons = new VBox(10,boutonNouvellePartie,boutonPartiePerso,boutonMapEditor,boutonParametres,boutonMeilleursScores,boutonQuitter);
@@ -123,6 +123,8 @@ public class ViewMenu {
         boutonMapEditor.getStyleClass().add("boutons");
         boutonParametres.getStyleClass().add("boutons");
         boutonMeilleursScores.getStyleClass().add("boutons");
+        boutonPartiePerso.getStyleClass().add("boutons");
+        boutonQuitter.getStyleClass().add("boutons");
 
 //        titre.getStyleClass().add("title");
         gridPane.getStyleClass().add("background");
