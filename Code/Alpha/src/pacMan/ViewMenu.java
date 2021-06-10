@@ -8,6 +8,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 import java.io.File;
@@ -19,9 +20,12 @@ public class ViewMenu {
 
     protected Label titre;
     protected Button boutonNouvellePartie;
+    protected Button boutonPartiePerso;
     protected Button boutonMapEditor;
     protected Button boutonParametres;
     protected Button boutonMeilleursScores;
+
+    protected FileChooser fileChooser;
 
     public ViewMenu(ModelMenu modelMenu, Stage primaryStage) {
         this.modelMenu = modelMenu;
@@ -53,6 +57,27 @@ public class ViewMenu {
             controllerMap.setController();
         });
 
+        boutonPartiePerso=new Button();
+        boutonPartiePerso.setText("Partie personnalisée");
+        boutonPartiePerso.setOnAction(e->{
+            StaticMusic.musicTitle.stop();
+            File file=throwChooser();
+            ModelMap modelMap = null;
+            if(file!=null){
+                try {
+                    modelMap = new ModelMap(file);
+                } catch (FileNotFoundException e2) {
+                    e2.printStackTrace();
+                }
+                ViewMap viewMap = new ViewMap(modelMap,primaryStage);
+                ModelParametres modelParametres = new ModelParametres();
+                ModelMap.createBonus();
+                ControllerMap controllerMap=new ControllerMap(viewMap,modelMap,modelParametres);
+                controllerMap.setController();
+            }
+            return;
+        });
+
         boutonMapEditor = new Button("Editeur de maps");
         boutonMapEditor.setOnAction(e->{
             ModelMapEditor modelMapEditor = new ModelMapEditor();
@@ -68,6 +93,10 @@ public class ViewMenu {
         });
         boutonMeilleursScores = new Button("Meilleurs Scores");
 
+        fileChooser=new FileChooser();
+        fileChooser.setTitle("Selectionner une map");
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Cartes","*.map"));
+
     }
 
     public void addWidgetToView(){
@@ -78,7 +107,7 @@ public class ViewMenu {
         boxTitre.setTranslateY(-225);
         gridPane.add(boxTitre,3,0);
 
-        VBox boxBoutons = new VBox(10,boutonNouvellePartie,boutonMapEditor,boutonParametres,boutonMeilleursScores);
+        VBox boxBoutons = new VBox(10,boutonNouvellePartie,boutonPartiePerso,boutonMapEditor,boutonParametres,boutonMeilleursScores);
         boxBoutons.setAlignment(Pos.CENTER);
         gridPane.add(boxBoutons,3,4);
 
@@ -99,6 +128,10 @@ public class ViewMenu {
 
     public void display(){
         primaryStage.show();
+    }
+
+    public File throwChooser(){
+        return fileChooser.showOpenDialog(primaryStage);
     }
 
 }
