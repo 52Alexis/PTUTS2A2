@@ -41,7 +41,6 @@ public class ViewMap {
     protected ArrayList<Image> spritesPacmanDead;
     protected ArrayList<Image> spritesBonus;
     protected ArrayList<Image> chiffreScore;
-    protected ArrayList<Image> over;
 
     protected ArrayList<Rectangle> listMobile;
     protected Rectangle bonus;
@@ -76,7 +75,6 @@ public class ViewMap {
         spritesPacmanDead=new ArrayList<>();
         spritesBonus=new ArrayList<>();
         chiffreScore=new ArrayList<>();
-        over = new ArrayList<>();
 
         images_mur.add(new Image(new FileInputStream("img/Walls/0.png")));  //0
         images_mur.add(new Image(new FileInputStream("img/Walls/EO.png"))); //1
@@ -119,10 +117,6 @@ public class ViewMap {
 
         for(int i=0;i<10;i++){
             chiffreScore.add(new Image(new FileInputStream("img/Numbers/"+i+".png")));
-        }
-
-        for(int i=0;i<16;i++) {
-            over.add(new Image(new FileInputStream("img/gameOver/"+i+".png")));
         }
 
     }
