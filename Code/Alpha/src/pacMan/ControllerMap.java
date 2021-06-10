@@ -55,7 +55,6 @@ public class ControllerMap extends Controller{
                     return;
                 }
                 if (!started) {
-//                    StaticMusic.musicRunaway.stop();
                     StaticMusic.musicGameOver.stop();
                     if (StaticMusic.isRunaway) StaticMusic.musicRunaway.play();
                     else {

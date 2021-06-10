@@ -27,7 +27,6 @@ public class ControllerEndGame implements EventHandler<ActionEvent> {
     @Override
     public void handle(ActionEvent actionEvent) {
         StaticMusic.musicGameOver.stop();
-        StaticMusic.initMusic();
         if (actionEvent.getSource().equals(viewEndGame.rejouer)){
             String strScore = Pacman.getScore()+"";
             int zta=7-strScore.length();
