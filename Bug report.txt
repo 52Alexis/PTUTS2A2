@@ -1,5 +1,0 @@
-- des fois les sprites bug (sprite d'une entité mobile qui plante, ou d'une entité immobile qui disparaît
-- des fois, pas d'amin mort: l'animation ne se finit pas avant de bloquer le jeu
-- bonus: Quand il disparaît (par temps ou par mort), on ne le voit plus mais il est toujours là
-- Musique: si on gagne un niveau pendant un spammage de touche, la musique du prochain niveau ne s'arrête pas pendant l'invincibilité avant qu'on meurt
-- Musique: Si on mange une pacgum à l'exact moment de l'arrêt de la musique d'une précédente pacgum, elle ne se lance pas
