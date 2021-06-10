@@ -71,23 +71,30 @@ public class ViewEndGame {
     public void addWidgetToView(){
         VBox root = new VBox();
         root.setSpacing(15);
+        Label labelNice = new Label("Nice Try !");
         root.setAlignment(Pos.CENTER);
-        root.getChildren().add(new Label("Nice Try!"));
+        root.getChildren().add(labelNice);
+        labelNice.getStyleClass().add("text");
 
         HBox boxScore = new HBox();
         Label label = new Label("Score : ");
         boxScore.getChildren().addAll(label,labelScores);
+        label.getStyleClass().add("text");
 
         HBox boxPseudo = new HBox();
         Label label1 = new Label("Enter pseudo : ");
         boxPseudo.getChildren().addAll(label1,fieldPseudo);
+        label1.getStyleClass().add("labelScore");
 
         HBox boxBtn = new HBox();
         boxBtn.setSpacing(10);
         boxBtn.getChildren().addAll(rejouer,saveAndQuit);
+        rejouer.getStyleClass().add("boutons");
+        saveAndQuit.getStyleClass().add("boutons");
 
         root.getChildren().addAll(boxScore,boxPseudo,boxBtn);
         Scene scene = new Scene(root,448,512);
+        scene.getStylesheets().add("file:src/pacMan/Style.css");
         primaryStage.setScene(scene);
     }
 
