@@ -210,7 +210,7 @@ public class ControllerMap extends Controller{
             }
         };
 
-        checkStatus.scheduleAtFixedRate(death,0,1000/60);
+        checkStatus.scheduleAtFixedRate(death,0,1000/120);
         checkStatus.scheduleAtFixedRate(chk,0,1000);
     }
 

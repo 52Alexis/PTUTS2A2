@@ -33,7 +33,7 @@ public class ViewEndGame {
     protected Button rejouer;
     protected Button saveAndQuit;
     protected ArrayList<Image> over;
-    protected int cycleAnim2 = 15;
+    protected int cycleAnim2 = 0;
     protected Scene scene;
     javafx.scene.shape.Rectangle im = new javafx.scene.shape.Rectangle(0, 0, 400, 175);
 
@@ -114,13 +114,18 @@ public class ViewEndGame {
         scene = new Scene(root,448,512);
         scene.getStylesheets().add("file:src/pacMan/Style.css");
         primaryStage.setScene(scene);
-        im.setFill(new ImagePattern(over.get(cycleAnim2)));
+        im.setFill(new ImagePattern(over.get(0)));
         primaryStage.setScene(scene);
     }
 
     public void setController(EventHandler<ActionEvent> handler){
         rejouer.setOnAction(handler);
         saveAndQuit.setOnAction(handler);
+    }
+
+    public void animGO(){
+        cycleAnim2++;
+        im.setFill(new ImagePattern(over.get(cycleAnim2% over.size())));
     }
 
 }

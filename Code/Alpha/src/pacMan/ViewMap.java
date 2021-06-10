@@ -388,7 +388,7 @@ public class ViewMap {
             if (Pacman.getVies()<=0){
                 ModelScores modelScores = new ModelScores();
                 ViewEndGame viewEndGame = new ViewEndGame(modelScores,primaryStage);
-                ControllerEndGame ceg = new ControllerEndGame(modelScores,viewEndGame);
+                ControllerEndGame ceg = new ControllerEndGame(modelScores,modelMap,viewEndGame);
                 endGame.stop();
             }
         }));

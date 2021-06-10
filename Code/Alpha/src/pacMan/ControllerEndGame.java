@@ -11,20 +11,21 @@ import java.util.TimerTask;
 public class ControllerEndGame implements EventHandler<ActionEvent> {
     protected ModelScores modelScores;
     protected ViewEndGame viewEndGame;
+    protected ModelMap modelMap;
 
-    public ControllerEndGame(ModelScores modelScores, ViewEndGame viewEndGame) {
+    public ControllerEndGame(ModelScores modelScores,ModelMap modelMap, ViewEndGame viewEndGame) {
         this.modelScores = modelScores;
         this.viewEndGame = viewEndGame;
         this.viewEndGame.setController(this);
+        this.modelMap=modelMap;
+        gameOVer();
+        StaticMusic.musicGameOver.stop();
+        StaticMusic.initMusic();
     }
 
 
     @Override
     public void handle(ActionEvent actionEvent) {
-
-        StaticMusic.musicGameOver.stop();
-        StaticMusic.initMusic();
-        gameOVer();
         if (actionEvent.getSource().equals(viewEndGame.rejouer)){
             String strScore = Pacman.getScore()+"";
             int zta=7-strScore.length();
@@ -38,21 +39,17 @@ public class ControllerEndGame implements EventHandler<ActionEvent> {
             modelScores.getScores().add(strScore);
             modelScores.updateScores();
 
-            ModelMap modelMap = null;
             try {
-                modelMap = new ModelMap(new File("data/mainMap.map"));
+                modelMap = new ModelMap(modelMap.file);
             } catch (FileNotFoundException fileNotFoundException) {
                 fileNotFoundException.printStackTrace();
+                return;
             }
             ViewMap viewMap = new ViewMap(modelMap, viewEndGame.primaryStage);
             ModelParametres modelParametres = new ModelParametres();
             ModelMap.createBonus();
             ControllerMap controllerMap=new ControllerMap(viewMap,modelMap,modelParametres);
             controllerMap.setController();
-            for (int i = 0;i<viewEndGame.over.size();i++ ) {
-                gameOVer();
-                viewEndGame.primaryStage.setScene(viewEndGame.scene);
-            }
         }
 
         if (actionEvent.getSource().equals(viewEndGame.saveAndQuit)){
@@ -80,7 +77,11 @@ public class ControllerEndGame implements EventHandler<ActionEvent> {
         TimerTask overAnim=new TimerTask() {
             @Override
             public void run() {
-                viewEndGame.cycleAnim2++;
+                if(viewEndGame.cycleAnim2<viewEndGame.over.size()-1) {
+                    viewEndGame.animGO();
+                }else {
+                    OverAnim.cancel();
+                }
             }
         };
         OverAnim.scheduleAtFixedRate(overAnim,0,1000/8);
