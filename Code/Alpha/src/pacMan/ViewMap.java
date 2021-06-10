@@ -366,24 +366,7 @@ public class ViewMap {
         group=group*2;
         return group;
     }
-
-    public void gameOver() {
-        Rectangle r = new Rectangle(25, 25, 125, 125);
-        Timeline time = new Timeline(new KeyFrame(Duration.seconds(1),ev -> {
-            for (int i = 0; i<16;i++) {
-                Pane root = new Pane();
-                root.setBackground(new Background(new BackgroundFill(Color.BLACK, CornerRadii.EMPTY, null)));
-                r.setFill(new ImagePattern(over.get(cycleAnim)));
-                root.getChildren().add(r);
-                Scene scene = new Scene(root, 200, 200);
-                primaryStage.setScene(scene);
-                primaryStage.setResizable(false);
-                display();
-            }
-        } ));
-        time.setCycleCount(Animation.INDEFINITE);
-        time.play();
-    };
+    
 
     public void endGame(){
             endGame = new Timeline(new KeyFrame(Duration.seconds(5), e->{
