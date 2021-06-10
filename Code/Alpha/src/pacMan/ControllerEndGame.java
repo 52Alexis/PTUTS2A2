@@ -5,6 +5,7 @@ import javafx.event.EventHandler;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.Locale;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -35,7 +36,7 @@ public class ControllerEndGame implements EventHandler<ActionEvent> {
                 strScore="0"+strScore;
             }
 
-            strScore= viewEndGame.fieldPseudo.getText()+"....."+strScore;
+            strScore= viewEndGame.fieldPseudo.getText().toUpperCase(Locale.ROOT)+"....."+strScore;
 
             modelScores.getScores().add(strScore);
             modelScores.updateScores();
@@ -61,7 +62,7 @@ public class ControllerEndGame implements EventHandler<ActionEvent> {
                 strScore="0"+strScore;
             }
 
-            strScore= viewEndGame.fieldPseudo.getText()+"....."+strScore;
+            strScore= viewEndGame.fieldPseudo.getText().toUpperCase(Locale.ROOT)+"....."+strScore;
 
             modelScores.getScores().add(strScore);
             modelScores.updateScores();

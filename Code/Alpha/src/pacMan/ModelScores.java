@@ -2,6 +2,9 @@ package pacMan;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class ModelScores {
     protected ArrayList<String> scores;
@@ -28,24 +31,32 @@ public class ModelScores {
     }
 
     public void updateScores(){
+        ArrayList<Integer> listeScore=new ArrayList<>();
         File file = new File(PATH_TO_SCORES);
-        for (int i =0; i<scores.size();i++){
-            int s = Integer.parseInt(scores.get(i).substring(8));
-            System.out.println("i"+i);
-            System.out.println("s:"+s);
-            int j = 0;
-            while (s < Integer.parseInt(scores.get(j).substring(8))){
-                j++;
-                System.out.println("j:"+j);
-            }
-            if (j>scores.size()){
-                j=0;
-            }else {
-                scores.add(j,scores.get(i));
-                System.out.println("score:"+scores.add(scores.get(j)));
-                break;
-            }
+        for (String str:scores){
+            listeScore.add(Integer.parseInt(str.substring(8)));
         }
+        int[] tabScoreTriee = new int[listeScore.size()];
+        for(int i=0;i<listeScore.size();i++){
+            tabScoreTriee[i]=listeScore.get(i);
+            System.out.println(listeScore.get(i));
+        }
+        Arrays.sort(tabScoreTriee);
+        System.out.println(tabScoreTriee);
+        ArrayList<Integer> listeScoreTriee=new ArrayList<>();
+        for(int i=0;i<listeScore.size();i++){
+            listeScoreTriee.add(tabScoreTriee[i]);
+            System.out.println(listeScoreTriee.get(i));
+        }
+        Collections.reverse(listeScoreTriee);
+        ArrayList<String> nScore=new ArrayList<>(scores);
+        for(int i=0;i<listeScore.size();i++){
+            nScore.remove(listeScoreTriee.indexOf(listeScore.get(i)));
+            nScore.add(listeScoreTriee.indexOf(listeScore.get(i)),scores.get(i));
+        }
+        System.out.println(nScore);
+        scores=nScore;
+
         BufferedWriter writer = null;
         try {
             writer = new BufferedWriter(new FileWriter(file));
