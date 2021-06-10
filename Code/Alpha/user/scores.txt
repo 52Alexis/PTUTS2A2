@@ -1,5 +1,10 @@
-null
-null
-null
-null
-TextField@36c1e766[styleClass=text-input text-field].....0000000
+BSE.....0050000
+BSE.....0025000
+BSE.....0020000
+BSE.....0015000
+BSE.....0010000
+BSE.....0007500
+BSE.....0005000
+BSE.....0002000
+BSE.....0001000
+BSE.....0000500

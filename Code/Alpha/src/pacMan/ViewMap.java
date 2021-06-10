@@ -41,6 +41,7 @@ public class ViewMap {
     protected ArrayList<Image> spritesPacmanDead;
     protected ArrayList<Image> spritesBonus;
     protected ArrayList<Image> chiffreScore;
+    protected ArrayList<Image> over;
 
     protected ArrayList<Rectangle> listMobile;
     protected Rectangle bonus;
@@ -49,8 +50,6 @@ public class ViewMap {
     protected int cycleAnim;
     protected GridPane paneViesEtScore;
     protected Rectangle[] scores;
-    protected Timeline endGame;
-
 
     public ViewMap(ModelMap modelMap,Stage stage) {
         this.modelMap = modelMap;
@@ -75,6 +74,7 @@ public class ViewMap {
         spritesPacmanDead=new ArrayList<>();
         spritesBonus=new ArrayList<>();
         chiffreScore=new ArrayList<>();
+        over = new ArrayList<>();
 
         images_mur.add(new Image(new FileInputStream("img/Walls/0.png")));  //0
         images_mur.add(new Image(new FileInputStream("img/Walls/EO.png"))); //1
@@ -117,6 +117,10 @@ public class ViewMap {
 
         for(int i=0;i<10;i++){
             chiffreScore.add(new Image(new FileInputStream("img/Numbers/"+i+".png")));
+        }
+
+        for(int i=0;i<16;i++) {
+            over.add(new Image(new FileInputStream("img/gameOver/"+i+".png")));
         }
 
     }
@@ -367,14 +371,30 @@ public class ViewMap {
         return group;
     }
 
+    public void gameOver() {
+        Rectangle r = new Rectangle(25, 25, 125, 125);
+        Timeline time = new Timeline(new KeyFrame(Duration.seconds(1),ev -> {
+            for (int i = 0; i<16;i++) {
+                Pane root = new Pane();
+                root.setBackground(new Background(new BackgroundFill(Color.BLACK, CornerRadii.EMPTY, null)));
+                r.setFill(new ImagePattern(over.get(cycleAnim)));
+                root.getChildren().add(r);
+                Scene scene = new Scene(root, 200, 200);
+                primaryStage.setScene(scene);
+                primaryStage.setResizable(false);
+                display();
+            }
+        } ));
+        time.setCycleCount(Animation.INDEFINITE);
+        time.play();
+    };
 
     public void endGame(){
-            endGame = new Timeline(new KeyFrame(Duration.seconds(5), e->{
+        Timeline endGame = new Timeline(new KeyFrame(Duration.seconds(5), e->{
             if (Pacman.getVies()<=0){
                 ModelScores modelScores = new ModelScores();
                 ViewEndGame viewEndGame = new ViewEndGame(modelScores,primaryStage);
                 ControllerEndGame ceg = new ControllerEndGame(modelScores,viewEndGame);
-                endGame.stop();
             }
         }));
         endGame.setCycleCount(Animation.INDEFINITE);

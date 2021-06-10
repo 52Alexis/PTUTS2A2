@@ -93,6 +93,10 @@ public class ViewMenu {
 
         });
         boutonMeilleursScores = new Button("Meilleurs Scores");
+        boutonMeilleursScores.setOnAction(e->{
+            ModelScores modelScores = new ModelScores();
+            ViewScores viewScores = new ViewScores(modelScores,primaryStage);
+        });
 
         boutonQuitter = new Button("Quitter");
         boutonQuitter.setOnAction(e->{
