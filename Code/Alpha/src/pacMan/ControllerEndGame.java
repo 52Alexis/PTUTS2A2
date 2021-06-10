@@ -24,6 +24,7 @@ public class ControllerEndGame implements EventHandler<ActionEvent> {
 
         StaticMusic.musicGameOver.stop();
         StaticMusic.initMusic();
+        gameOVer();
         if (actionEvent.getSource().equals(viewEndGame.rejouer)){
             String strScore = Pacman.getScore()+"";
             int zta=7-strScore.length();
@@ -48,7 +49,10 @@ public class ControllerEndGame implements EventHandler<ActionEvent> {
             ModelMap.createBonus();
             ControllerMap controllerMap=new ControllerMap(viewMap,modelMap,modelParametres);
             controllerMap.setController();
-
+            for (int i = 0;i<viewEndGame.over.size();i++ ) {
+                gameOVer();
+                viewEndGame.primaryStage.setScene(viewEndGame.scene);
+            }
         }
 
         if (actionEvent.getSource().equals(viewEndGame.saveAndQuit)){
@@ -66,18 +70,17 @@ public class ControllerEndGame implements EventHandler<ActionEvent> {
 
             ModelMenu modelMenu = new ModelMenu();
             ViewMenu viewMenu = new ViewMenu(modelMenu,viewEndGame.primaryStage);
-            gameOVer();
+
         }
+
     }
 
     public void gameOVer() {
-        Timer OverAnim=new Timer(false);
+        Timer OverAnim=new Timer("overAnim",false);
         TimerTask overAnim=new TimerTask() {
             @Override
             public void run() {
-                if (viewEndGame.cycleAnim2 >= 0 )
                 viewEndGame.cycleAnim2++;
-                viewEndGame.gameOver();
             }
         };
         OverAnim.scheduleAtFixedRate(overAnim,0,1000/8);
