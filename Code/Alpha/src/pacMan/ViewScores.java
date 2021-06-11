@@ -44,7 +44,6 @@ public class ViewScores {
         btnReturn.setTranslateX(-500);
 
         scores = modelScores.scores;
-        System.out.println(scores);
     }
 
     public void addWidgetToView(){
