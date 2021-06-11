@@ -1,13 +1,17 @@
 <component name="libraryTable">
   <library name="lib">
     <CLASSES>
-      <root url="file://$PROJECT_DIR$/../Lib/JAVAFX/lib" />
+      <root url="jar://$PROJECT_DIR$/lib/JAVAFX/lib/javafx.fxml.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/JAVAFX/lib/javafx.swing.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/JAVAFX/lib/javafx.web.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/JAVAFX/lib/src.zip!/" />
+      <root url="jar://$PROJECT_DIR$/lib/JAVAFX/lib/javafx.controls.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/JAVAFX/lib/javafx.graphics.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/JAVAFX/lib/javafx-swt.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/JAVAFX/lib/javafx.media.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/JAVAFX/lib/javafx.base.jar!/" />
     </CLASSES>
     <JAVADOC />
-    <SOURCES>
-      <root url="file://$PROJECT_DIR$/../Lib/JAVAFX/lib" />
-    </SOURCES>
-    <jarDirectory url="file://$PROJECT_DIR$/../Lib/JAVAFX/lib" recursive="false" />
-    <jarDirectory url="file://$PROJECT_DIR$/../Lib/JAVAFX/lib" recursive="false" type="SOURCES" />
+    <SOURCES />
   </library>
 </component>

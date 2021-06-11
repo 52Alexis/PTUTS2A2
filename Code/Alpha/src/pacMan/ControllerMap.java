@@ -77,11 +77,11 @@ public class ControllerMap{
     }
 
     public void setController(){ //active le controller pour la partie
-        viewMap.primaryStage.getScene().addEventHandler(KeyEvent.KEY_PRESSED,keyEventEventHandler);
+        viewMap.scene.addEventHandler(KeyEvent.KEY_PRESSED,keyEventEventHandler);
     }
 
     public void removeController(){ //retire le controller pour la partie
-        viewMap.primaryStage.getScene().removeEventHandler(KeyEvent.KEY_PRESSED,keyEventEventHandler);
+        viewMap.scene.removeEventHandler(KeyEvent.KEY_PRESSED,keyEventEventHandler);
     }
 
     /**

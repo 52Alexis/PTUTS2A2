@@ -19,91 +19,56 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1b0712ba-916e-412c-a5ce-4246b88e3382" name="Default Changelist" comment="">
+    <list default="true" id="5f2ec970-3240-4492-9c07-7ae85af237af" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/lib.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Alpha/pacMan/Style.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Alpha/pacMan/Style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pacMan/Bonus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pacMan/Bonus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pacMan/Case.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pacMan/Case.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pacMan/Controller.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pacMan/ControllerEndGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pacMan/ControllerEndGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Alpha/pacMan/ControllerMap$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Alpha/pacMan/ControllerMap$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Alpha/pacMan/ControllerMap$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Alpha/pacMan/ControllerMap$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Alpha/pacMan/ControllerMap$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Alpha/pacMan/ControllerMap$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Alpha/pacMan/ControllerMap$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Alpha/pacMan/ControllerMap$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Alpha/pacMan/ControllerMap$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Alpha/pacMan/ControllerMap$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Alpha/pacMan/ControllerMap$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Alpha/pacMan/ControllerMap$7.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Alpha/pacMan/ControllerMap$8.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Alpha/pacMan/ControllerMap$9.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Alpha/pacMan/ControllerMap.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Alpha/pacMan/ControllerMap.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Alpha/pacMan/Fantome.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Alpha/pacMan/Fantome.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pacMan/ControllerMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pacMan/ControllerMap.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pacMan/ControllerMapEditor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pacMan/ControllerMapEditor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pacMan/ControllerMenu.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pacMan/ControllerParametres.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pacMan/ControllerParametres.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pacMan/ControllerScore.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pacMan/Entite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pacMan/Entite.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pacMan/Fantome.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pacMan/Fantome.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pacMan/FantomeEditor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pacMan/FantomeEditor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pacMan/Fixe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pacMan/Fixe.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pacMan/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pacMan/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pacMan/Mobile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pacMan/Mobile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pacMan/ModelMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pacMan/ModelMap.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pacMan/ModelMapEditor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pacMan/ModelMapEditor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pacMan/ModelMenu.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pacMan/ModelParametres.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pacMan/ModelParametres.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pacMan/ModelScores.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pacMan/ModelScores.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pacMan/Pacman.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pacMan/Pacman.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pacMan/Point.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pacMan/Point.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pacMan/ViewEndGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pacMan/ViewEndGame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pacMan/ViewMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pacMan/ViewMap.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pacMan/ViewMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pacMan/ViewMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pacMan/ViewParametres.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pacMan/ViewParametres.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pacMan/ViewScores.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pacMan/ViewScores.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/scores.txt" beforeDir="false" afterPath="$PROJECT_DIR$/user/scores.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings">
-    <execution />
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
-  <component name="ProjectId" id="1ti5D1MaTR1NJhXzrTaQG7c4Gdz" />
+  <component name="ProjectId" id="1tnFsQGAyPPATCLg3V0NKRNhgzF" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="false" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/JAVAFX/lib" />
-    <property name="node.js.detected.package.eslint" value="true" />
-    <property name="node.js.detected.package.tslint" value="true" />
-    <property name="node.js.selected.package.eslint" value="(autodetect)" />
-    <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="project.structure.last.edited" value="Artifacts" />
-    <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.18949343" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RunManager">
-    <configuration name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
+    <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="pacMan.Main" />
       <module name="Alpha" />
-      <option name="VM_PARAMETERS" value="--module-path C:\Users\Alexis\Desktop\DUT\S2\PTUT\Code\Alpha\lib\JAVAFX\lib --add-modules javafx.controls,javafx.fxml,javafx.media" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="pacMan.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="--module-path C:\DUT\S2\PTUT\PTUTS2A2\Code\Alpha\lib\JAVAFX\lib --add-modules javafx.controls,javafx.fxml,javafx.media" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -112,14 +77,12 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="1b0712ba-916e-412c-a5ce-4246b88e3382" name="Default Changelist" comment="" />
-      <created>1623238947163</created>
+      <changelist id="5f2ec970-3240-4492-9c07-7ae85af237af" name="Default Changelist" comment="" />
+      <created>1623397155136</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1623238947163</updated>
-      <workItem from="1623238950414" duration="65000" />
-      <workItem from="1623306349438" duration="1079000" />
-      <workItem from="1623349119227" duration="5844000" />
+      <updated>1623397155136</updated>
+      <workItem from="1623397159315" duration="558000" />
     </task>
     <servers />
   </component>
@@ -136,10 +99,31 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
-  <component name="XSLT-Support.FileAssociations.UIState">
-    <expand />
-    <select />
+  <component name="WindowStateProjectService">
+    <state x="383" y="194" width="1092" height="715" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1623397279138">
+      <screen x="0" y="0" width="1858" height="1080" />
+    </state>
+    <state x="383" y="194" width="1092" height="715" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1858.1080@0.0.1858.1080" timestamp="1623397279138" />
+    <state width="1815" height="2" key="GridCell.Tab.0.bottom" timestamp="1623397517046">
+      <screen x="0" y="0" width="1858" height="1080" />
+    </state>
+    <state width="1815" height="2" key="GridCell.Tab.0.bottom/0.0.1858.1080@0.0.1858.1080" timestamp="1623397517046" />
+    <state width="1815" height="2" key="GridCell.Tab.0.center" timestamp="1623397517045">
+      <screen x="0" y="0" width="1858" height="1080" />
+    </state>
+    <state width="1815" height="2" key="GridCell.Tab.0.center/0.0.1858.1080@0.0.1858.1080" timestamp="1623397517045" />
+    <state width="1815" height="2" key="GridCell.Tab.0.left" timestamp="1623397517044">
+      <screen x="0" y="0" width="1858" height="1080" />
+    </state>
+    <state width="1815" height="2" key="GridCell.Tab.0.left/0.0.1858.1080@0.0.1858.1080" timestamp="1623397517044" />
+    <state width="1815" height="2" key="GridCell.Tab.0.right" timestamp="1623397517045">
+      <screen x="0" y="0" width="1858" height="1080" />
+    </state>
+    <state width="1815" height="2" key="GridCell.Tab.0.right/0.0.1858.1080@0.0.1858.1080" timestamp="1623397517045" />
+    <state x="430" y="184" key="SettingsEditor" timestamp="1623397208104">
+      <screen x="0" y="0" width="1858" height="1080" />
+    </state>
+    <state x="430" y="184" key="SettingsEditor/0.0.1858.1080@0.0.1858.1080" timestamp="1623397208104" />
   </component>
 </project>

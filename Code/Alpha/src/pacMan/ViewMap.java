@@ -38,6 +38,7 @@ public class ViewMap {
     protected ArrayList<Image> spritesBonus;
     protected ArrayList<Image> chiffreScore;
     protected ArrayList<Image> over;
+    protected Scene scene;
 
     protected ArrayList<Rectangle> listMobile;
     protected Rectangle bonus;
@@ -168,9 +169,9 @@ public class ViewMap {
             root.getChildren().add(rect);
         }
         setPoints();
-        Scene sceneMap = new Scene(root,modelMap.getX()*modelMap.getTailleCase(),modelMap.getY()*modelMap.getTailleCase()+30);
-        sceneMap.getStylesheets().add("file:src/pacMan/Style.css");
-        primaryStage.setScene(sceneMap);
+        scene = new Scene(root,modelMap.getX()*modelMap.getTailleCase(),modelMap.getY()*modelMap.getTailleCase()+30);
+        scene.getStylesheets().add("file:src/pacMan/Style.css");
+        primaryStage.setScene(scene);
         primaryStage.setResizable(false);
     }
 
